@@ -12,7 +12,7 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'import/no-unresolved': 'off',
-    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'react-refresh/only-export-components': 'off',
     'import/order': [
       'error',
       {
