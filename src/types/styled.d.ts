@@ -1,5 +1,5 @@
 import 'styled-components'
-import { ColorTypes, FontSizeTypes, MediaTypes, PaletteTypes } from './theme'
+import { ColorTypes, FontSizeTypes, MediaTypes, PaletteTypes } from '../styles/themes/theme'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
