@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
     @font-face {
         font-family: 'PyeongChangPeace-Light';
         src: url('../assets/font/PyeongChangPeace-Light.otf');
@@ -80,5 +80,3 @@ const GlobalStyles = createGlobalStyle`
         font-size:${({ theme }) => theme.FONT_SIZE.small};
     }
 `
-
-export default GlobalStyles
