@@ -68,7 +68,7 @@ const BtnWrapper = styled.div`
 const LogoIMG = styled.div`
   height: 4.8rem;
   width: 24rem;
-  background-image: url('assets/logo/logo_512x105.png');
+  background-image: url('assets/logo/logo_512x105.svg');
   background-size: cover;
 `
 
