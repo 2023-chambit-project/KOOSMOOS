@@ -82,6 +82,7 @@ const NavItem = styled.li<{ $isActive: boolean }>`
   /* ... */
   position: relative;
   white-space: nowrap;
+  cursor: pointer;
 
   &:before {
     content: '';
