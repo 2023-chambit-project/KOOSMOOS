@@ -17,7 +17,7 @@ export const FlexBetweenCSS = css`
 
 export const FlexColumnCSS = css`
   display: flex;
-  flex-direction: center;
+  flex-direction: column;
 `
 
 export const ShadowCSS = css`
