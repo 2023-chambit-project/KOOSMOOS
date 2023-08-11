@@ -4,16 +4,16 @@ import { css, styled } from 'styled-components'
 import { FlexAlignCSS, FlexBetweenCSS } from '../../../styles'
 
 const Header: React.FC = () => {
-  const navItems: string[] = ['홈', '뉴스', '테크위키', '게임', '갤러리']
+  const NavigationFilter: string[] = ['홈', '뉴스', '테크위키', '게임', '갤러리']
   const [activeNavItem, setActiveNavItem] = useState<number>(0)
   return (
     <>
-      <HeaderContainer>
-        <LogoAndNavWrapper>
-          <LogoIMG src="assets/logo/logo_512x105.svg" />
-          <NavList>
-            {navItems.map((item, index) => (
-              <NavItem
+      <S.HeaderContainer>
+        <S.LogoAndNavWrapper>
+          <S.LogoIMG src="assets/logo/logo_512x105.svg" />
+          <S.NavList>
+            {NavigationFilter.map((item, index) => (
+              <S.NavItem
                 onClick={() => {
                   setActiveNavItem(index)
                 }}
@@ -21,14 +21,14 @@ const Header: React.FC = () => {
                 key={item}
               >
                 {item}
-              </NavItem>
+              </S.NavItem>
             ))}
-          </NavList>
-        </LogoAndNavWrapper>
-        <BtnWrapper>
+          </S.NavList>
+        </S.LogoAndNavWrapper>
+        <S.BtnWrapper>
           <h3>신청버튼</h3>
-        </BtnWrapper>
-      </HeaderContainer>
+        </S.BtnWrapper>
+      </S.HeaderContainer>
     </>
   )
 }
@@ -103,4 +103,12 @@ const NavItem = styled.li<{ $isActive: boolean }>`
       }
     `}
 `
+const S = {
+  HeaderContainer,
+  LogoAndNavWrapper,
+  LogoIMG,
+  NavList,
+  NavItem,
+  BtnWrapper,
+}
 export default Header
