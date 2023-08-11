@@ -10,7 +10,7 @@ const Header: React.FC = () => {
     <>
       <HeaderContainer>
         <LogoAndNavWrapper>
-          <LogoIMG></LogoIMG>
+          <LogoIMG src="assets/logo/logo_512x105.svg" />
           <NavList>
             {navItems.map((item, index) => (
               <NavItem
@@ -65,11 +65,9 @@ const BtnWrapper = styled.div`
 `
 
 // Logo Image
-const LogoIMG = styled.div`
+const LogoIMG = styled.img`
   height: 4.8rem;
   width: 24rem;
-  background-image: url('assets/logo/logo_512x105.svg');
-  background-size: cover;
 `
 
 const NavList = styled.ul`
