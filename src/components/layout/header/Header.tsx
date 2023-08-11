@@ -4,7 +4,7 @@ import { css, styled } from 'styled-components'
 import { FlexAlignCSS, FlexBetweenCSS } from '../../../styles'
 
 const Header: React.FC = () => {
-  const NavigationFilter: string[] = ['홈', '뉴스', '테크위키', '게임', '갤러리']
+  const NavigationFilter = ['홈', '뉴스', '테크위키', '게임', '갤러리']
   const [activeNavItem, setActiveNavItem] = useState<number>(0)
   return (
     <>
