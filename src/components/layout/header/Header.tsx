@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { styled } from 'styled-components'
+import { css, styled } from 'styled-components'
 
 import { FlexAlignCSS, FlexBetweenCSS } from '../../../styles'
 
@@ -15,11 +15,10 @@ const Header: React.FC = () => {
             {navItems.map((item, index) => (
               <NavItem
                 onClick={() => {
-                  console.log(index)
                   setActiveNavItem(index)
                 }}
-                isactive={index === activeNavItem ? 'true' : 'false'}
-                key={index}
+                $isActive={index === activeNavItem}
+                key={item}
               >
                 {item}
               </NavItem>
@@ -79,7 +78,7 @@ const NavList = styled.ul`
   }
 `
 
-const NavItem = styled.li<{ isactive: string }>`
+const NavItem = styled.li<{ $isActive: boolean }>`
   /* ... */
   position: relative;
   white-space: nowrap;
@@ -96,8 +95,12 @@ const NavItem = styled.li<{ isactive: string }>`
     transition: width 0.3s ease-in-out;
   }
 
-  &[isactive='true']:before {
-    width: 100%;
-  }
+  ${(props) =>
+    props.$isActive &&
+    css`
+      &:before {
+        width: 100%;
+      }
+    `}
 `
 export default Header
