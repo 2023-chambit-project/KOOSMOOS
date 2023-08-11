@@ -13,23 +13,5 @@ module.exports = {
   rules: {
     'import/no-unresolved': 'off',
     'react-refresh/only-export-components': 'off',
-    'import/order': [
-      'error',
-      {
-        groups: ['builtin', 'external', ['parent', 'sibling'], 'index'],
-        pathGroups: [
-          {
-            pattern: 'angular',
-            group: 'external',
-            position: 'before',
-          },
-        ],
-        alphabetize: {
-          order: 'asc',
-          caseInsensitive: true,
-        },
-        'newlines-between': 'always',
-      },
-    ],
   },
 }
