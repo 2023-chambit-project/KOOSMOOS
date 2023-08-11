@@ -10,7 +10,7 @@ const Header: React.FC = () => {
     <>
       <HeaderContainer>
         <LogoAndNavWrapper>
-          <h1>KOOSMOOS</h1>
+          <LogoIMG></LogoIMG>
           <NavList>
             {navItems.map((item, index) => (
               <NavItem
@@ -39,7 +39,7 @@ const HeaderContainer = styled.header`
   width: 100%;
   position: sticky;
   top: 0%;
-  padding: 1% 5%;
+  padding: 2rem 5rem;
   ${FlexBetweenCSS};
   justify-content: space-around;
   color: ${({ theme }) => theme.COLOR.common.white};
@@ -64,11 +64,21 @@ const BtnWrapper = styled.div`
   width: 100%;
 `
 
+// Logo Image
+const LogoIMG = styled.div`
+  height: 4.8rem;
+  width: 24rem;
+  background-image: url('assets/logo/logo_512x105.png');
+  background-size: cover;
+`
+
 const NavList = styled.ul`
   display: flex;
-  margin-left: 20px;
-  margin-top: 10px;
-  gap: 20px;
+  margin: 2rem 0 0 2rem;
+  gap: 2rem;
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
+    margin-left: 0;
+  }
 `
 
 const NavItem = styled.li<{ isactive: string }>`
