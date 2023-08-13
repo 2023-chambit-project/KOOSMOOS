@@ -1,14 +1,9 @@
-import { ThemeProvider } from 'styled-components'
-
-import { GlobalStyles, theme } from './styles'
+import AppRouter from "./AppRouter";
 
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      :)
-    </ThemeProvider>
-  )
+  return(
+     <AppRouter />
+  );
 }
 
 export default App
