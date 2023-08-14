@@ -1,15 +1,16 @@
-import { GlobalStyles, theme } from "./styles";
+import { GlobalStyles, theme } from './styles'
 
-import AppRouter from "./Routers/routing.tsx";
-import { ThemeProvider } from "styled-components";
+import { routers } from '@/routes/routing'
+import { RouterProvider } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
 
 function App() {
-  return(
+  return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <AppRouter />
-      </ThemeProvider>
-  );
+      <RouterProvider router={routers} />
+    </ThemeProvider>
+  )
 }
 
 export default App
