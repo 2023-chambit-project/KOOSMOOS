@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { css, styled } from 'styled-components'
 
-import { FlexAlignCSS, FlexBetweenCSS } from '../../../styles'
+import { FlexBetweenCSS } from '../../../styles'
 
 const Header: React.FC = () => {
   const NavigationFilter = ['홈', '뉴스', '테크위키', '게임', '갤러리']
@@ -25,9 +25,7 @@ const Header: React.FC = () => {
             ))}
           </S.NavList>
         </S.LogoAndNavWrapper>
-        <S.BtnWrapper>
-          <h3>신청버튼</h3>
-        </S.BtnWrapper>
+        <h3>신청버튼</h3>
       </S.HeaderContainer>
     </>
   )
@@ -36,11 +34,10 @@ const Header: React.FC = () => {
 // 헤더 영역
 const HeaderContainer = styled.header`
   width: 100%;
+  ${FlexBetweenCSS};
+  padding: 1rem 2.5rem;
   position: sticky;
   top: 0%;
-  padding: 2rem 5rem;
-  ${FlexBetweenCSS};
-  justify-content: space-around;
   color: ${({ theme }) => theme.COLOR.common.white};
   background-color: ${({ theme }) => theme.COLOR.common.black};
 `
@@ -48,19 +45,13 @@ const HeaderContainer = styled.header`
 // Logo 와 NavBar 를 감싼 영역
 const LogoAndNavWrapper = styled.div`
   ${FlexBetweenCSS};
-  width: 100%;
+  width: 65%;
   @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
     // mobile 화면에서 해당 영역은 세로 정렬
     flex-direction: column;
     align-items: start;
+    width: 80%;
   }
-`
-
-// Button 을 감싼 영역
-const BtnWrapper = styled.div`
-  ${FlexAlignCSS};
-  justify-content: end;
-  width: 100%;
 `
 
 // Logo Image
@@ -70,11 +61,11 @@ const LogoIMG = styled.img`
 `
 
 const NavList = styled.ul`
-  display: flex;
-  margin: 2rem 0 0 2rem;
-  gap: 2rem;
+  ${FlexBetweenCSS}
+  margin: 1.5rem 0 0 5rem;
+  gap: 5rem;
   @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
-    margin-left: 0;
+    margin: 1.5rem 0 1rem 0;
   }
 `
 
@@ -82,18 +73,20 @@ const NavItem = styled.li<{ $isActive: boolean }>`
   /* ... */
   position: relative;
   white-space: nowrap;
+  font-size: ${({ theme }) => theme.FONT_SIZE.small};
   cursor: pointer;
 
   &:before {
     content: '';
     position: absolute;
-    bottom: -3px; /* Adjust this value as needed */
+    bottom: -0.5rem;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
-    height: 2px;
+    height: 0.1rem;
     background-color: ${({ theme }) => theme.COLOR.common.white};
     transition: width 0.3s ease-in-out;
+    font-size: ${({ theme }) => theme.FONT_SIZE.tiny};
   }
 
   ${(props) =>
@@ -110,6 +103,5 @@ const S = {
   LogoIMG,
   NavList,
   NavItem,
-  BtnWrapper,
 }
 export default Header
