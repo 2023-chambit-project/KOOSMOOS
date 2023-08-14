@@ -6,8 +6,6 @@ import type { StyleProps } from './Box.types'
 
 interface Props extends HTMLAttributes<HTMLDivElement>, StyleProps {}
 
-const Box: FC<Props> = ({ children, ...props }: PropsWithChildren<Props>) => {
+export const Box: FC<Props> = ({ children, ...props }: PropsWithChildren<Props>) => {
   return <S.Box {...props}>{children}</S.Box>
 }
-
-export default Box

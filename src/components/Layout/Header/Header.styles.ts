@@ -1,5 +1,5 @@
+import { FlexBetweenCSS } from '@/styles'
 import { css, styled } from 'styled-components'
-import { FlexBetweenCSS } from '../../../styles/common'
 
 // 헤더 영역
 export const HeaderContainer = styled.header`

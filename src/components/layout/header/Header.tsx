@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-
 import * as S from './Header.styles'
 
-const Header: React.FC = () => {
+import { useState } from 'react'
+
+export const Header: React.FC = () => {
   const NavigationFilter = ['홈', '뉴스', '테크위키', '게임', '갤러리']
-  const [activeNavItem, setActiveNavItem] = useState<number>(0)
+  const [activeNavItem, setActiveNavItem] = useState(0)
   return (
     <>
       <S.HeaderContainer>
@@ -29,5 +29,3 @@ const Header: React.FC = () => {
     </>
   )
 }
-
-export default Header

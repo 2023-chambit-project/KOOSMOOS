@@ -3,7 +3,7 @@ import * as S from './Footer.styles'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <S.Footer>
       <S.MenuTab>
@@ -28,5 +28,3 @@ const Footer = () => {
     </S.Footer>
   )
 }
-
-export default Footer
