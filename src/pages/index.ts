@@ -1,5 +1,0 @@
-export * from './Gallery'
-export * from './Game'
-export * from './Main'
-export * from './News'
-export * from './Tech-wiki'
