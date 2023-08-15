@@ -10,6 +10,6 @@ interface Props {
   strokeColor?: string
 }
 
-export const Icon: FC<Props> = ({ icon, color = 'white', size = '1x', ...rest }) => (
+export const Icon: FC<Props> = ({ icon, color = 'white', size, ...rest }) => (
   <FontAwesomeIcon icon={icon} color={color} size={size} {...rest} />
 )
