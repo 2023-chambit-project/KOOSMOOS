@@ -55,7 +55,8 @@ export const Line = styled.div`
 `
 
 export const Logo = styled.img`
-  width: 45rem;
+  max-width: 30rem;
+  height: auto;
   padding: 0 3rem;
 `
 
