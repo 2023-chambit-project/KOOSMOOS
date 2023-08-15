@@ -10,7 +10,7 @@ interface Props extends HTMLAttributes<HTMLButtonElement>, StyleProps {
   onClick?: () => void
 }
 
-export const Button: FC<Props> = ({ children, icon, onClick, ...props }: PropsWithChildren<Props>) => {
+export const Button: FC<PropsWithChildren<Props>> = ({ children, icon, onClick, ...props }) => {
   const [isClicked, setIsClicked] = useState(false)
   const handleClick = () => {
     setIsClicked(true)
