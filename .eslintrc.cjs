@@ -13,5 +13,6 @@ module.exports = {
   rules: {
     'import/no-unresolved': 'off',
     'react-refresh/only-export-components': 'off',
+    'import/no-named-as-default': 'off',
   },
 }
