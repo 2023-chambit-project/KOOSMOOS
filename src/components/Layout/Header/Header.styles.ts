@@ -10,6 +10,7 @@ export const HeaderContainer = styled.header`
   top: 0%;
   color: ${({ theme }) => theme.COLOR.common.white};
   background-color: ${({ theme }) => theme.COLOR.common.black};
+  z-index: 2;
 `
 
 // Logo 와 NavBar 를 감싼 영역
