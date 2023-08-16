@@ -1,2 +1,2 @@
-export * from './Box/Box'
+export * from './Box'
 export * from './Layout'
