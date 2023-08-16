@@ -1,25 +1,27 @@
+import { MainNav } from '@/constants'
+import { useLocation, useNavigate } from 'react-router-dom'
 import * as S from './Header.styles'
-
-import { useState } from 'react'
-
 export const Header: React.FC = () => {
-  const NavigationFilter = ['홈', '뉴스', '테크위키', '게임', '갤러리']
-  const [activeNavItem, setActiveNavItem] = useState(0)
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
+
+  const handleNav = (path: `/${string}`) => {
+    navigate(path)
+  }
+
   return (
     <>
       <S.HeaderContainer>
         <S.LogoAndNavWrapper>
           <S.LogoIMG src="assets/logo/logo_512x105.svg" />
           <S.NavList>
-            {NavigationFilter.map((item, index) => (
+            {MainNav.map((item, index) => (
               <S.NavItem
-                onClick={() => {
-                  setActiveNavItem(index)
-                }}
-                $isActive={index === activeNavItem}
-                key={item}
+                onClick={() => handleNav(item.path)}
+                $isActive={pathname === MainNav[index].path}
+                key={item.text}
               >
-                {item}
+                {item.text}
               </S.NavItem>
             ))}
           </S.NavList>
