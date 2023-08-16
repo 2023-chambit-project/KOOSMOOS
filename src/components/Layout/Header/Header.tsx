@@ -1,4 +1,6 @@
+import { Button } from '@/components'
 import { MainNav } from '@/constants'
+import { faMailForward } from '@fortawesome/free-solid-svg-icons'
 import { useLocation, useNavigate } from 'react-router-dom'
 import * as S from './Header.styles'
 export const Header: React.FC = () => {
@@ -26,7 +28,7 @@ export const Header: React.FC = () => {
             ))}
           </S.NavList>
         </S.LogoAndNavWrapper>
-        <h3>신청버튼</h3>
+        <Button icon={faMailForward}>우주 소식 받기</Button>
       </S.HeaderContainer>
     </>
   )
