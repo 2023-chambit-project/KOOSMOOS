@@ -12,9 +12,9 @@ export const variantCSS = {
       background-color: ${({ theme }) => theme.COLOR.common.white};
       color: ${({ theme }) => theme.COLOR.common.black};
     }
-    &.clicked {
-      background-color: ${({ theme }) => theme.COLOR.common.gray[600]};
-      color: ${({ theme }) => theme.COLOR.common.black};
+    &:focus {
+      background-color: ${({ theme }) => theme.COLOR.common.gray[700]};
+      color: ${({ theme }) => theme.COLOR.common.white};
     }
   `,
   colored: css`
@@ -24,7 +24,7 @@ export const variantCSS = {
       background-color: ${({ theme }) => theme.PALETTE.blue[100]};
       color: ${({ theme }) => theme.COLOR.common.white};
     }
-    &.clicked {
+    &:focus {
       background-color: ${({ theme }) => theme.PALETTE.blue[40]};
       color: ${({ theme }) => theme.COLOR.common.white};
     }
@@ -36,7 +36,7 @@ export const variantCSS = {
       background-color: ${({ theme }) => theme.COLOR.alert[100]};
       color: ${({ theme }) => theme.COLOR.common.white};
     }
-    &.clicked {
+    &:focus {
       background-color: ${({ theme }) => theme.COLOR.alert[40]};
       color: ${({ theme }) => theme.COLOR.common.white};
     }
@@ -49,7 +49,7 @@ export const variantCSS = {
       background-color: ${({ theme }) => theme.COLOR.common.gray[200]};
       color: ${({ theme }) => theme.COLOR.common.black};
     }
-    &.clicked {
+    &:focus {
       border: 0.1rem dashed ${({ theme }) => theme.COLOR.common.white};
       background-color: ${({ theme }) => theme.COLOR.common.gray[800]};
       color: ${({ theme }) => theme.COLOR.common.white};
