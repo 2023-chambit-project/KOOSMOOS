@@ -3,8 +3,8 @@ import { FlexAlignCSS, FlexColumnCSS } from '@/styles'
 import styled from 'styled-components'
 
 export const Footer = styled.footer`
-  position: fixed;
-  bottom: 0;
+  position: absolute;
+  z-index: 4;
   width: 100vw;
   height: 30rem;
   background-color: ${({ theme }) => theme.COLOR.common.black};
