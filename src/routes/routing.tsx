@@ -1,6 +1,6 @@
 import { Layout } from '@/components'
 import GalleryPage from '@/pages/Gallery'
-import GamePage from '@/pages/Game'
+import GameMainPage from '@/pages/Game'
 import MainPage from '@/pages/Main'
 import NewsPage from '@/pages/News'
 import TechWikiPage from '@/pages/Tech-wiki'
@@ -28,8 +28,8 @@ export const routers = createBrowserRouter([
         element: <GalleryPage />,
       },
       {
-        path: '/game/:category',
-        element: <GamePage />,
+        path: '/game',
+        element: <GameMainPage />,
       },
     ],
   },

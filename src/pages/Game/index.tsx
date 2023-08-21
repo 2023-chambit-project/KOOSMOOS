@@ -1,5 +1,5 @@
-const GamePage = () => {
-  return <h1>GamePage</h1>
+const GameMainPage = () => {
+  return <h1>GameMainPage</h1>
 }
 
-export default GamePage
+export default GameMainPage
