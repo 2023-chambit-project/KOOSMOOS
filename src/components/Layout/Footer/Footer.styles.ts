@@ -9,6 +9,10 @@ export const Footer = styled.footer`
   height: 30rem;
   background-color: ${({ theme }) => theme.COLOR.common.black};
   padding: 3rem 6rem;
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.mobile}) {
+    padding: 3rem 1rem;
+  }
 `
 
 export const MenuTab = styled.ul`
@@ -72,6 +76,7 @@ export const IconMap = styled.section`
 
 export const BottomTab = styled.section`
   ${FlexAlignCSS}
+  padding-bottom: 1rem;
 
   & > * {
     color: ${({ theme }) => theme.COLOR.common.white};
