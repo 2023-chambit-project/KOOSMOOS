@@ -2,28 +2,37 @@ import type { Variants } from 'framer-motion'
 import { motion } from 'framer-motion'
 import { FC, PropsWithChildren } from 'react'
 
-const cardVariants: Variants = {
-  offscreen: {
-    y: 300,
-  },
-  onscreen: {
-    y: 50,
-    rotate: -10,
-    transition: {
-      type: 'spring',
-      bounce: 0.4,
-      duration: 0.8,
-    },
-  },
+interface Props {
+  offscreenY?: number
+  bounce?: number
+  duration?: number
 }
 
-export const SpringMotionBox: FC<PropsWithChildren> = ({ children }) => {
+export const SpringMotionBox: FC<PropsWithChildren<Props>> = ({
+  children,
+  offscreenY = 300,
+  bounce = 0.3,
+  duration = 1.5,
+}) => {
+  const cardVariants: Variants = {
+    offscreen: {
+      y: offscreenY,
+    },
+    onscreen: {
+      y: 50,
+      transition: {
+        type: 'spring',
+        bounce,
+        duration,
+      },
+    },
+  }
   return (
     <motion.div
       className="card-container"
       initial="offscreen"
       whileInView="onscreen"
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: false, amount: 0.8 }}
     >
       <motion.div className="card" variants={cardVariants}>
         {children}
