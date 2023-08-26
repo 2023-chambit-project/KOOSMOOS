@@ -41,7 +41,7 @@ export const Quotation = styled.h3`
     content: '”';
   }
 `
-export const ColorPalette = styled.div<PositionProps>`
+export const SideOpenDescription = styled.div<PositionProps>`
   ${FlexColumnCSS}
   align-items: start;
   justify-content: center;

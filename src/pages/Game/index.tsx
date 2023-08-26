@@ -1,16 +1,16 @@
 import { FC } from 'react'
 import * as S from './Game.styles'
 import { AlignedArea } from './components/AlignedBox'
-import { ColorPalette } from './components/ColorPalette'
+import { SideOpenDescription } from './components/SideOpenDescription'
 
 const GameMainPage: FC = () => {
   return (
     <S.DividedArea>
       <AlignedArea align="left">
-        <ColorPalette align="left" />
+        <SideOpenDescription align="left" />
       </AlignedArea>
       <AlignedArea align="right">
-        <ColorPalette align="right" />
+        <SideOpenDescription align="right" />
       </AlignedArea>
     </S.DividedArea>
   )

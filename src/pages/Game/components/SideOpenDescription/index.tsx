@@ -2,13 +2,13 @@ import { Box } from '@/components/Box'
 import { GameMainAlign, GameMainCommon } from '@/constants'
 import { FC, HTMLAttributes } from 'react'
 import { PositionProps } from '../../Game.types'
-import * as S from './ColorPalette.styles'
+import * as S from './SideOpenDescription.styles'
 
 interface Props extends HTMLAttributes<HTMLDivElement>, PositionProps {}
 
-export const ColorPalette: FC<Props> = ({ align }) => {
+export const SideOpenDescription: FC<Props> = ({ align }) => {
   return (
-    <S.ColorPalette align={align}>
+    <S.SideOpenDescription align={align}>
       <S.MainHeading>{GameMainAlign[align].mainHeadingText}</S.MainHeading>
       <S.Quotation>{GameMainAlign[align].identity}</S.Quotation>
       <S.Divider />
@@ -23,6 +23,6 @@ export const ColorPalette: FC<Props> = ({ align }) => {
           <S.IntroductionDetail key={item}>{item}</S.IntroductionDetail>
         ))}
       </Box>
-    </S.ColorPalette>
+    </S.SideOpenDescription>
   )
 }
