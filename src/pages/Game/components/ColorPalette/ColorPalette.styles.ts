@@ -39,8 +39,7 @@ export const Quotation = styled.h3`
     content: '”';
   }
 `
-// 모달 영역
-export const Modal = styled.div<PositionProps>`
+export const ColorPalette = styled.div<PositionProps>`
   ${FlexColumnCSS}
   align-items: start;
   justify-content: center;

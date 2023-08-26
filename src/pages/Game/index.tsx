@@ -1,7 +1,7 @@
 import { Button } from '@/components'
 import { FC } from 'react'
 import * as S from './Game.styles'
-import { Modal } from './components/Modal/index'
+import { ColorPalette } from './components/ColorPalette'
 import * as C from './constants/texts'
 
 const GameMainPage: FC = () => {
@@ -9,7 +9,7 @@ const GameMainPage: FC = () => {
     <S.DividedArea>
       <S.HalfBox align="left">
         <S.ThumbnailImg src="assets/img/FlagMoon.svg" />
-        <Modal align="left"></Modal>
+        <ColorPalette align="left"></ColorPalette>
         <S.TitleAndButton align="left">
           <h1>{C.Title.left}</h1>
           <Button variant="ghost" size="fit" onClick={() => {}}>
@@ -19,7 +19,7 @@ const GameMainPage: FC = () => {
       </S.HalfBox>
       <S.HalfBox align="right">
         <S.ThumbnailImg src="assets/img/CelestialBodies.svg" />
-        <Modal align="right"></Modal>
+        <ColorPalette align="right"></ColorPalette>
         <S.TitleAndButton align="right">
           <h1>{C.Title.right}</h1>
           <Button variant="ghost" size="fit" onClick={() => {}}>
