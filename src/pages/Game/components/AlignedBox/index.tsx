@@ -1,5 +1,6 @@
 import { Button } from '@/components'
 import { GameMainAlign, GameMainCommon } from '@/constants/index'
+import { faSpaceShuttle } from '@fortawesome/free-solid-svg-icons'
 import { FC, HTMLAttributes, PropsWithChildren } from 'react'
 import { PositionProps } from '../../Game.types'
 import * as S from './AlignedBox.styles'
@@ -13,7 +14,7 @@ export const AlignedArea: FC<PropsWithChildren<Props>> = ({ align, children, ...
       {children}
       <S.TitleAndButton align={align}>
         <h1>{GameMainAlign[align].titleText}</h1>
-        <Button variant="ghost" size="fit" onClick={() => {}}>
+        <Button icon={faSpaceShuttle} variant="ghost" size="fit" onClick={() => {}}>
           {GameMainCommon.buttonText}
         </Button>
       </S.TitleAndButton>
