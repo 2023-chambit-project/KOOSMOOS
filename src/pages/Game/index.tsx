@@ -1,32 +1,17 @@
-import { Button } from '@/components'
 import { FC } from 'react'
 import * as S from './Game.styles'
+import { AlignedArea } from './components/AlignedBox'
 import { ColorPalette } from './components/ColorPalette'
-import * as C from './constants/texts'
 
 const GameMainPage: FC = () => {
   return (
     <S.DividedArea>
-      <S.HalfBox align="left">
-        <S.ThumbnailImg src="assets/img/FlagMoon.svg" />
-        <ColorPalette align="left"></ColorPalette>
-        <S.TitleAndButton align="left">
-          <h1>{C.Title.left}</h1>
-          <Button variant="ghost" size="fit" onClick={() => {}}>
-            {C.ButtonText}
-          </Button>
-        </S.TitleAndButton>
-      </S.HalfBox>
-      <S.HalfBox align="right">
-        <S.ThumbnailImg src="assets/img/CelestialBodies.svg" />
-        <ColorPalette align="right"></ColorPalette>
-        <S.TitleAndButton align="right">
-          <h1>{C.Title.right}</h1>
-          <Button variant="ghost" size="fit" onClick={() => {}}>
-            {C.ButtonText}
-          </Button>
-        </S.TitleAndButton>
-      </S.HalfBox>
+      <AlignedArea align="left">
+        <ColorPalette align="left" />
+      </AlignedArea>
+      <AlignedArea align="right">
+        <ColorPalette align="right" />
+      </AlignedArea>
     </S.DividedArea>
   )
 }
