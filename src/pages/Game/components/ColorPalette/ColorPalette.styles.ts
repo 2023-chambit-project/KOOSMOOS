@@ -1,3 +1,4 @@
+import { GameMainAlign } from '@/constants'
 import { FlexColumnCSS, GYFontCSS, PCFontCSS } from '@/styles'
 import { css, styled } from 'styled-components'
 import { PositionProps } from '../../Game.types'
@@ -7,6 +8,7 @@ export const Divider = styled.div`
   width: 100%;
   height: 0.2rem;
   background-color: ${({ theme }) => theme.COLOR.common.white};
+  box-shadow: 0.05rem 0.05rem 0.05rem ${({ theme }) => theme.COLOR.common.black};
 `
 // 주제목
 export const MainHeading = styled.h1`
@@ -54,6 +56,7 @@ export const ColorPalette = styled.div<PositionProps>`
   color: ${({ theme }) => theme.COLOR.common.white};
   text-shadow: 0.05rem 0.05rem 0.05rem ${({ theme }) => theme.COLOR.common.black};
   word-break: keep-all;
+  background-color: ${({ align }) => GameMainAlign[align].mainColor};
 
   transition:
     opacity 1s ease 8ms,
@@ -62,12 +65,10 @@ export const ColorPalette = styled.div<PositionProps>`
   ${({ align }) =>
     align === 'left'
       ? css`
-          background-color: ${({ theme }) => theme.PALETTE.yellow[100]};
           right: 0;
           transform: translateX(75%);
         `
       : css`
-          background-color: ${({ theme }) => theme.PALETTE.blue[100]};
           left: 0;
           transform: translateX(-75%);
         `}
