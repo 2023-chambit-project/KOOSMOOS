@@ -5,7 +5,8 @@ import styled from 'styled-components'
 export const Footer = styled.footer`
   position: absolute;
   z-index: 4;
-  width: 100vw;
+  width: 100%;
+
   background-color: ${({ theme }) => theme.COLOR.common.black};
   padding: 3rem 6rem;
 
