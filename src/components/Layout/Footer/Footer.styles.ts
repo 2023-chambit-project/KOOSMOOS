@@ -6,7 +6,7 @@ export const Footer = styled.footer`
   position: absolute;
   z-index: 4;
   width: 100%;
-  height: 30rem;
+
   background-color: ${({ theme }) => theme.COLOR.common.black};
   padding: 3rem 6rem;
 
