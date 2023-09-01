@@ -34,7 +34,7 @@ export const GameMainAlign = {
       '검사 후 행성 이미지를 다운로드해서 소장해 보세요!',
       '우주를 테마로 한 12개의 질문이 준비되어 있습니다.',
     ],
-    mainColor: theme.PALETTE.blue[100],
-    secondaryColor: theme.PALETTE.blue[70],
+    mainColor: theme.PALETTE.purple[100],
+    secondaryColor: theme.PALETTE.purple[70],
   },
 } as const
