@@ -5,7 +5,6 @@ export const Wrapper = styled.main`
   background-color: ${({ theme }) => theme.COLOR.common.black};
   color: ${({ theme }) => theme.COLOR.common.white};
   font-family: 'GwangyangSunshine-Bold';
-  padding-bottom: 13rem;
 `
 
 export const Container = styled.section`
@@ -14,6 +13,12 @@ export const Container = styled.section`
   padding-top: 10rem;
   ${FlexCenterCSS}
   flex-direction: column;
+  padding-bottom: 13rem;
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
+    width: 90%;
+    padding: 14rem 0 28rem;
+  }
 `
 
 export const explainText = styled.p`
@@ -52,5 +57,9 @@ export const Button = styled.button`
   &:hover {
     background-color: ${({ theme }) => theme.PALETTE.purple[50]};
     transition: background-color 0.3s ease;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
+    width: 90%;
   }
 `
