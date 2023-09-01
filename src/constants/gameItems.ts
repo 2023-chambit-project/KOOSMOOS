@@ -22,6 +22,7 @@ export const GameMainAlign = {
     ],
     mainColor: theme.PALETTE.yellow[100],
     secondaryColor: theme.PALETTE.yellow[70],
+    to: '/game/1',
   },
   right: {
     titleText: '내 마음속 행성',
@@ -36,5 +37,6 @@ export const GameMainAlign = {
     ],
     mainColor: theme.PALETTE.purple[100],
     secondaryColor: theme.PALETTE.purple[70],
+    to: '/game/2',
   },
 } as const
