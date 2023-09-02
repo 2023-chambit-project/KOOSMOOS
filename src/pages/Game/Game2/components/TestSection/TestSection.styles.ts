@@ -13,6 +13,10 @@ export const ContentSection = styled.article<{ isThisPage: boolean }>`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.laptop}) {
+    width: 90%;
+  }
 `
 
 export const Title = styled.h1`
@@ -40,7 +44,6 @@ export const AnswerBox = styled.div`
   background-color: ${({ theme }) => theme.COLOR.common.gray[100]};
   ${FlexCenterCSS}
   color: ${({ theme }) => theme.COLOR.common.black};
-  font-weight: bold;
   cursor: pointer;
   text-align: center;
   line-height: 1.5;
@@ -48,5 +51,9 @@ export const AnswerBox = styled.div`
   &:hover {
     background-color: ${({ theme }) => theme.PALETTE.purple[20]};
     transition: background-color 0.5s ease;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.laptop}) {
+    font-size: ${({ theme }) => theme.FONT_SIZE.small};
   }
 `
