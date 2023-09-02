@@ -4,14 +4,12 @@ import styled from 'styled-components'
 export const Container = styled.section`
   width: 30%;
   margin: 0 auto;
-  padding-top: 10rem;
   ${FlexCenterCSS}
   flex-direction: column;
   padding-bottom: 13rem;
 
   @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
     width: 90%;
-    padding: 14rem 0 28rem;
   }
 `
 

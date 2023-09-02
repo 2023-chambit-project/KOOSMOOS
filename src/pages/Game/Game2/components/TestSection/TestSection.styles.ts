@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 export const Container = styled.section`
   width: 100%;
-  padding: 12rem 0 24rem;
 `
 
 export const ContentSection = styled.article<{ isThisPage: boolean }>`
