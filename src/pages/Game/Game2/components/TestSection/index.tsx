@@ -23,12 +23,13 @@ export const TestSection: FC<SectionProps> = ({ onTestStateChange }) => {
   return (
     <S.Container>
       {game2QuestionAndAnswer.map((qna, index) => (
-        <S.ContentSection key={index} isThisPage={index === nowPage}>
+        <S.ContentSection key={qna.question} isThisPage={index === nowPage}>
           <ProgressBar newPercentage={(nowPage / game2QuestionAndAnswer.length) * 100} bgColor={progressBgColor} />
           <S.Title dangerouslySetInnerHTML={{ __html: qna.question }} />
           <S.AnswerContainer>
             {qna.answers.map((ans) => (
               <S.AnswerBox onClick={onNextPage} dangerouslySetInnerHTML={{ __html: ans.answer }} />
+              <S.AnswerBox key={ans.answer} onClick={onNextPage} dangerouslySetInnerHTML={{ __html: ans.answer }} />
             ))}
           </S.AnswerContainer>
         </S.ContentSection>
