@@ -1,7 +1,7 @@
 import { ProgressBar } from '@/components'
 import { PALETTE } from '@/styles'
 import type { FC } from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { game2QuestionAndAnswer } from '../../Game2.constants'
 import type { SectionProps } from '../../Game2.types'
 import * as S from './TestSection.styles'
@@ -13,12 +13,14 @@ export const TestSection: FC<SectionProps> = ({ onTestStateChange }) => {
   const [nowPage, setPage] = useState(1)
 
   const onNextPage = () => {
-    if (nowPage === endPage) {
-      onTestStateChange('after')
-      return
-    }
     setPage((prev) => prev + 1)
   }
+
+  useEffect(() => {
+    if (nowPage === endPage) {
+      onTestStateChange('after')
+    }
+  }, [nowPage, onTestStateChange])
 
   return (
     <S.Container>
@@ -28,7 +30,6 @@ export const TestSection: FC<SectionProps> = ({ onTestStateChange }) => {
           <S.Title dangerouslySetInnerHTML={{ __html: qna.question }} />
           <S.AnswerContainer>
             {qna.answers.map((ans) => (
-              <S.AnswerBox onClick={onNextPage} dangerouslySetInnerHTML={{ __html: ans.answer }} />
               <S.AnswerBox key={ans.answer} onClick={onNextPage} dangerouslySetInnerHTML={{ __html: ans.answer }} />
             ))}
           </S.AnswerContainer>
