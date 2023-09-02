@@ -16,6 +16,7 @@ export const PALETTE = {
     70: '#8105BB',
     50: '#A04FEF',
     40: '#D3A6FF',
+    20: '#E4C9FF',
   },
   orange: {
     100: '#FF7A00',
