@@ -9,7 +9,7 @@ import * as S from './TestSection.styles'
 const endPage = 12
 const progressBgColor = PALETTE.purple[100]
 
-export const TestSection: FC<SectionProps> = ({ onTestStateChange }) => {
+export const TestSection: FC<SectionProps> = ({ onNextState }) => {
   const [nowPage, setPage] = useState(1)
 
   const onNextPage = () => {
@@ -18,9 +18,9 @@ export const TestSection: FC<SectionProps> = ({ onTestStateChange }) => {
 
   useEffect(() => {
     if (nowPage === endPage) {
-      onTestStateChange('after')
+      onNextState()
     }
-  }, [nowPage, onTestStateChange])
+  }, [nowPage, onNextState])
 
   return (
     <S.Container>

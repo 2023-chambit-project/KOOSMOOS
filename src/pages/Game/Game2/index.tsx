@@ -14,9 +14,9 @@ const Game2Page = () => {
 
   return (
     <S.Wrapper>
-      {testState === 'before' && <IntroSection onTestStateChange={onTestStateChange} />}
-      {testState === 'ing' && <TestSection onTestStateChange={onTestStateChange} />}
-      {testState === 'after' && <ResultSection onTestStateChange={onTestStateChange} />}
+      {testState === 'before' && <IntroSection onNextState={() => onTestStateChange('ing')} />}
+      {testState === 'ing' && <TestSection onNextState={() => onTestStateChange('after')} />}
+      {testState === 'after' && <ResultSection onNextState={() => onTestStateChange('before')} />}
     </S.Wrapper>
   )
 }

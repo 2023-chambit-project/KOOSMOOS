@@ -13,5 +13,5 @@ export interface QuestionAndAnswerProp {
 export type TestStateProp = 'before' | 'ing' | 'after'
 
 export interface SectionProps {
-  onTestStateChange: (state: TestStateProp) => void
+  onNextState: VoidFunction
 }

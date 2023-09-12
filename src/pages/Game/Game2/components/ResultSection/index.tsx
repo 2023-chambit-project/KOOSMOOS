@@ -4,7 +4,7 @@ import type { SectionProps } from '../../Game2.types'
 import { LoadingSection } from '../Loading'
 import * as S from './Result.styles'
 
-export const ResultSection: FC<SectionProps> = ({ onTestStateChange }) => {
+export const ResultSection: FC<SectionProps> = ({ onNextState }) => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
