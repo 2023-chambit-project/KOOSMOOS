@@ -31,7 +31,11 @@ export const ResultSection: FC<Props> = ({ onNextState, result }) => {
             <S.Button color="gray" onClick={onNextState}>
               행성 성격 검사 다시하기
             </S.Button>
-            <S.Button color="purple">결과 이미지 다운로드하기 🪄</S.Button>
+            <S.Button color="purple">
+              <S.Link href={result} download>
+                결과 이미지 다운로드하기 🪄
+              </S.Link>
+            </S.Button>
           </S.ButtonWrap>
           <S.Copy onClick={onClickCopyGameLink}>검사하기 링크를 공유해보세요!</S.Copy>
         </S.Main>

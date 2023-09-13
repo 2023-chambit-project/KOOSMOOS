@@ -63,3 +63,9 @@ export const Copy = styled.span`
     transition: color 0.3s ease;
   }
 `
+
+export const Link = styled.a`
+  color: ${({ theme }) => theme.COLOR.common.white};
+  width: 100%;
+  height: 100%;
+`
