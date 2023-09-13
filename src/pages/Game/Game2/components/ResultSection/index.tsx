@@ -1,4 +1,4 @@
-import { useLoading } from '@/hooks/useLoading'
+import { useLoading } from '@/hooks'
 import type { PostGame2Response } from '@/types'
 import { type FC } from 'react'
 import type { SectionProps } from '../../Game2.types'

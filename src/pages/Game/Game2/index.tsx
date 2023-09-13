@@ -1,11 +1,9 @@
-import { usePostGame2Answers } from '@/services/queries/game'
+import { usePostGame2Answers } from '@/services'
 import type { PostGame2ResultReqBody } from '@/types'
 import { useState } from 'react'
 import * as S from './Game2.styles'
 import type { TestStateProp } from './Game2.types'
-import { IntroSection } from './components/IntroSection'
-import { ResultSection } from './components/ResultSection'
-import { TestSection } from './components/TestSection'
+import { IntroSection, ResultSection, TestSection } from './components'
 
 const Game2Page = () => {
   const [testState, setTestState] = useState<TestStateProp>('before')
