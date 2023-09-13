@@ -6,6 +6,7 @@ export const Container = styled.section`
   ${FlexCenterCSS}
   flex-direction: column;
   padding-bottom: 22rem;
+  margin-top: 10rem;
 `
 
 export const Title = styled.h1`
