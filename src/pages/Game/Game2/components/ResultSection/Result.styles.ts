@@ -49,3 +49,17 @@ export const ResultImg = styled.img`
   width: 48rem;
   height: auto;
 `
+
+export const Copy = styled.span`
+  color: ${({ theme }) => theme.COLOR.common.gray[500]};
+  border-bottom: 1px solid ${({ theme }) => theme.COLOR.common.gray[500]};
+  cursor: pointer;
+  font-size: ${({ theme }) => theme.FONT_SIZE.tiny};
+  margin-top: 3rem;
+
+  &:hover {
+    color: ${({ theme }) => theme.COLOR.common.gray[400]};
+    border-bottom: 1px solid ${({ theme }) => theme.COLOR.common.gray[400]};
+    transition: color 0.3s ease;
+  }
+`
