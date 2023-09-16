@@ -1,5 +1,12 @@
+import { WikiPosts } from './components'
+import * as S from './TechWiki.styles'
+
 const TechWikiPage = () => {
-  return <h1>TechWikiPage</h1>
+  return (
+    <S.Wrapper>
+      <WikiPosts />
+    </S.Wrapper>
+  )
 }
 
 export default TechWikiPage
