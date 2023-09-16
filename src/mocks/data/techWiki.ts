@@ -45,14 +45,17 @@ export const TechWikiPosts: TechWikiPostProps[] = [
       nickname: 'TransparentDeveloper',
       profile_img: 'https://avatars.githubusercontent.com/u/50646145?v=4',
     },
-    content: `
-        안녕하세요. 팀 LOSS의 TransparentDeveloper입니다.
+    content: `안녕하세요. 팀 LOSS의 **TransparentDeveloper**입니다. 
 
-        ### 우주 관측하시는 걸 좋아하시나요?
+<br />
+    
+## 우주 관측하시는 걸 좋아하시나요?
 
-        <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb2rbPt%2Fbtqy0FJgja1%2FgBn90IqzhQj3wT1axgAiiK%2Fimg.jpg" />
+<br />
 
-        __참 이쁘죠?__
+<img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb2rbPt%2Fbtqy0FJgja1%2FgBn90IqzhQj3wT1axgAiiK%2Fimg.jpg" />
+
+__참 이쁘죠?__
     `,
   },
   {
@@ -65,13 +68,13 @@ export const TechWikiPosts: TechWikiPostProps[] = [
       profile_img: 'https://avatars.githubusercontent.com/u/112946860?v=4',
     },
     content: `
-        안녕하세요. 팀 LOSS의 Doeunnkimm입니다.
+안녕하세요. 팀 LOSS의 Doeunnkimm입니다.
 
-        ### 우리 가까운 곳에 있는 학교에서 별 보기를 시도해보세요!.
+# 우리 가까운 곳에 있는 학교에서 별 보기를 시도해보세요!.
 
-        <img src="https://www.kw.ac.kr/KWData/webeditor/2020/2020_05_29_102245.jpg" />
+<img src="https://www.kw.ac.kr/KWData/webeditor/2020/2020_05_29_102245.jpg" />
 
-        **하늘을 바라봅시다! 🌛**
+**하늘을 바라봅시다! 🌛**
     `,
   },
   {
@@ -84,13 +87,17 @@ export const TechWikiPosts: TechWikiPostProps[] = [
       profile_img: 'https://avatars.githubusercontent.com/u/113532580?v=4',
     },
     content: `
-        안녕하세요. 팀 LOSS의 smilevictory입니다!
+안녕하세요. 팀 LOSS의 smilevictory입니다!
 
-        ### 유명한 별 보기 좋은 곳을 소개해 드립니다 :)
+<br />
 
-        <img src="https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/e039d050-bab4-4beb-ac63-ad1356605326.jpeg" />
+### 유명한 별 보기 좋은 곳을 소개해 드립니다 :)
 
-        **자세한 위치는 아래에서 소개해 드리겠습니다!**
+<br />
+
+<img src="https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/e039d050-bab4-4beb-ac63-ad1356605326.jpeg" />
+
+**자세한 위치는 아래에서 소개해 드리겠습니다!**
     `,
   },
   {
@@ -103,13 +110,17 @@ export const TechWikiPosts: TechWikiPostProps[] = [
       profile_img: 'https://avatars.githubusercontent.com/u/113532580?v=4',
     },
     content: `
-        안녕하세요. 팀 LOSS의 smilevictory입니다!
+안녕하세요. 팀 LOSS의 smilevictory입니다!
 
-        ### 이건 4번 포스팅입니다 !!
+<br />
 
-        <img src="https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/e039d050-bab4-4beb-ac63-ad1356605326.jpeg" />
+# 이건 4번 포스팅입니다 !!
 
-       **좋은 글을 소개해 드리고 있으니 다른 포스팅도 살펴보세요!**
+<br />
+
+<img src="https://media.triple.guide/triple-cms/c_limit,f_auto,h_1024,w_1024/e039d050-bab4-4beb-ac63-ad1356605326.jpeg" />
+
+**좋은 글을 소개해 드리고 있으니 다른 포스팅도 살펴보세요!**
     `,
   },
 ]
