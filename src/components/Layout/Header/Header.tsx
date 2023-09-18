@@ -3,7 +3,10 @@ import { MainNav } from '@/constants'
 import { faMailForward } from '@fortawesome/free-solid-svg-icons'
 import { useLocation, useNavigate } from 'react-router-dom'
 import * as S from './Header.styles'
-export const Header: React.FC = () => {
+
+import LOGO_IMAGE from '/public/assets/logo/logo_512x105.svg'
+
+export const Header = () => {
   const { pathname } = useLocation()
   const navigate = useNavigate()
 
@@ -15,7 +18,7 @@ export const Header: React.FC = () => {
     <>
       <S.HeaderContainer>
         <S.LogoAndNavWrapper>
-          <S.LogoIMG src="assets/logo/logo_512x105.svg" />
+          <S.LogoIMG src={LOGO_IMAGE} alt="logo" />
           <S.NavList>
             {MainNav.map((item, index) => (
               <S.NavItem
