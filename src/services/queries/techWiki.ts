@@ -1,5 +1,5 @@
 import { QUERY_KEY } from '@/constants'
-import type { TechWikiPostProps, TechWikiSummaryListProps } from '@/types/techWiki'
+import type { TechWikiPostProps, TechWikiSummaryListProps } from '@/types'
 import type { UseQueryOptions } from '@tanstack/react-query'
 import { useQuery } from '@tanstack/react-query'
 import type { AxiosError } from 'axios'

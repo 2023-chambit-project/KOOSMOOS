@@ -1,4 +1,4 @@
-import { TechWikiPostProps, TechWikiSummaryListProps } from '@/types/techWiki'
+import { TechWikiPostProps, TechWikiSummaryListProps } from '@/types'
 import axios from 'axios'
 
 export const getTechWikiSummaryList = async () => {

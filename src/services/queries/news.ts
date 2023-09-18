@@ -1,5 +1,5 @@
 import { QUERY_KEY } from '@/constants'
-import { getYoutubeNewsList } from '@/services/apis'
+import { getYoutubeNewsList } from '@/services'
 import { NewsProps } from '@/types'
 import type { UseQueryOptions } from '@tanstack/react-query'
 import { useQuery } from '@tanstack/react-query'
