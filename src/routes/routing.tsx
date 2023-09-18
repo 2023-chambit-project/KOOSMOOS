@@ -6,6 +6,7 @@ import Game2Page from '@/pages/Game/Game2'
 import MainPage from '@/pages/Main'
 import NewsPage from '@/pages/News'
 import TechWikiPage from '@/pages/Tech-wiki'
+import WikiPostPage from '@/pages/Tech-wiki/WikiPost'
 import { createBrowserRouter } from 'react-router-dom'
 
 export const routers = createBrowserRouter([
@@ -24,6 +25,10 @@ export const routers = createBrowserRouter([
       {
         path: '/tech-wiki',
         element: <TechWikiPage />,
+      },
+      {
+        path: '/tech-wiki/:id',
+        element: <WikiPostPage />,
       },
       {
         path: '/gallery',
