@@ -1,6 +1,8 @@
 import { Layout } from '@/components'
 import GalleryPage from '@/pages/Gallery'
 import GameMainPage from '@/pages/Game'
+import Game1Page from '@/pages/Game/Game1'
+import Game2Page from '@/pages/Game/Game2'
 import MainPage from '@/pages/Main'
 import NewsPage from '@/pages/News'
 import TechWikiPage from '@/pages/Tech-wiki'
@@ -35,6 +37,14 @@ export const routers = createBrowserRouter([
       {
         path: '/game',
         element: <GameMainPage />,
+      },
+      {
+        path: '/game/1',
+        element: <Game1Page />,
+      },
+      {
+        path: '/game/2',
+        element: <Game2Page />,
       },
     ],
   },

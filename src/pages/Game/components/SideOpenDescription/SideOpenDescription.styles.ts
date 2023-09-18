@@ -54,7 +54,7 @@ export const SideOpenDescription = styled.div<PositionProps>`
   text-align: left;
   gap: 2rem;
   color: ${({ theme }) => theme.COLOR.common.white};
-  text-shadow: 0.05rem 0.05rem 0.05rem ${({ theme }) => theme.COLOR.common.black};
+  text-shadow: 0.08rem 0.08rem 0.08rem ${({ theme }) => theme.COLOR.common.black};
   word-break: keep-all;
   background-color: ${({ align }) => GameMainAlign[align].mainColor};
 
