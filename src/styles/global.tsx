@@ -18,7 +18,6 @@ export const GlobalStyles = createGlobalStyle`
 
     html {
         font-size: 62.5%;
-        font-family: 'PyeongChangPeace-Regular', 'PyeongChangPeace-Light';
 
         @media screen and (max-width:820px) {
             font-size: 50%;
