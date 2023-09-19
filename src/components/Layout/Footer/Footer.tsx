@@ -3,6 +3,8 @@ import * as S from './Footer.styles'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import LOGO_IMAGE from '/public/assets/logo/logo_512x105.svg'
+
 export const Footer = () => {
   return (
     <S.Footer>
@@ -19,7 +21,7 @@ export const Footer = () => {
         </S.IconMap>
       </S.Line>
       <S.BottomTab>
-        <S.Logo src="assets/logo/logo_512x105.svg" />
+        <S.Logo src={LOGO_IMAGE} alt="logo" />
         <div>
           <p>koosmoos@gmail.com</p>
           <p>ⓒ 2023 Kwangwoon univ, Team LOSS All Rights Reserved.</p>
