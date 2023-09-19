@@ -28,6 +28,11 @@ export const MenuTab = styled.ul`
     color: ${({ theme }) => theme.COLOR.common.white};
     font-size: ${({ theme }) => theme.FONT_SIZE.tiny};
     cursor: pointer;
+
+    &:hover {
+      color: ${({ theme }) => theme.PALETTE.purple['40']};
+      transition: color 0.3s ease-in-out;
+    }
   }
 `
 
