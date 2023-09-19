@@ -2,14 +2,6 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
     @font-face {
-        font-family: 'PyeongChangPeace-Light';
-        src: url('../assets/font/PyeongChangPeace-Light.otf');
-    }
-    @font-face {
-        font-family: 'PyeongChangPeace-Bold';
-        src: url('../assets/font/PyeongChangPeace-Bold.otf');
-    }
-    @font-face {
         font-family: 'GwangyangSunshine-Light';
         src: url('../assets/font/GwangyangSunshine-Regular.otf');
     }
