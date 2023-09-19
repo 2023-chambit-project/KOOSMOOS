@@ -15,9 +15,9 @@ export const Header = () => {
   }
 
   return (
-    <S.HeaderContainer>
-      <S.LogoAndNavWrapper>
-        <S.LogoIMG src={LOGO_IMAGE} alt="logo" />
+    <S.HeaderWrapper>
+      <S.LogoIMG src={LOGO_IMAGE} alt="logo" onClick={() => handleNav('')} />
+      <S.ContentSection>
         <S.NavList>
           {MainNav.map((item, index) => (
             <S.NavItem
@@ -29,8 +29,8 @@ export const Header = () => {
             </S.NavItem>
           ))}
         </S.NavList>
-      </S.LogoAndNavWrapper>
-      <Button icon={faMailForward}>우주 소식 받기</Button>
-    </S.HeaderContainer>
+        <Button icon={faMailForward}>우주 소식 받기</Button>
+      </S.ContentSection>
+    </S.HeaderWrapper>
   )
 }
