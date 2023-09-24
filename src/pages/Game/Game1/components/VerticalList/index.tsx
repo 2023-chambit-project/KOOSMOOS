@@ -1,11 +1,11 @@
 import { Button } from '@/components'
 import { Icon } from '@/components/Icon'
 import { faChevronRight, faExclamationCircle, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import * as S from './VerticalListSection.styles'
+import * as S from './VerticalList.styles'
 import ENFJ from '/public/assets/game/resultPaper/ENFP.png'
 
 const message = new Array(20).fill(0).map((_, idx) => [idx, idx + ' 번째 인삿말입니다.'])
-const VerticalListSection = () => {
+const VerticalList = () => {
   return (
     <S.Container>
       <S.HeadingText>
@@ -40,4 +40,4 @@ const VerticalListSection = () => {
   )
 }
 
-export default VerticalListSection
+export default VerticalList
