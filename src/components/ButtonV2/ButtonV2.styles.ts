@@ -16,6 +16,7 @@ export const sizeCSS = {
   fit: css`
     width: fit-content;
     height: fit-content;
+    padding: 0.5rem 1rem;
   `,
   full: css`
     width: 100%;
@@ -49,11 +50,10 @@ export const ButtonV2 = styled.button<StyleProps>`
   font-size: ${({ theme }) => theme.FONT_SIZE.small};
   height: 5rem;
   min-height: 40px;
-  padding: 0.5rem 1rem;
 
-  ${({ variant = 'default' }) => variantCSS[variant]};
-  ${({ size = 'default' }) => sizeCSS[size]};
-  ${({ round = 'default' }) => roundCSS[round]};
+  ${({ variant = 'default' }) => variantCSS[variant]}
+  ${({ size = 'default' }) => sizeCSS[size]}
+  ${({ round = 'default' }) => roundCSS[round]}
   ${({ skin = 'default' }) => skinCSS[skin]}
   background-color: ${({ bgColor, theme }) => (bgColor ? bgColor : theme.COLOR.common.gray[900])};
 
