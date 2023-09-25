@@ -23,13 +23,13 @@ export const sizeCSS = {
 }
 export const roundCSS = {
   default: css`
-    border-radius: 0.5rem;
+    border-radius: 8px;
   `,
   slightly: css`
-    border-radius: 2rem;
+    border-radius: 15px;
   `,
   very: css`
-    border-radius: 100rem;
+    border-radius: 30px;
   `,
 }
 export const skinCSS = {
