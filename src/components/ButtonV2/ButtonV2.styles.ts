@@ -49,7 +49,6 @@ export const ButtonV2 = styled.button<StyleProps>`
   gap: 1rem;
   font-size: ${({ theme }) => theme.FONT_SIZE.small};
   height: 5rem;
-  min-height: 40px;
 
   ${({ variant = 'default' }) => variantCSS[variant]}
   ${({ size = 'default' }) => sizeCSS[size]}
