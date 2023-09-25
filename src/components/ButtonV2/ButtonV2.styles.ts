@@ -11,7 +11,7 @@ export const variantCSS = {
 }
 export const sizeCSS = {
   default: css`
-    width: 15rem;
+    width: 17rem;
   `,
   fit: css`
     width: fit-content;
@@ -23,13 +23,13 @@ export const sizeCSS = {
 }
 export const roundCSS = {
   default: css`
-    border-radius: 10px;
+    border-radius: 0.5rem;
   `,
   slightly: css`
-    border-radius: 20px;
+    border-radius: 2rem;
   `,
   very: css`
-    border-radius: 100px;
+    border-radius: 100rem;
   `,
 }
 export const skinCSS = {
@@ -39,7 +39,6 @@ export const skinCSS = {
 
     &:hover {
       color: ${({ theme }) => theme.COLOR.common.black};
-      border-color: ${({ theme }) => theme.COLOR.common.black};
     }
   `,
   dark: css`
@@ -48,7 +47,6 @@ export const skinCSS = {
 
     &:hover {
       color: ${({ theme }) => theme.COLOR.common.white};
-      border-color: ${({ theme }) => theme.COLOR.common.white};
     }
   `,
 }
@@ -56,15 +54,19 @@ export const skinCSS = {
 export const ButtonV2 = styled.button<StyleProps>`
   ${FlexCenterCSS}
   gap: 1rem;
-
+  font-size: ${({ theme }) => theme.FONT_SIZE.small};
   height: 5rem;
-  padding: 1rem;
+  min-height: 40px;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+
   ${({ variant = 'default' }) => variantCSS[variant]};
   ${({ size = 'default' }) => sizeCSS[size]};
   ${({ round = 'default' }) => roundCSS[round]};
   ${({ skin = 'default' }) => skinCSS[skin]}
   background-color: ${({ idleBgColor }) => idleBgColor};
   &:hover {
+    border: none;
     background-color: ${({ hoverBgColor }) => hoverBgColor};
     transition: background-color 0.3s ease;
   }
