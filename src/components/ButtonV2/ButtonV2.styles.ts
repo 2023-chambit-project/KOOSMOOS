@@ -36,18 +36,10 @@ export const skinCSS = {
   default: css`
     color: ${({ theme }) => theme.COLOR.common.white};
     border-color: ${({ theme }) => theme.COLOR.common.white};
-
-    &:hover {
-      color: ${({ theme }) => theme.COLOR.common.black};
-    }
   `,
   dark: css`
     color: ${({ theme }) => theme.COLOR.common.black};
     border-color: ${({ theme }) => theme.COLOR.common.black};
-
-    &:hover {
-      color: ${({ theme }) => theme.COLOR.common.white};
-    }
   `,
 }
 
@@ -64,12 +56,15 @@ export const ButtonV2 = styled.button<StyleProps>`
   ${({ size = 'default' }) => sizeCSS[size]};
   ${({ round = 'default' }) => roundCSS[round]};
   ${({ skin = 'default' }) => skinCSS[skin]}
-  background-color: ${({ idleBgColor }) => idleBgColor};
+  background-color: ${({ bgColor, theme }) => (bgColor ? bgColor : theme.COLOR.common.gray[900])};
+
   &:hover {
-    border: none;
-    background-color: ${({ hoverBgColor }) => hoverBgColor};
-    transition: background-color 0.3s ease;
+    box-shadow:
+      inset 0 2px 20px rgba(0, 0, 0, 0.2),
+      0 2px 20px rgba(0, 0, 0, 0.2);
   }
+  transition: box-shadow 0.3s ease;
+
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
