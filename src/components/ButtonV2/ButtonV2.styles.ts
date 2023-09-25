@@ -5,7 +5,7 @@ import type { StyleProps } from './ButtonV2.types'
 export const variantCSS = {
   default: css``,
   outlined: css`
-    border-width: 1px;
+    border-width: 0.2rem;
     border-style: solid;
   `,
 }
