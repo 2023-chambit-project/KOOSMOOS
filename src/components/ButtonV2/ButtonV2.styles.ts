@@ -50,7 +50,6 @@ export const ButtonV2 = styled.button<StyleProps>`
   height: 5rem;
   min-height: 40px;
   padding: 0.5rem 1rem;
-  margin: 0.5rem;
 
   ${({ variant = 'default' }) => variantCSS[variant]};
   ${({ size = 'default' }) => sizeCSS[size]};
