@@ -7,3 +7,14 @@ export interface PostGame2ResultReqBody {
 export interface PostGame2Response {
   resultImageSrc: string
 }
+
+export interface FlagProp {
+  id: number
+  writer: string
+  greeting: string
+  img_src: string
+}
+
+export interface FlagGame1Response {
+  flagList: FlagProp[]
+}
