@@ -2,17 +2,23 @@ import { FlexAlignCSS, FlexColumnCSS } from '@/styles'
 import { styled } from 'styled-components'
 
 export const Container = styled.div`
-  width: 23%;
-  height: 75%;
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
+    display: none;
+  }
   position: absolute;
-  top: 12%;
+  top: 15%;
   right: 0%;
-  background-color: rgba(0, 0, 0, 0.75);
+  width: 22%;
+  min-width: 240px;
+  height: 75%;
+  min-height: 360px;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 5px 0 0 5px;
-  padding: 2rem 1rem;
-  font-family: 'GwangyangSunshine-Light';
+  padding: 1rem;
   ${FlexColumnCSS}
   align-items: center;
+  justify-content: space-evenly;
+  font-family: 'GwangyangSunshine-Light';
   color: ${({ theme }) => theme.COLOR.common.white};
 `
 
@@ -37,8 +43,8 @@ export const Divider = styled.div`
 
 export const GreetingListContainer = styled.div`
   width: 100%;
-  min-height: 40%;
-  max-height: 55%;
+  height: 50%;
+  overflow-x: hidden;
   overflow-y: auto;
   ${FlexColumnCSS}
   align-items: center;
@@ -60,19 +66,17 @@ export const GreetingListContainer = styled.div`
 `
 export const GreetingItem = styled.div`
   width: 90%;
-  background: rgba(0, 0, 0, 0.15);
-
+  background-color: rgba(0, 0, 0, 2);
   ${FlexAlignCSS}
   justify-content: start;
-
-  margin: 0.3rem;
+  margin: 2px;
   border-radius: 5px;
   padding: 1rem;
   cursor: pointer;
 `
 
 export const UsersProfileImg = styled.img`
-  max-width: 3.5rem;
+  width: 3.5rem;
   border-radius: 100rem;
   aspect-ratio: 1/1;
 `
@@ -103,6 +107,10 @@ export const UsersGreetingText = styled.p`
 `
 
 export const TrivialInfoContainer = styled.div`
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.laptop}) {
+    display: none;
+  }
+
   width: 100%;
   ${FlexColumnCSS}
   align-items: start;

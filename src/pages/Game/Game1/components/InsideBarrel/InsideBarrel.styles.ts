@@ -2,16 +2,21 @@ import { FlexCenterCSS } from '@/styles'
 import { styled } from 'styled-components'
 
 export const Barrel = styled.div`
-  height: 85vh;
+  height: 88vh;
   width: 100%;
   ${FlexCenterCSS}
   background-color: ${({ theme }) => theme.PALETTE.blue[20]};
+  overflow: hidden;
 `
 
-export const Joint = styled.div<{ size: string; width: string }>`
+export const Joint = styled.div<{ size: string }>`
   width: ${({ size }) => size};
-  height: ${({ size }) => size};
-  border: ${({ width }) => width} solid ${({ theme }) => theme.COLOR.common.black};
+  aspect-ratio: 1/1;
+  border: 2px solid ${({ theme }) => theme.COLOR.common.black};
   border-radius: 100rem;
   ${FlexCenterCSS}
+  transform: translateX(-8%);
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
+    transform: none;
+  }
 `
