@@ -1,4 +1,4 @@
-import { FlexCenterCSS } from '@/styles'
+import { FlexAlignCSS, FlexCenterCSS } from '@/styles'
 import { styled } from 'styled-components'
 
 // Container -> LunaSurface
@@ -14,8 +14,8 @@ export const YellowBase = styled.div`
   width: 100%;
   height: 100%;
   overflow: hidden;
-  padding: 10%;
   background-color: rgb(253, 172, 03);
+  border-radius: 100rem;
 
   &:hover {
     button {
@@ -24,38 +24,27 @@ export const YellowBase = styled.div`
       z-index: 1;
       display: block;
       padding: 8px 6px;
-      border-radius: 10px;
     }
   }
 
   button {
     display: none;
   }
-
-  .leftButton {
-    left: 0;
-  }
-
-  .rightButton {
-    right: 0;
-  }
 `
 // Carousel -> GreetingList
 export const GreetingList = styled.ul`
-  display: flex;
-  flex-direction: row;
+  ${FlexAlignCSS}
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1/1;
   transition: all 0.5s ease-in-out;
-  overflow: hidden;
 `
 
 //GreetingItem
 export const GreetingItem = styled.li`
+  flex: none;
   ${FlexCenterCSS}
+  overflow: hidden;
   width: 100%;
   height: 100%;
-  padding: 10px 0 15px;
-  border-radius: 100rem;
-  position: relative;
+  padding: 5rem;
 `

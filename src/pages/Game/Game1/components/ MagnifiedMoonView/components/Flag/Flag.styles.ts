@@ -1,93 +1,79 @@
-import { FlexCenterCSS, FlexColumnCSS } from '@/styles'
-import { css, styled } from 'styled-components'
+import { FlexAlignCSS, FlexColumnCSS } from '@/styles'
+import { styled } from 'styled-components'
 
-export const Container = styled.div`
-  width: 70%;
-  height: 70%;
+export const FlagContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  color: white;
+  padding: 0 5%;
+  ${FlexAlignCSS}
 `
 
 export const FlagImageWrapper = styled.div`
+  position: relative;
   width: 100%;
-  height: 100%;
-  box-shadow: 2px 2px 6px;
-  margin-left: auto;
-  margin-right: auto;
-  ${FlexCenterCSS};
+  aspect-ratio: 1/1;
+  text-align: center;
+`
+
+export const BackLight = styled.div`
+  position: absolute;
+  top: 16%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
   background-color: ${({ theme }) => theme.COLOR.common.black};
 `
-
 export const FlagImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.5;
-`
-export const Fixture = styled.img<{ direction: string }>`
   position: absolute;
-  ${({ direction, theme }) =>
-    direction.includes('top')
-      ? css`
-          top: 5.5%;
-          @media screen and (max-width: ${theme.MEDIA.tablet}) {
-            top: 3%;
-          }
-        `
-      : css`
-          bottom: 0;
-          @media screen and (max-width: ${theme.MEDIA.tablet}) {
-            bottom: -5%;
-          }
-        `}
-  ${({ direction, theme }) =>
-    direction.includes('Left')
-      ? css`
-          left: 0;
-          @media screen and (max-width: ${theme.MEDIA.tablet}) {
-            left: -5%;
-          }
-        `
-      : css`
-          transform: scaleX(-1);
-          right: 0;
-          @media screen and (max-width: ${theme.MEDIA.tablet}) {
-            right: -5%;
-          }
-        `}
+  top: 16%;
+  left: 20%;
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+  opacity: 0.6;
 `
 
-export const TextWrapper = styled.div`
+export const Fixture = styled.img`
+  top: 0%;
+  left: 0%;
   position: absolute;
-  top: 17.5%;
-  left: 17.5%;
-  width: 65%;
-  height: 65%;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+`
+export const TextWrapper = styled.div`
+  top: 16%;
+  left: 20%;
+  position: absolute;
+  width: 60%;
+  height: 60%;
   color: ${({ theme }) => theme.COLOR.common.white};
   ${FlexColumnCSS}
-  ${FlexCenterCSS}
+  justify-content: center;
   gap: 2rem;
+  word-wrap: break-all;
+  white-space: nowrap;
+  overflow-wrap: break-word;
 `
 
 export const GreetingText = styled.h2`
   font-family: 'GwangyangSunshine-Bold';
-  text-align: center;
-  word-break: keep-all;
   font-style: italic;
   font-weight: 500;
-  text-shadow: 1px 1px 1px ${({ theme }) => theme.COLOR.common.black};
+  text-shadow: 1.5px 1.5px 1.5px ${({ theme }) => theme.COLOR.common.black};
 `
 
 export const UserNicknameText = styled.h3`
   font-family: 'GwangyangSunshine-Light';
   text-align: center;
-  word-break: keep-all;
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   text-shadow: 1px 1px 1px ${({ theme }) => theme.COLOR.common.black};
-
   &::before {
-    content: '-';
+    content: ' - ';
   }
   &::after {
-    content: '-';
+    content: ' - ';
   }
 `
