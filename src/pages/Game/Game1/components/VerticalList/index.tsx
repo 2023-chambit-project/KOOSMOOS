@@ -1,4 +1,4 @@
-import { Button } from '@/components'
+import { ButtonV2 } from '@/components/ButtonV2'
 import { Icon } from '@/components/Icon'
 import { faChevronRight, faExclamationCircle, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import * as S from './VerticalList.styles'
@@ -25,7 +25,9 @@ const VerticalList = () => {
         ))}
       </S.GreetingListContainer>
       <S.Divider />
-      <Button icon={faChevronRight}>참여하기</Button>
+      <ButtonV2 variant="outlined" bgColor="transparent" icon={faChevronRight}>
+        참여하기
+      </ButtonV2>
       <S.TrivialInfoContainer>
         <S.TrivialInfoInfoHeading>
           <Icon icon={faExclamationCircle} />

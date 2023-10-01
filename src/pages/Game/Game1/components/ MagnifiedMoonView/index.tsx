@@ -1,4 +1,4 @@
-import { Button } from '@/components'
+import { ButtonV2 } from '@/components/ButtonV2'
 import type { FlagGame1Response, FlagProp } from '@/types'
 import { faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { FC, useEffect, useRef, useState } from 'react'
@@ -22,18 +22,8 @@ const MagnifiedMoonView: FC<FlagGame1Response> = ({ flagList }) => {
   return (
     <S.LunaSurface>
       <S.YellowBase>
-        <Button
-          style={{ left: '2rem' }}
-          icon={faChevronCircleLeft}
-          size="fit"
-          onClick={() => switchToButton(-1)}
-        ></Button>
-        <Button
-          style={{ right: '2rem' }}
-          icon={faChevronCircleRight}
-          size="fit"
-          onClick={() => switchToButton(1)}
-        ></Button>
+        <ButtonV2 style={{ left: '2rem' }} icon={faChevronCircleLeft} size="fit" onClick={() => switchToButton(-1)} />
+        <ButtonV2 style={{ right: '2rem' }} icon={faChevronCircleRight} size="fit" onClick={() => switchToButton(1)} />
         <S.GreetingList ref={carouselRef}>
           {flagList.map((val: FlagProp) => {
             return (

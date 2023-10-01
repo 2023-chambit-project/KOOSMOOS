@@ -29,7 +29,6 @@ export const YellowBase = styled.div`
 
   button {
     display: none;
-    cursor: pointer;
   }
 `
 // Carousel -> GreetingList
