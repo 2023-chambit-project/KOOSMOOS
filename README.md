@@ -18,6 +18,8 @@
   - React
   - TypeScript
   - styled-components
+  - react-query
+  - msw
 - formatting and lint
   - prettier
   - eslint
