@@ -1,11 +1,11 @@
 import { ButtonV2 } from '@/components/ButtonV2'
 import { Icon } from '@/components/Icon'
+import { FlagGame1Response, FlagProp } from '@/types'
 import { faChevronRight, faExclamationCircle, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { FC } from 'react'
 import * as S from './VerticalList.styles'
-import ENFJ from '/public/assets/game/resultPaper/ENFP.png'
 
-const message = new Array(20).fill(0).map((_, idx) => [idx, idx + ' 번째 인삿말입니다.'])
-const VerticalList = () => {
+const VerticalList: FC<FlagGame1Response> = ({ flagList }) => {
   return (
     <S.Container>
       <S.HeadingText>
@@ -13,12 +13,12 @@ const VerticalList = () => {
       </S.HeadingText>
       <S.Divider />
       <S.GreetingListContainer>
-        {message.map((val) => (
+        {flagList.map((val: FlagProp) => (
           <S.GreetingItem>
-            <S.UsersProfileImg src={ENFJ} />
+            <S.UsersProfileImg src={val.img_src} />
             <S.UsersTextWrapper>
-              <S.UsersNicknameText>{val[0]}</S.UsersNicknameText>
-              <S.UsersGreetingText>{val[1]}</S.UsersGreetingText>
+              <S.UsersNicknameText>{val.writer}</S.UsersNicknameText>
+              <S.UsersGreetingText>{val.greeting}</S.UsersGreetingText>
             </S.UsersTextWrapper>
             <Icon icon={faMagnifyingGlass} />
           </S.GreetingItem>
