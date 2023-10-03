@@ -1,6 +1,7 @@
 import { FlagProp } from '@/types'
 import { FC } from 'react'
 import * as S from './Flag.styles'
+import Fixture from '/public/assets/game/fixture/Fixture.svg'
 
 const Flag: FC<FlagProp> = ({ greeting, img_src, writer }) => {
   return (
@@ -8,7 +9,7 @@ const Flag: FC<FlagProp> = ({ greeting, img_src, writer }) => {
       <S.FlagImageWrapper>
         <S.BackLight />
         <S.FlagImage src={img_src} />
-        <S.Fixture src="/public/assets/game/fixture/Fixture.svg" />
+        <S.Fixture src={Fixture} />
         <S.TextWrapper>
           <S.GreetingText>{greeting}</S.GreetingText>
           <S.UserNicknameText>{writer}</S.UserNicknameText>

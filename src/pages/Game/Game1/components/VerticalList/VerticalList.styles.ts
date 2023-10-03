@@ -2,7 +2,7 @@ import { FlexAlignCSS, FlexColumnCSS } from '@/styles'
 import { styled } from 'styled-components'
 
 export const Container = styled.div`
-  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
+  @media screen and (max-width: 1000px) {
     display: none;
   }
   position: absolute;

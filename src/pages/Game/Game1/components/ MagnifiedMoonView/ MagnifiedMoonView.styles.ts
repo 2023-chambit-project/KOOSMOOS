@@ -17,18 +17,15 @@ export const YellowBase = styled.div`
   background-color: rgb(253, 172, 03);
   border-radius: 100rem;
 
-  &:hover {
-    button {
-      position: absolute;
-      top: 45%;
-      z-index: 1;
-      display: block;
-      padding: 8px 6px;
-    }
-  }
-
   button {
-    display: none;
+    position: absolute;
+    top: 45%;
+    z-index: 1;
+    display: block;
+    padding: 8px 6px;
+    @media screen and (min-width: 1000px) {
+      display: none;
+    }
   }
 `
 // Carousel -> GreetingList

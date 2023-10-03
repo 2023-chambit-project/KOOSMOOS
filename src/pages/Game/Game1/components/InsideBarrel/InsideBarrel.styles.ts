@@ -9,14 +9,10 @@ export const Barrel = styled.div`
   overflow: hidden;
 `
 
-export const Joint = styled.div<{ size: string }>`
-  width: ${({ size }) => size};
+export const Joint = styled.div`
+  width: 100rem;
   aspect-ratio: 1/1;
-  border: 2px solid ${({ theme }) => theme.COLOR.common.black};
+  border: 4px solid ${({ theme }) => theme.COLOR.common.black};
   border-radius: 100rem;
   ${FlexCenterCSS}
-  transform: translateX(-8%);
-  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
-    transform: none;
-  }
 `

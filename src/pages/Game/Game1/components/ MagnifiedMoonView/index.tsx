@@ -20,21 +20,28 @@ const MagnifiedMoonView: FC<FlagGame1Response> = ({ flagList }) => {
     }
   }
   return (
-    <S.LunaSurface>
-      <S.YellowBase>
-        <ButtonV2 style={{ left: '2rem' }} icon={faChevronCircleLeft} size="fit" onClick={() => switchToButton(-1)} />
-        <ButtonV2 style={{ right: '2rem' }} icon={faChevronCircleRight} size="fit" onClick={() => switchToButton(1)} />
-        <S.GreetingList ref={carouselRef}>
-          {flagList.map((val: FlagProp) => {
-            return (
-              <S.GreetingItem>
-                <Flag {...val} />
-              </S.GreetingItem>
-            )
-          })}
-        </S.GreetingList>
-      </S.YellowBase>
-    </S.LunaSurface>
+    <>
+      <S.LunaSurface>
+        <S.YellowBase>
+          <ButtonV2 style={{ left: '2rem' }} icon={faChevronCircleLeft} size="fit" onClick={() => switchToButton(-1)} />
+          <ButtonV2
+            style={{ right: '2rem' }}
+            icon={faChevronCircleRight}
+            size="fit"
+            onClick={() => switchToButton(1)}
+          />
+          <S.GreetingList ref={carouselRef}>
+            {flagList.map((val: FlagProp) => {
+              return (
+                <S.GreetingItem>
+                  <Flag {...val} />
+                </S.GreetingItem>
+              )
+            })}
+          </S.GreetingList>
+        </S.YellowBase>
+      </S.LunaSurface>
+    </>
   )
 }
 
