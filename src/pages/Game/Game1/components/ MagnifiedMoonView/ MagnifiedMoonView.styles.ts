@@ -15,6 +15,7 @@ export const YellowBase = styled.div`
   height: 100%;
   overflow: hidden;
   background-color: rgb(253, 172, 03);
+  border: 8px solid ${({ theme }) => theme.COLOR.common.black};
   border-radius: 100rem;
 
   button {

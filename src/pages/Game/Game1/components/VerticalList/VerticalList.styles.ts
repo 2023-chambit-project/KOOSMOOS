@@ -1,5 +1,5 @@
 import { FlexAlignCSS, FlexColumnCSS } from '@/styles'
-import { styled } from 'styled-components'
+import { css, styled } from 'styled-components'
 
 export const Container = styled.div`
   @media screen and (max-width: 1000px) {
@@ -64,15 +64,25 @@ export const GreetingListContainer = styled.div`
     border-radius: 10px;
   }
 `
-export const GreetingItem = styled.div`
+export const GreetingItem = styled.div<{ selected: boolean }>`
   width: 90%;
-  background-color: rgba(0, 0, 0, 2);
   ${FlexAlignCSS}
-  justify-content: start;
+  justify-content: end;
   margin: 2px;
   border-radius: 5px;
   padding: 1rem;
   cursor: pointer;
+  transition: transform 0.1s ease-out;
+
+  ${({ selected }) =>
+    selected
+      ? css`
+          background-color: ${({ theme }) => theme.PALETTE.orange[100]};
+          transform: translateX(-10px);
+        `
+      : css`
+          background-color: ${({ theme }) => theme.COLOR.common.black};
+        `}
 `
 
 export const UsersProfileImg = styled.img`
@@ -94,7 +104,7 @@ export const UsersNicknameText = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  color: ${({ theme }) => theme.COLOR.common.gray[600]};
+  color: ${({ theme }) => theme.COLOR.common.gray[700]};
   font-size: 1.5rem;
 `
 
