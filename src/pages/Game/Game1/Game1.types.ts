@@ -1,1 +1,11 @@
-export type ObservationProps = 'moon' | 'flags'
+import type { FlagProp, MoonProp } from '@/types'
+
+export type ViewTypeProp = 'general' | 'magnification'
+
+export interface FlagListProp {
+  flagList: FlagProp[]
+}
+
+export interface MoonShapeProp {
+  moonShape: MoonProp
+}

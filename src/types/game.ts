@@ -15,6 +15,17 @@ export interface FlagProp {
   img_src: string
 }
 
+export type MoonProp =
+  | 'newMoon'
+  | 'waxingCrescent'
+  | 'firstQuarter'
+  | 'waxingGibbous'
+  | 'fullMoon'
+  | 'waningGibbous'
+  | 'thirdQuarter'
+  | 'waningCrescent'
+
 export interface FlagGame1Response {
+  moonShape: MoonProp
   flagList: FlagProp[]
 }

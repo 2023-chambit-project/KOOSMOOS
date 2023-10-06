@@ -1,13 +1,14 @@
 import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
 import { ButtonV2 } from '@/components/ButtonV2'
 import { Icon } from '@/components/Icon'
-import { FlagGame1Response, FlagProp } from '@/types'
+import type { FlagProp } from '@/types'
 import { faChevronRight, faExclamationCircle, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FC } from 'react'
 import { useRecoilState } from 'recoil'
+import type { FlagListProp } from '../../Game1.types'
 import * as S from './VerticalList.styles'
 
-const VerticalList: FC<FlagGame1Response> = ({ flagList }) => {
+const VerticalList: FC<FlagListProp> = ({ flagList }) => {
   const [curFlagIndex, setCurFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
   return (
     <S.Container>

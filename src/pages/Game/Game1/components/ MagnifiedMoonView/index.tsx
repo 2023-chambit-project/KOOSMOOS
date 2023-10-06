@@ -1,13 +1,14 @@
 import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
 import { ButtonV2 } from '@/components/ButtonV2'
-import type { FlagGame1Response, FlagProp } from '@/types'
+import type { FlagProp } from '@/types'
 import { faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { FC, useEffect, useRef } from 'react'
 import { useRecoilState } from 'recoil'
+import type { FlagListProp } from '../../Game1.types'
 import * as S from './ MagnifiedMoonView.styles'
 import Flag from './components/Flag'
 
-const MagnifiedMoonView: FC<FlagGame1Response> = ({ flagList }) => {
+const MagnifiedMoonView: FC<FlagListProp> = ({ flagList }) => {
   const [curFlagIndex, setCurFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
   const carouselRef = useRef<HTMLUListElement>(null)
   useEffect(() => {
