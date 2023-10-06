@@ -8,7 +8,7 @@ import { useRecoilState } from 'recoil'
 import type { FlagListProp } from '../../Game1.types'
 import * as S from './VerticalList.styles'
 
-const VerticalList: FC<FlagListProp> = ({ flagList }) => {
+export const VerticalList: FC<FlagListProp> = ({ flagList }) => {
   const [curFlagIndex, setCurFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
   return (
     <S.Container>
@@ -51,5 +51,3 @@ const VerticalList: FC<FlagListProp> = ({ flagList }) => {
     </S.Container>
   )
 }
-
-export default VerticalList

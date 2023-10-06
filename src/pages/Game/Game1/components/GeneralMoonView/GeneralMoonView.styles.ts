@@ -2,6 +2,87 @@ import { FlexCenterCSS } from '@/styles'
 import { css, styled } from 'styled-components'
 import type { MoonShapeProp } from '../../Game1.types'
 
+const MoonStyleCSS = {
+  newMoon: {
+    HaloCSS: css`
+      box-shadow:
+        1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]},
+        -1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
+    `,
+    ShadowCSS: css`
+      background-color: rgba(0, 0, 0, 0.6);
+    `,
+  },
+  waxingCrescent: {
+    HaloCSS: css`
+      box-shadow:
+        0.5rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]},
+        -1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
+    `,
+    ShadowCSS: css`
+      background: radial-gradient(circle at 0% 50%, rgba(0, 0, 0, 0.6) 65%, rgba(0, 0, 0, 0) 80%);
+    `,
+  },
+  firstQuarter: {
+    HaloCSS: css`
+      box-shadow:
+        1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]},
+        -1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
+    `,
+    ShadowCSS: css`
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 49%, rgba(0, 0, 0, 0) 51%);
+    `,
+  },
+  waxingGibbous: {
+    HaloCSS: css`
+      box-shadow:
+        1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]},
+        -0.5rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
+    `,
+    ShadowCSS: css`
+      background: radial-gradient(circle at -120% 50%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0) 75%);
+    `,
+  },
+  fullMoon: {
+    HaloCSS: css`
+      box-shadow:
+        1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]},
+        -1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]};
+    `,
+    ShadowCSS: css``,
+  },
+  waningGibbous: {
+    HaloCSS: css`
+      box-shadow:
+        0.5rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]},
+        -1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]};
+    `,
+    ShadowCSS: css`
+      background: radial-gradient(circle at 0% 50%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.6) 85%);
+    `,
+  },
+  thirdQuarter: {
+    HaloCSS: css`
+      box-shadow:
+        1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]},
+        -1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]};
+    `,
+    ShadowCSS: css`
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0) 49%, rgba(0, 0, 0, 0.6) 51%);
+    `,
+  },
+  waningCrescent: {
+    HaloCSS: css`
+      box-shadow:
+        1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]},
+        -0.5rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]};
+    `,
+    ShadowCSS: css`
+      background: radial-gradient(circle at 120% 50%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0) 90%);
+    `,
+  },
+}
+
 export const NightSky = styled.div`
   position: relative;
   height: 88vh;
@@ -38,84 +119,3 @@ export const MoonHalo = styled.div<MoonShapeProp>`
   border-radius: 100rem;
   ${({ moonShape }) => MoonStyleCSS[moonShape].HaloCSS}
 `
-
-export const MoonStyleCSS = {
-  newMoon: {
-    HaloCSS: css`
-      box-shadow:
-        1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]},
-        -1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
-    `,
-    ShadowCSS: css`
-      background-color: rgba(0, 0, 0, 0.5);
-    `,
-  },
-  waxingCrescent: {
-    HaloCSS: css`
-      box-shadow:
-        0.5rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]},
-        -1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
-    `,
-    ShadowCSS: css`
-      background: radial-gradient(circle at 0% 50%, rgba(0, 0, 0, 0.8) 65%, rgba(0, 0, 0, 0) 80%);
-    `,
-  },
-  firstQuarter: {
-    HaloCSS: css`
-      box-shadow:
-        1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]},
-        -1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
-    `,
-    ShadowCSS: css`
-      background: radial-gradient(circle at -120% 50%, rgba(0, 0, 0, 0.8) 75%, rgba(0, 0, 0, 0) 90%);
-    `,
-  },
-  waxingGibbous: {
-    HaloCSS: css`
-      box-shadow:
-        1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]},
-        -0.5rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
-    `,
-    ShadowCSS: css`
-      background: radial-gradient(circle at -120% 50%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0) 75%);
-    `,
-  },
-  fullMoon: {
-    HaloCSS: css`
-      box-shadow:
-        1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]},
-        -1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]};
-    `,
-    ShadowCSS: css``,
-  },
-  waningGibbous: {
-    HaloCSS: css`
-      box-shadow:
-        0.5rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]},
-        -1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]};
-    `,
-    ShadowCSS: css`
-      background: radial-gradient(circle at 0% 50%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 85%);
-    `,
-  },
-  thirdQuarter: {
-    HaloCSS: css`
-      box-shadow:
-        1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]},
-        -1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]};
-    `,
-    ShadowCSS: css`
-      background: radial-gradient(circle at 120% 50%, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0) 75%);
-    `,
-  },
-  waningCrescent: {
-    HaloCSS: css`
-      box-shadow:
-        1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]},
-        -0.5rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]};
-    `,
-    ShadowCSS: css`
-      background: radial-gradient(circle at 120% 50%, rgba(0, 0, 0, 0.8) 70%, rgba(0, 0, 0, 0) 90%);
-    `,
-  },
-}

@@ -8,7 +8,7 @@ import type { FlagListProp } from '../../Game1.types'
 import * as S from './ MagnifiedMoonView.styles'
 import Flag from './components/Flag'
 
-const MagnifiedMoonView: FC<FlagListProp> = ({ flagList }) => {
+export const MagnifiedMoonView: FC<FlagListProp> = ({ flagList }) => {
   const [curFlagIndex, setCurFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
   const carouselRef = useRef<HTMLUListElement>(null)
   useEffect(() => {
@@ -23,38 +23,34 @@ const MagnifiedMoonView: FC<FlagListProp> = ({ flagList }) => {
     }
   }
   return (
-    <>
-      <S.Barrel>
-        <S.Joint>
-          <S.LunaSurface>
-            <S.YellowBase>
-              <ButtonV2
-                style={{ left: '2rem' }}
-                icon={faChevronCircleLeft}
-                size="fit"
-                onClick={() => switchToButton(-1)}
-              />
-              <ButtonV2
-                style={{ right: '2rem' }}
-                icon={faChevronCircleRight}
-                size="fit"
-                onClick={() => switchToButton(1)}
-              />
-              <S.GreetingList ref={carouselRef}>
-                {flagList.map((val: FlagProp) => {
-                  return (
-                    <S.GreetingItem>
-                      <Flag {...val} />
-                    </S.GreetingItem>
-                  )
-                })}
-              </S.GreetingList>
-            </S.YellowBase>
-          </S.LunaSurface>
-        </S.Joint>
-      </S.Barrel>
-    </>
+    <S.Barrel>
+      <S.Joint>
+        <S.LunaSurface>
+          <S.YellowBase>
+            <ButtonV2
+              style={{ left: '2rem' }}
+              icon={faChevronCircleLeft}
+              size="fit"
+              onClick={() => switchToButton(-1)}
+            />
+            <ButtonV2
+              style={{ right: '2rem' }}
+              icon={faChevronCircleRight}
+              size="fit"
+              onClick={() => switchToButton(1)}
+            />
+            <S.GreetingList ref={carouselRef}>
+              {flagList.map((val: FlagProp) => {
+                return (
+                  <S.GreetingItem>
+                    <Flag {...val} />
+                  </S.GreetingItem>
+                )
+              })}
+            </S.GreetingList>
+          </S.YellowBase>
+        </S.LunaSurface>
+      </S.Joint>
+    </S.Barrel>
   )
 }
-
-export default MagnifiedMoonView
