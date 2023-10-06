@@ -13,6 +13,8 @@ export interface FlagProp {
   writer: string
   greeting: string
   img_src: string
+  posX: number
+  posY: number
 }
 
 export type MoonProp =
