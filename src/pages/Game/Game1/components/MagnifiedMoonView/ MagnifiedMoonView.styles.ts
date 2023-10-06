@@ -1,14 +1,28 @@
 import { FlexAlignCSS, FlexCenterCSS } from '@/styles'
 import { styled } from 'styled-components'
 
-// Container -> LunaSurface
+export const Barrel = styled.div`
+  height: 88vh;
+  width: 100%;
+  ${FlexCenterCSS}
+  background-color: ${({ theme }) => theme.PALETTE.blue[20]};
+  overflow: hidden;
+`
+
+export const Joint = styled.div`
+  width: 100rem;
+  aspect-ratio: 1/1;
+  border: 4px solid ${({ theme }) => theme.COLOR.common.black};
+  border-radius: 100rem;
+  ${FlexCenterCSS}
+`
+
 export const LunaSurface = styled.div`
   ${FlexCenterCSS}
   width: 50rem;
   height: 50rem;
 `
 
-// CarouselWrapper -> YellowBase
 export const YellowBase = styled.div`
   position: relative;
   width: 100%;
@@ -29,7 +43,7 @@ export const YellowBase = styled.div`
     }
   }
 `
-// Carousel -> GreetingList
+
 export const GreetingList = styled.ul`
   ${FlexAlignCSS}
   width: 100%;
@@ -37,7 +51,6 @@ export const GreetingList = styled.ul`
   transition: all 0.5s ease-in-out;
 `
 
-//GreetingItem
 export const GreetingItem = styled.li`
   flex: none;
   ${FlexCenterCSS}
