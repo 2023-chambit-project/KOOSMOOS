@@ -1,41 +1,20 @@
-import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
 import { ButtonV2 } from '@/components/ButtonV2'
 import { Icon } from '@/components/Icon'
-import type { FlagProp } from '@/types'
-import { faChevronRight, faExclamationCircle, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faChevronRight, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
 import { FC } from 'react'
-import { useRecoilState } from 'recoil'
 import type { FlagListProp } from '../../Game1.types'
 import * as S from './SidePanel.styles'
+import { VerticalList } from './components'
 
 export const SidePanel: FC<FlagListProp> = ({ flagList }) => {
-  const [curFlagIndex, setCurFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
   return (
     <S.Container>
       <S.HeadingText>
         # 오늘 밤은 <S.PointText>보름달</S.PointText> 입니다!
       </S.HeadingText>
 
-      <S.Divider />
-      <S.GreetingListContainer>
-        {flagList.map((val: FlagProp, idx) => (
-          <S.GreetingItem
-            key={idx}
-            selected={idx == curFlagIndex}
-            onClick={() => {
-              setCurFlagIndex(idx)
-            }}
-          >
-            <S.UsersProfileImg src={val.img_src} />
-            <S.UsersTextWrapper>
-              <S.UsersNicknameText>{val.writer}</S.UsersNicknameText>
-              <S.UsersGreetingText>{val.greeting}</S.UsersGreetingText>
-            </S.UsersTextWrapper>
-            <Icon icon={faMagnifyingGlass} />
-          </S.GreetingItem>
-        ))}
-      </S.GreetingListContainer>
-      <S.Divider />
+      <VerticalList flagList={flagList} />
+
       <ButtonV2 variant="outlined" bgColor="transparent" icon={faChevronRight}>
         참여하기
       </ButtonV2>
