@@ -6,15 +6,16 @@ import { faChevronRight, faExclamationCircle, faMagnifyingGlass } from '@fortawe
 import { FC } from 'react'
 import { useRecoilState } from 'recoil'
 import type { FlagListProp } from '../../Game1.types'
-import * as S from './VerticalList.styles'
+import * as S from './SidePanel.styles'
 
-export const VerticalList: FC<FlagListProp> = ({ flagList }) => {
+export const SidePanel: FC<FlagListProp> = ({ flagList }) => {
   const [curFlagIndex, setCurFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
   return (
     <S.Container>
       <S.HeadingText>
         # 오늘 밤은 <S.PointText>보름달</S.PointText> 입니다!
       </S.HeadingText>
+
       <S.Divider />
       <S.GreetingListContainer>
         {flagList.map((val: FlagProp, idx) => (
@@ -38,6 +39,7 @@ export const VerticalList: FC<FlagListProp> = ({ flagList }) => {
       <ButtonV2 variant="outlined" bgColor="transparent" icon={faChevronRight}>
         참여하기
       </ButtonV2>
+
       <S.TrivialInfoContainer>
         <S.TrivialInfoInfoHeading>
           <Icon icon={faExclamationCircle} />
