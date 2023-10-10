@@ -12,7 +12,7 @@ export const Container = styled.div`
   min-width: 240px;
   height: 75%;
   min-height: 360px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.9);
   border-radius: 5px 0 0 5px;
   padding: 1rem;
   ${FlexColumnCSS}

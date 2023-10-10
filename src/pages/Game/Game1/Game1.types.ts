@@ -14,3 +14,5 @@ export interface PosXYProp {
   posX: number
   posY: number
 }
+
+
