@@ -1,18 +1,25 @@
+import { coordinateLocation } from '@/atoms/coordinateLocation.atom'
+import type { LocationProp } from '@/pages/Game/Game1/Game1.types'
 import { theme } from '@/styles'
-import type { PostGame1FlagReqBody } from '@/types'
-import { ChangeEvent, useState } from 'react'
+import { ChangeEvent, useEffect, useState } from 'react'
+import { useRecoilState } from 'recoil'
 import * as S from './FlagAddingForm.styles'
 
 export const FlagAddingForm = () => {
-  const [flagInfo, setFlagInfo] = useState<PostGame1FlagReqBody>({ writer: '', greeting: '', posX: 0, posY: 0 })
+  const [writer, setWriter] = useState<string>('')
+  const [greeting, setGreeting] = useState<string>('')
+  const [coordinate, setCoordinate] = useRecoilState<LocationProp>(coordinateLocation)
+
+  // 첫 랜더링 시, recoil 상태 초기화
+  useEffect(() => {
+    setCoordinate({ posX: 0, posY: 0 })
+  }, [])
+
   // 작성자 닉네임은 8자 이내의 문자열이어야 한다.
   const handleNicknameText = (event: ChangeEvent<HTMLInputElement>) => {
     const nickname: string = event.target.value
     if (nickname.length <= 8) {
-      setFlagInfo((prev) => ({
-        ...prev,
-        ['writer']: nickname,
-      }))
+      setWriter(nickname)
     }
   }
   // 좌표 는 [-90.0 ~ 90.0] 사이의 실수값을 가져야한다.
@@ -20,7 +27,7 @@ export const FlagAddingForm = () => {
     let coordinate: string = event.target.value
     // inputField 가 완전히 비었다면, 0 으로 초기화
     if (!coordinate.length) {
-      setFlagInfo((prev) => ({
+      setCoordinate((prev) => ({
         ...prev,
         [axis]: 0,
       }))
@@ -32,63 +39,55 @@ export const FlagAddingForm = () => {
     }
     const parsedCoordinate = parseFloat(coordinate)
     if (!isNaN(parsedCoordinate) && -90.0 <= parsedCoordinate && parsedCoordinate <= 90.0) {
-      setFlagInfo((prev) => ({
+      setCoordinate((prev) => ({
         ...prev,
         [axis]: coordinate,
       }))
     }
   }
-  // 인사말은 20자 이내의 문자열이어야 한다.
+  // 인사말은 30자 이내의 문자열이어야 한다.
   const handleGreetingText = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const greetingText: string = event.target.value
-    if (greetingText.length <= 20) {
-      setFlagInfo((prev) => ({
-        ...prev,
-        ['greeting']: greetingText,
-      }))
+    if (greetingText.length <= 30) {
+      setGreeting(greetingText)
     }
   }
 
-  const handleDirectionToggle = (axis: string) => {
+  const ChangeDirectionToggle = (axis: string) => {
     let parsedCoordinate = 0.0
     if (axis === 'posX') {
-      parsedCoordinate = -flagInfo.posX
+      parsedCoordinate = -coordinate.posX
     } else {
-      parsedCoordinate = -flagInfo.posY
+      parsedCoordinate = -coordinate.posY
     }
-    setFlagInfo((prev) => ({
+    setCoordinate((prev) => ({
       ...prev,
-      [axis]: '' + parsedCoordinate,
+      [axis]: parsedCoordinate,
     }))
   }
   return (
     <S.Container>
       <S.SimpleInputWrapper>
         <S.InputLabel>이름</S.InputLabel>
-        <S.SimpleInputField
-          type="text"
-          placeholder="8자 이내"
-          value={flagInfo.writer}
-          onChange={(e) => handleNicknameText(e)}
-        />
+        <S.SimpleInputField type="text" placeholder="8자 이내" value={writer} onChange={(e) => handleNicknameText(e)} />
       </S.SimpleInputWrapper>
 
       <S.SimpleInputWrapper>
         <S.InputLabel>달의 위도</S.InputLabel>
         <S.DirectionToggle
-          bgColor={flagInfo.posY < 0 ? theme.COLOR.error : theme.PALETTE.blue[100]}
+          bgColor={coordinate.posY < 0 ? theme.COLOR.error : theme.PALETTE.blue[100]}
           onClick={() => {
-            handleDirectionToggle('posY')
+            ChangeDirectionToggle('posY')
           }}
         >
-          {flagInfo.posY < 0 ? 'S' : 'N'}
+          {coordinate.posY < 0 ? 'S' : 'N'}
         </S.DirectionToggle>
         <S.SimpleInputField
           type="number"
-          step={0.1}
+          step={0.5}
           min={-90}
           max={90}
-          value={flagInfo.posY}
+          value={coordinate.posY}
           onChange={(e) => handleCoordinate(e, 'posY')}
         />
       </S.SimpleInputWrapper>
@@ -96,26 +95,26 @@ export const FlagAddingForm = () => {
       <S.SimpleInputWrapper>
         <S.InputLabel>달의 경도</S.InputLabel>
         <S.DirectionToggle
-          bgColor={flagInfo.posX < 0 ? theme.PALETTE.yellow[100] : theme.PALETTE.purple[70]}
+          bgColor={coordinate.posX < 0 ? theme.PALETTE.yellow[100] : theme.PALETTE.purple[70]}
           onClick={() => {
-            handleDirectionToggle('posX')
+            ChangeDirectionToggle('posX')
           }}
         >
-          {flagInfo.posX < 0 ? 'W' : 'E'}
+          {coordinate.posX < 0 ? 'W' : 'E'}
         </S.DirectionToggle>
         <S.SimpleInputField
           type="number"
-          step={0.1}
+          step={0.5}
           min={-90}
           max={90}
-          value={flagInfo.posX}
+          value={coordinate.posX}
           onChange={(e) => handleCoordinate(e, 'posX')}
         />
       </S.SimpleInputWrapper>
 
       <S.GreetingInputWrapper>
         <S.InputLabel>인삿말</S.InputLabel>
-        <S.GreetingTextarea placeholder="20자 이내" value={flagInfo.greeting} onChange={handleGreetingText} />
+        <S.GreetingTextarea placeholder="30자 이내" value={greeting} onChange={handleGreetingText} />
       </S.GreetingInputWrapper>
     </S.Container>
   )
