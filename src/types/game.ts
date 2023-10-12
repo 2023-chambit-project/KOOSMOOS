@@ -31,3 +31,10 @@ export interface FlagGame1Response {
   moonShape: MoonProp
   flagList: FlagProp[]
 }
+
+export interface PostGame1FlagReqBody {
+  writer: string
+  greeting: string
+  posX: number
+  posY: number
+}

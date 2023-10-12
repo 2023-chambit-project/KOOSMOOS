@@ -10,9 +10,7 @@ export interface MoonShapeProp {
   moonShape: MoonProp
 }
 
-export interface PosXYProp {
+export interface LocationProp {
   posX: number
   posY: number
 }
-
-

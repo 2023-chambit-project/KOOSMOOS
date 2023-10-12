@@ -1,6 +1,6 @@
 import { FlexCenterCSS } from '@/styles'
-import { css, keyframes, styled } from 'styled-components'
-import type { MoonShapeProp, PosXYProp } from '../../Game1.types'
+import { css, styled } from 'styled-components'
+import type { MoonShapeProp } from '../../Game1.types'
 
 const MoonStyleCSS = {
   newMoon: {
@@ -118,36 +118,4 @@ export const MoonHalo = styled.div<MoonShapeProp>`
   aspect-ratio: 1/1;
   border-radius: 100rem;
   ${({ moonShape }) => MoonStyleCSS[moonShape].HaloCSS}
-`
-
-const pointer = keyframes`
-  0% {
-    transform: translate(-50%, -200%);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(-50%, -120%);
-    opacity: 1;
-  }
-`
-
-export const Point = styled.div<PosXYProp>`
-  position: absolute;
-  top: ${({ posY }) => ((-posY + 90) / 180) * 100}%;
-  left: ${({ posX }) => ((posX + 90) / 180) * 100}%;
-  width: 10%;
-  aspect-ratio: 1/1;
-  border-radius: 100rem;
-  background-color: ${({ theme }) => theme.PALETTE.orange[100]};
-  border: 0.2rem solid ${({ theme }) => theme.COLOR.common.white};
-  ${FlexCenterCSS}
-  color: white;
-  &::before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    border: 0.6rem solid transparent;
-    border-top: 1rem solid ${({ theme }) => theme.COLOR.common.white};
-  }
-  animation: ${pointer} 0.2s ease-in forwards;
 `
