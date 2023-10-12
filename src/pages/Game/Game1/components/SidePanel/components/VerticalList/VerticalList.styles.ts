@@ -1,16 +1,9 @@
 import { FlexAlignCSS, FlexColumnCSS } from '@/styles'
 import { css, styled } from 'styled-components'
 
-export const Divider = styled.div`
-  background-color: ${({ theme }) => theme.COLOR.common.white};
-  width: 70%;
-  height: 1px;
-  margin: 1rem;
-`
-
-export const GreetingListContainer = styled.div`
+export const Container = styled.div`
   width: 100%;
-  height: 50%;
+  height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
   ${FlexColumnCSS}

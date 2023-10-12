@@ -14,33 +14,29 @@ export const VerticalList: FC<FlagListProp> = ({ flagList }) => {
   /* 최초 랜더링 시, flagList 의 첫번째 요소 가리키도록 curFlagIndex를 0으로 초기화 */
   useEffect(() => {
     setCurFlagIndex(0)
-  }, [])
+  }, [setCurFlagIndex])
   /* curFlagIndex 상태 변화 시, flagList 의 해당 요소 좌표를 Pointer 가 가리키도록 {posX,posY} 값을 현재 요소의 그것으로 할당 */
   useEffect(() => {
     setCoordinate({ posX: flagList[curFlagIndex].posX, posY: flagList[curFlagIndex].posY })
-  }, [curFlagIndex])
+  }, [curFlagIndex, flagList, setCoordinate])
   return (
-    <>
-      <S.Divider />
-      <S.GreetingListContainer>
-        {flagList.map((val: FlagProp, idx) => (
-          <S.GreetingItem
-            key={idx}
-            selected={idx == curFlagIndex}
-            onClick={() => {
-              setCurFlagIndex(idx)
-            }}
-          >
-            <S.UsersProfileImg src={val.img_src} />
-            <S.UsersTextWrapper>
-              <S.UsersNicknameText>{val.writer}</S.UsersNicknameText>
-              <S.UsersGreetingText>{val.greeting}</S.UsersGreetingText>
-            </S.UsersTextWrapper>
-            <Icon icon={faMagnifyingGlass} />
-          </S.GreetingItem>
-        ))}
-      </S.GreetingListContainer>
-      <S.Divider />
-    </>
+    <S.Container>
+      {flagList.map((val: FlagProp, idx) => (
+        <S.GreetingItem
+          key={idx}
+          selected={idx == curFlagIndex}
+          onClick={() => {
+            setCurFlagIndex(idx)
+          }}
+        >
+          <S.UsersProfileImg src={val.img_src} />
+          <S.UsersTextWrapper>
+            <S.UsersNicknameText>{val.writer}</S.UsersNicknameText>
+            <S.UsersGreetingText>{val.greeting}</S.UsersGreetingText>
+          </S.UsersTextWrapper>
+          <Icon icon={faMagnifyingGlass} />
+        </S.GreetingItem>
+      ))}
+    </S.Container>
   )
 }

@@ -1,4 +1,5 @@
 import { coordinateLocation } from '@/atoms/coordinateLocation.atom'
+import { ButtonV2 } from '@/components/ButtonV2'
 import type { LocationProp } from '@/pages/Game/Game1/Game1.types'
 import { theme } from '@/styles'
 import { ChangeEvent, useEffect, useState } from 'react'
@@ -13,7 +14,7 @@ export const FlagAddingForm = () => {
   // 첫 랜더링 시, recoil 상태 초기화
   useEffect(() => {
     setCoordinate({ posX: 0, posY: 0 })
-  }, [])
+  }, [setCoordinate])
 
   // 작성자 닉네임은 8자 이내의 문자열이어야 한다.
   const handleNicknameText = (event: ChangeEvent<HTMLInputElement>) => {
@@ -116,6 +117,10 @@ export const FlagAddingForm = () => {
         <S.InputLabel>인삿말</S.InputLabel>
         <S.GreetingTextarea placeholder="30자 이내" value={greeting} onChange={handleGreetingText} />
       </S.GreetingInputWrapper>
+
+      <ButtonV2 size="full" bgColor={theme.PALETTE.orange[100]} round="very">
+        달로 전송하기.. 🚀
+      </ButtonV2>
     </S.Container>
   )
 }

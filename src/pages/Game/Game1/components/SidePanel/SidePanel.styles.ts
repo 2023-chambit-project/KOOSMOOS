@@ -1,5 +1,5 @@
 import { FlexColumnCSS } from '@/styles'
-import { styled } from 'styled-components'
+import { keyframes, styled } from 'styled-components'
 
 export const Container = styled.div`
   @media screen and (max-width: 1000px) {
@@ -57,4 +57,26 @@ export const TrivialInfoInfoHeading = styled.div`
 export const TrivialInfoInfoBody = styled.p`
   font-size: 1.1rem;
   word-break: keep-all;
+`
+
+export const Divider = styled.div`
+  background-color: ${({ theme }) => theme.COLOR.common.white};
+  width: 70%;
+  height: 1px;
+  margin: 1rem;
+`
+
+const fadeInAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
+export const PanelContentWrapper = styled.div`
+  width: 100%;
+  height: 55%;
+  animation: ${fadeInAnimation} 0.5s ease;
 `

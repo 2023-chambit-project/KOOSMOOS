@@ -4,10 +4,10 @@ import { styled } from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 65%;
+  height: 100%;
   padding: 1rem;
   ${FlexColumnCSS}
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: start;
 `
 export const InputLabel = styled.label`
@@ -24,7 +24,6 @@ export const SimpleInputWrapper = styled.div`
   ${FlexAlignCSS}
   justify-content: space-between;
   color: ${({ theme }) => theme.COLOR.common.white};
-  /* background-color: ${({ theme }) => theme.COLOR.common.gray[900]}; */
   padding: 0.5rem;
   border-radius: 1rem;
 `
@@ -44,25 +43,24 @@ export const SimpleInputField = styled.input`
 `
 export const GreetingInputWrapper = styled.div`
   width: 100%;
-  height: 40%;
+  height: 50%;
   ${FlexColumnCSS}
-  justify-content: space-between;
+  justify-content: space-evenly;
   color: ${({ theme }) => theme.COLOR.common.white};
-  /* background-color: ${({ theme }) => theme.COLOR.common.gray[900]}; */
   padding: 0.5rem;
   border-radius: 1rem;
-  gap: 1rem;
 `
 export const GreetingTextarea = styled.textarea`
   resize: none;
   border-radius: 2rem;
   background-color: ${({ theme }) => theme.COLOR.common.black};
   width: 100%;
-  height: 80%;
+  height: 70%;
   font-size: ${({ theme }) => theme.FONT_SIZE.tiny};
   color: ${({ theme }) => theme.COLOR.common.white};
   text-align: start;
   padding: 10px;
+  overflow-y: hidden;
   &::placeholder {
     font-size: ${({ theme }) => theme.FONT_SIZE.tiny};
     text-align: center;

@@ -1,24 +1,37 @@
 import { ButtonV2 } from '@/components/ButtonV2'
 import { Icon } from '@/components/Icon'
-import { faChevronRight, faExclamationCircle } from '@fortawesome/free-solid-svg-icons'
-import { FC } from 'react'
-import type { FlagListProp } from '../../Game1.types'
+import { faCloudMoon, faExclamationCircle, faPenAlt } from '@fortawesome/free-solid-svg-icons'
+import { FC, useState } from 'react'
+import type { FlagListProp, PanelModeProp } from '../../Game1.types'
 import * as S from './SidePanel.styles'
-import { VerticalList } from './components'
+import { FlagAddingForm, VerticalList } from './components'
 
 export const SidePanel: FC<FlagListProp> = ({ flagList }) => {
+  const [panelMode, setPanelMode] = useState<PanelModeProp>('observation')
+
   return (
     <S.Container>
       <S.HeadingText>
         # 오늘 밤은 <S.PointText>보름달</S.PointText> 입니다!
       </S.HeadingText>
 
-      <VerticalList flagList={flagList} />
-
-      <ButtonV2 variant="outlined" bgColor="transparent" icon={faChevronRight}>
-        참여하기
+      <ButtonV2
+        // variant="outlined"
+        round="slightly"
+        bgColor="transparent"
+        // style={{ backgroundColor: 'none' }}
+        icon={panelMode === 'observation' ? faPenAlt : faCloudMoon}
+        onClick={() => {
+          setPanelMode(panelMode === 'observation' ? 'decoration' : 'observation')
+        }}
+      >
+        {panelMode === 'observation' ? '깃발 만들기' : '인사글 보러가기'}
       </ButtonV2>
-
+      <S.Divider />
+      <S.PanelContentWrapper key={panelMode}>
+        {panelMode === 'observation' ? <VerticalList flagList={flagList} /> : <FlagAddingForm />}
+      </S.PanelContentWrapper>
+      <S.Divider />
       <S.TrivialInfoContainer>
         <S.TrivialInfoInfoHeading>
           <Icon icon={faExclamationCircle} />
