@@ -23,6 +23,7 @@ export const Pointer = styled.div<LocationProp>`
   border: 0.3rem solid ${({ theme }) => theme.COLOR.common.white};
   ${FlexCenterCSS}
   color: white;
+  font-size: ${({ theme }) => theme.FONT_SIZE.large};
   &::before {
     content: '';
     position: absolute;
