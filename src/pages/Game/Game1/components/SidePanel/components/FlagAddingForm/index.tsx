@@ -1,6 +1,6 @@
 import { coordinateLocation } from '@/atoms/coordinateLocation.atom'
 import { ButtonV2 } from '@/components/ButtonV2'
-import type { LocationProp } from '@/pages/Game/Game1/Game1.types'
+import type { PointerProp } from '@/pages/Game/Game1/Game1.types'
 import { theme } from '@/styles'
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
@@ -9,11 +9,11 @@ import * as S from './FlagAddingForm.styles'
 export const FlagAddingForm = () => {
   const [writer, setWriter] = useState<string>('')
   const [greeting, setGreeting] = useState<string>('')
-  const [coordinate, setCoordinate] = useRecoilState<LocationProp>(coordinateLocation)
+  const [coordinate, setCoordinate] = useRecoilState<PointerProp>(coordinateLocation)
 
   // 첫 랜더링 시, recoil 상태 초기화
   useEffect(() => {
-    setCoordinate({ posX: 0, posY: 0 })
+    setCoordinate({ posX: 0, posY: 0, content: '★', mode: 'decoration' })
   }, [setCoordinate])
 
   // 작성자 닉네임은 8자 이내의 문자열이어야 한다.

@@ -1,6 +1,7 @@
 import type { FlagProp, MoonProp } from '@/types'
 
 export type ViewTypeProp = 'general' | 'magnification'
+
 export type PanelModeProp = 'observation' | 'decoration'
 
 export interface FlagListProp {
@@ -14,4 +15,9 @@ export interface MoonShapeProp {
 export interface LocationProp {
   posX: number
   posY: number
+}
+
+export interface PointerProp extends LocationProp {
+  content: string
+  mode: PanelModeProp
 }
