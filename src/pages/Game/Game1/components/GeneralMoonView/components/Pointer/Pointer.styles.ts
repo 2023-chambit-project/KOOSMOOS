@@ -29,6 +29,14 @@ const fadeIn = keyframes`
   }
 `
 
+export const EncouragingText = styled.h5`
+  position: absolute;
+  top: -100%;
+  text-align: center;
+  animation: ${fadeIn} 5s forwards;
+  font-family: 'PyeongChangPeace-Bold';
+`
+
 export const Pointer = styled.div<LocationProp>`
   position: absolute;
   top: ${({ posY }) => ((-posY + 90) / 180) * 100}%;
@@ -53,13 +61,5 @@ export const Pointer = styled.div<LocationProp>`
   animation:
     ${stickDown} 0.15s ease-in forwards,
     ${pulse} 2s infinite 0.5s;
-
-  &::after {
-    content: 'Click!!';
-    font-size: ${({ theme }) => theme.FONT_SIZE.large};
-    position: absolute;
-    top: -100%;
-    animation: ${fadeIn} 4s forwards;
-  }
   cursor: pointer;
 `

@@ -43,7 +43,7 @@ export const SimpleInputField = styled.input`
 `
 export const GreetingInputWrapper = styled.div`
   width: 100%;
-  height: 50%;
+  height: 45%;
   ${FlexColumnCSS}
   justify-content: space-evenly;
   color: ${({ theme }) => theme.COLOR.common.white};
