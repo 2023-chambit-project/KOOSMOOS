@@ -1,7 +1,6 @@
 import { FC } from 'react'
 import * as S from './Game.styles'
-import { AlignedArea } from './components/AlignedBox'
-import { SideOpenDescription } from './components/SideOpenDescription'
+import { AlignedArea, SideOpenDescription } from './components'
 
 const GameMainPage: FC = () => {
   return (
