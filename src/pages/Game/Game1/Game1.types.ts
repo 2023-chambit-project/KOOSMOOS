@@ -19,5 +19,4 @@ export interface LocationProp {
 
 export interface PointerProp extends LocationProp {
   content: string
-  mode: PanelModeProp
 }

@@ -7,6 +7,5 @@ export const coordinateLocation = atom<PointerProp>({
     posX: 0,
     posY: 0,
     content: '★',
-    mode: 'observation',
   },
 })

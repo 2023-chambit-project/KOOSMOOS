@@ -21,7 +21,6 @@ export const VerticalList: FC<FlagListProp> = ({ flagList }) => {
       posX: flagList[curFlagIndex].posX,
       posY: flagList[curFlagIndex].posY,
       content: flagList[curFlagIndex].writer[0],
-      mode: 'decoration',
     })
   }, [curFlagIndex, flagList, setCoordinate])
   return (

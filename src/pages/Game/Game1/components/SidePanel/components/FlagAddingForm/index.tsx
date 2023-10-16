@@ -13,7 +13,7 @@ export const FlagAddingForm = () => {
 
   // 첫 랜더링 시, recoil 상태 초기화
   useEffect(() => {
-    setCoordinate({ posX: 0, posY: 0, content: '★', mode: 'decoration' })
+    setCoordinate({ posX: 0, posY: 0, content: '★' })
   }, [setCoordinate])
 
   // 작성자 닉네임은 8자 이내의 문자열이어야 한다.
