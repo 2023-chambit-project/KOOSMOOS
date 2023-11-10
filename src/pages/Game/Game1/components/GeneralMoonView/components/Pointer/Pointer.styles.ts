@@ -24,6 +24,9 @@ const fadeIn = keyframes`
   0% {
     opacity: 0;
   }
+  50% {
+    opacity: 0;
+  }
   100% {
     opacity: 1;
   }
@@ -33,7 +36,7 @@ export const EncouragingText = styled.h5`
   position: absolute;
   top: -100%;
   text-align: center;
-  animation: ${fadeIn} 5s forwards;
+  animation: ${fadeIn} 3s forwards;
   font-family: 'PyeongChangPeace-Bold';
 `
 

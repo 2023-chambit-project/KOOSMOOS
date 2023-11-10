@@ -19,8 +19,8 @@ export const Joint = styled.div`
 
 export const LunaSurface = styled.div`
   ${FlexCenterCSS}
-  width: 50rem;
-  height: 50rem;
+  width: 60rem;
+  height: 60rem;
 `
 
 export const YellowBase = styled.div`
