@@ -126,7 +126,7 @@ const Game1Page = () => {
       {viewType == 'general' ? (
         <GeneralMoonView moonShape={tmpData.moonShape} />
       ) : (
-        <MagnifiedMoonView flagList={tmpData.flagList}></MagnifiedMoonView>
+        <MagnifiedMoonView flagList={tmpData.flagList} />
       )}
       <SidePanel flagList={tmpData.flagList} />
     </>
