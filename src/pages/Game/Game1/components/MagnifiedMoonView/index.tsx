@@ -1,33 +1,29 @@
 import TeleScope from '@/assets/lottie/telescope.json'
 import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
+import { flagListAtom } from '@/atoms/flagList.atom'
 import { viewTypeAtom } from '@/atoms/viewType.atom'
 import { ButtonV2 } from '@/components/ButtonV2'
 import { useLoading } from '@/hooks'
 import { theme } from '@/styles'
+import { FlagProp } from '@/types'
 import { faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { faStopCircle } from '@fortawesome/free-solid-svg-icons/faStopCircle'
-import { FC, useEffect, useRef } from 'react'
+import { FC } from 'react'
 import { useRecoilState } from 'recoil'
-import type { FlagListProp, ViewTypeProp } from '../../Game1.types'
+import type { ViewTypeProp } from '../../Game1.types'
 import { LoadingPage } from '../Loading'
 import * as S from './ MagnifiedMoonView.styles'
 import Carousel from './components/Carousel'
 
-export const MagnifiedMoonView: FC<FlagListProp> = ({ flagList }) => {
+export const MagnifiedMoonView: FC = () => {
   const { loading } = useLoading(3500)
-
-  const [curFlagIndex, setCurFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
   const [, setViewType] = useRecoilState<ViewTypeProp>(viewTypeAtom)
-  const carouselRef = useRef<HTMLUListElement>(null)
 
-  useEffect(() => {
-    if (carouselRef.current !== null) {
-      carouselRef.current.style.transform = `translateX(-${curFlagIndex}00%)`
-    }
-  }, [curFlagIndex])
+  const [flagList] = useRecoilState<FlagProp[]>(flagListAtom)
+  const [curFlagIndex, setCurFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
 
   const switchToButton = (direction: number) => {
-    const newIndex = curFlagIndex! + direction
+    const newIndex = curFlagIndex + direction
     if (newIndex !== flagList.length && newIndex !== -1) {
       setCurFlagIndex((prev) => prev + direction)
     }
@@ -53,7 +49,7 @@ export const MagnifiedMoonView: FC<FlagListProp> = ({ flagList }) => {
                   size="fit"
                   onClick={() => switchToButton(1)}
                 />
-                <Carousel {...{ flagList }} />
+                <Carousel />
               </S.YellowBase>
             </S.LunaSurface>
           </S.Joint>

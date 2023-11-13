@@ -4,11 +4,14 @@ import { Icon } from '@/components/Icon'
 import { faCloudMoon, faExclamationCircle, faPenAlt } from '@fortawesome/free-solid-svg-icons'
 import { FC } from 'react'
 import { useRecoilState } from 'recoil'
-import type { FlagListProp, PanelModeProp } from '../../Game1.types'
+import type { PanelModeProp } from '../../Game1.types'
 import * as S from './SidePanel.styles'
-import { FlagAddingForm, VerticalList } from './components'
+import {
+  // FlagAddingForm,
+  VerticalList,
+} from './components'
 
-export const SidePanel: FC<FlagListProp> = ({ flagList }) => {
+export const SidePanel: FC = () => {
   const [panelMode, setPanelMode] = useRecoilState<PanelModeProp>(sidePanelModeAtom)
 
   return (
@@ -18,7 +21,7 @@ export const SidePanel: FC<FlagListProp> = ({ flagList }) => {
       </S.HeadingText>
       <S.Divider />
       <S.PanelContentWrapper key={panelMode}>
-        {panelMode === 'observation' ? <VerticalList flagList={flagList} /> : <FlagAddingForm />}
+        {panelMode === 'observation' ? <VerticalList /> : <></>}
       </S.PanelContentWrapper>
       <S.Divider />
       <ButtonV2

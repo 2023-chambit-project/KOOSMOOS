@@ -1,28 +1,16 @@
-import { coordinateLocation } from '@/atoms/coordinateLocation.atom'
 import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
+import { flagListAtom } from '@/atoms/flagList.atom'
 import { Icon } from '@/components/Icon'
-import type { FlagListProp, PointerProp } from '@/pages/Game/Game1/Game1.types'
 import type { FlagProp } from '@/types'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { FC, useEffect } from 'react'
+import { FC } from 'react'
 import { useRecoilState } from 'recoil'
 import * as S from './VerticalList.styles'
-export const VerticalList: FC<FlagListProp> = ({ flagList }) => {
-  const [curFlagIndex, setCurFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
-  const [, setCoordinate] = useRecoilState<PointerProp>(coordinateLocation)
+export const VerticalList: FC = () => {
+  const [flagList] = useRecoilState<FlagProp[]>(flagListAtom)
+  const [curFlagIndex, setCurFlagIndx] = useRecoilState<number>(curFlagIndexAtom)
 
-  /* 최초 랜더링 시, flagList 의 첫번째 요소 가리키도록 curFlagIndex를 0으로 초기화 */
-  useEffect(() => {
-    setCurFlagIndex(0)
-  }, [setCurFlagIndex])
   /* curFlagIndex 상태 변화 시, flagList 의 해당 요소 좌표를 Pointer 가 가리키도록 {posX,posY} 값을 현재 요소의 그것으로 할당 */
-  useEffect(() => {
-    setCoordinate({
-      posX: flagList[curFlagIndex].posX,
-      posY: flagList[curFlagIndex].posY,
-      content: flagList[curFlagIndex].writer[0],
-    })
-  }, [curFlagIndex, flagList, setCoordinate])
   return (
     <S.Container>
       {flagList.map((val: FlagProp, idx) => (
@@ -30,7 +18,7 @@ export const VerticalList: FC<FlagListProp> = ({ flagList }) => {
           key={idx}
           selected={idx == curFlagIndex}
           onClick={() => {
-            setCurFlagIndex(idx)
+            setCurFlagIndx(idx)
           }}
         >
           <S.UsersProfileImg src={val.img_src} />

@@ -1,16 +1,19 @@
 import SpaceRock from '@/assets/lottie/space_rock.json'
+import { moonShapeAtom } from '@/atoms/moonShape.atom'
 import { useLoading } from '@/hooks'
 import { theme } from '@/styles'
+import { MoonProp } from '@/types'
 import { FC } from 'react'
+import { useRecoilState } from 'recoil'
 import { LoadingPage } from '..'
-import { MoonShapeProp } from '../../Game1.types'
 import * as S from './GeneralMoonView.styles'
 import { Pointer } from './components/Pointer'
 import FullMoon from '/assets/game/game1/FullMoon.png'
 import StarParticle from '/assets/game/game1/WhiteStarParticle.png'
 
-export const GeneralMoonView: FC<MoonShapeProp> = ({ moonShape }) => {
+export const GeneralMoonView: FC = () => {
   const { loading } = useLoading(3500)
+  const [moonShape] = useRecoilState<MoonProp>(moonShapeAtom)
 
   return (
     <>
@@ -26,9 +29,9 @@ export const GeneralMoonView: FC<MoonShapeProp> = ({ moonShape }) => {
       {!loading && (
         <S.NightSky>
           <S.StarParticleImg src={StarParticle} />
-          <S.MoonHalo moonShape={moonShape}>
+          <S.MoonHalo {...{ moonShape }}>
             <S.FullMoonImg src={FullMoon} />
-            <S.MoonShadow moonShape={moonShape} />
+            <S.MoonShadow {...{ moonShape }} />
             <Pointer />
           </S.MoonHalo>
         </S.NightSky>

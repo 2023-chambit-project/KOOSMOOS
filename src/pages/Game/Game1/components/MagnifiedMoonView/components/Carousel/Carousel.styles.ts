@@ -1,3 +1,6 @@
+import { FlexAlignCSS, FlexCenterCSS } from "@/styles"
+import { styled } from "styled-components"
+
 export const GreetingList = styled.ul`
   ${FlexAlignCSS}
   width: 100%;
