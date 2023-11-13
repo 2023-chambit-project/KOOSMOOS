@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components'
 import { worker } from './mocks/browser'
 
 function App() {
-  if (import.meta.env.DEV) {
+  if (import.meta.env.VITE_APP_API_MOCKING === 'enable') {
     worker.start()
   }
 
