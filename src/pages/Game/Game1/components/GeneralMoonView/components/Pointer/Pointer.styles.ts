@@ -1,3 +1,4 @@
+import { moonRadius } from '@/pages/Game/Game1/Game1.constants'
 import type { LocationProp } from '@/pages/Game/Game1/Game1.types'
 import { FlexCenterCSS } from '@/styles'
 import { keyframes, styled } from 'styled-components'
@@ -42,8 +43,8 @@ export const EncouragingText = styled.h5`
 
 export const Pointer = styled.div<LocationProp>`
   position: absolute;
-  top: ${({ posY }) => ((-posY + 90) / 180) * 100}%;
-  left: ${({ posX }) => ((-posX + 90) / 180) * 100}%;
+  top: ${({ posY }) => ((-posY + moonRadius) / (moonRadius * 2)) * 100}%;
+  left: ${({ posX }) => ((moonRadius * 2 + (posX - moonRadius)) / (moonRadius * 2)) * 100}%;
   width: 10%;
   aspect-ratio: 1/1;
   border-radius: 100rem;

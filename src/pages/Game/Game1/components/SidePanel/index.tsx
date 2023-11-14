@@ -6,10 +6,7 @@ import { FC } from 'react'
 import { useRecoilState } from 'recoil'
 import type { PanelModeProp } from '../../Game1.types'
 import * as S from './SidePanel.styles'
-import {
-  // FlagAddingForm,
-  VerticalList,
-} from './components'
+import { FlagAddingForm, VerticalList } from './components'
 
 export const SidePanel: FC = () => {
   const [panelMode, setPanelMode] = useRecoilState<PanelModeProp>(sidePanelModeAtom)
@@ -21,7 +18,7 @@ export const SidePanel: FC = () => {
       </S.HeadingText>
       <S.Divider />
       <S.PanelContentWrapper key={panelMode}>
-        {panelMode === 'observation' ? <VerticalList /> : <></>}
+        {panelMode === 'observation' ? <VerticalList /> : <FlagAddingForm />}
       </S.PanelContentWrapper>
       <S.Divider />
       <ButtonV2

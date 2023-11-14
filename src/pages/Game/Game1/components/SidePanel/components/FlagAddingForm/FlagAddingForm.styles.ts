@@ -2,7 +2,7 @@ import { FlexAlignCSS, FlexColumnCSS } from '@/styles'
 import { styled } from 'styled-components'
 // 스타일드 컴포넌트를 사용하여 입력 필드를 스타일링합니다.
 
-export const Container = styled.div`
+export const Form = styled.div`
   width: 100%;
   height: 100%;
   padding: 1rem;
@@ -27,8 +27,9 @@ export const SimpleInputWrapper = styled.div`
   padding: 0.5rem;
   border-radius: 1rem;
 `
-export const SimpleInputField = styled.input`
+export const SimpleInputField = styled.input<{ $isError: boolean }>`
   border-radius: 2rem;
+  border-color: ${({ theme, $isError }) => ($isError ? theme.COLOR.error : theme.COLOR.common.black)};
   background-color: ${({ theme }) => theme.COLOR.common.black};
   min-width: 40%;
   width: fit-content;
@@ -50,9 +51,10 @@ export const GreetingInputWrapper = styled.div`
   padding: 0.5rem;
   border-radius: 1rem;
 `
-export const GreetingTextarea = styled.textarea`
+export const GreetingTextarea = styled.textarea<{ $isError: boolean }>`
   resize: none;
   border-radius: 2rem;
+  border-color: ${({ theme, $isError }) => ($isError ? theme.COLOR.error : theme.COLOR.common.gray[700])};
   background-color: ${({ theme }) => theme.COLOR.common.black};
   width: 100%;
   height: 70%;

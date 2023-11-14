@@ -1,120 +1,134 @@
+import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
+import { flagListAtom } from '@/atoms/flagList.atom'
+import { moonShapeAtom } from '@/atoms/moonShape.atom'
+import { ButtonV2 } from '@/components/ButtonV2'
+import { createFlagTemplate, moonRadius } from '@/pages/Game/Game1/Game1.constants'
+import { formValidate } from '@/pages/Game/Game1/helpers/createFlagFormHelper'
+import { theme } from '@/styles'
+import type { FlagProp, MoonProp } from '@/types'
+import { ChangeEvent, useEffect } from 'react'
+import { useRecoilState } from 'recoil'
+import * as S from './FlagAddingForm.styles'
+
 export const FlagAddingForm = () => {
-  return <></>
-  //   const [writer, setWriter] = useState<string>('')
-  //   const [greeting, setGreeting] = useState<string>('')
-  //   const [flagList, setFlagList] = useRecoilState<FlagProp[]>(flagListAtom)
-  //   const [curFlagIndex, setCurFlagIndx] = useRecoilState<number>(curFlagIndexAtom)
+  const [flagList, setFlagList] = useRecoilState<FlagProp[]>(flagListAtom)
+  const [curFlagIndex, setCurFlagIndex] = useRecoilState(curFlagIndexAtom)
+  const [moonShape] = useRecoilState<MoonProp>(moonShapeAtom)
 
-  //   //첫 랜더링 시, flagList 0 은 flag 생성용 데이터
-  //   useEffect(() => {
-  //     setCurFlagIndx(0)
-  //   }, [setCurFlagIndx])
+  // 첫 렌더링 시, flagList 맨 뒤에 flag template 추가
+  useEffect(() => {
+    console.log('나호출')
+    setFlagList((prev) => {
+      const _flagList = [...prev]
+      _flagList.push(createFlagTemplate)
+      return _flagList
+    })
+    // unmount 시, flag template 을 활용해 깃발이 생성되어 있지 않다면 flag template 제거
+    return () => {
+      setFlagList((prev) => {
+        if (prev.length > 1) {
+          const _flagList = [...prev]
+          _flagList.pop()
+          return _flagList
+        }
+        return prev
+      })
+    }
+  }, [setFlagList, setCurFlagIndex])
 
-  //   // 작성자 닉네임은 8자 이내의 문자열이어야 한다.
-  //   const handleNicknameText = (event: ChangeEvent<HTMLInputElement>) => {
-  //     const nickname: string = event.target.value
-  //     if (nickname.length <= 8) {
-  //       setWriter(nickname)
-  //     }
-  //   }
-  //   // 좌표 는 [-90.0 ~ 90.0] 사이의 실수값을 가져야한다.
-  //   const handleCoordinate = (event: ChangeEvent<HTMLInputElement>, axis: string) => {
-  //     let coordinate: string = event.target.value
-  //     // inputField 가 완전히 비었다면, 0 으로 초기화
-  //     if (!coordinate.length) {
-  //       setCoordinate((prev) => ({
-  //         ...prev,
-  //         [axis]: 0,
-  //       }))
-  //       return
-  //     }
-  //     // inputField 가 비지 않았음에도 입력값의 맨 앞자리기 0 이라면 제거
-  //     if (coordinate[0] === '0' && coordinate[1] !== '.') {
-  //       coordinate = coordinate.substring(1)
-  //     }
-  //     const parsedCoordinate = parseFloat(coordinate)
-  //     if (!isNaN(parsedCoordinate) && -90.0 <= parsedCoordinate && parsedCoordinate <= 90.0) {
-  //       setCoordinate((prev) => ({
-  //         ...prev,
-  //         [axis]: coordinate,
-  //       }))
-  //     }
-  //   }
-  //   // 인사말은 30자 이내의 문자열이어야 한다.
-  //   const handleGreetingText = (event: ChangeEvent<HTMLTextAreaElement>) => {
-  //     const greetingText: string = event.target.value
-  //     if (greetingText.length <= 30) {
-  //       setGreeting(greetingText)
-  //     }
-  //   }
+  // flagList 에 flag template 이 추가된 후, curFlagIndex 가 해당 깃발을 가르키도록 설정
+  useEffect(() => {
+    setCurFlagIndex(flagList.length - 1)
+  }, [flagList, setCurFlagIndex])
 
-  //   const ChangeDirectionToggle = (axis: string) => {
-  //     let parsedCoordinate = 0.0
-  //     if (axis === 'posX') {
-  //       parsedCoordinate = -coordinate.posX
-  //     } else {
-  //       parsedCoordinate = -coordinate.posY
-  //     }
-  //     setCoordinate((prev) => ({
-  //       ...prev,
-  //       [axis]: parsedCoordinate,
-  //     }))
-  //   }
-  //   return (
-  //     <S.Container>
-  //       <S.SimpleInputWrapper>
-  //         <S.InputLabel>이름</S.InputLabel>
-  //         <S.SimpleInputField type="text" placeholder="8자 이내" value={writer} onChange={(e) => handleNicknameText(e)} />
-  //       </S.SimpleInputWrapper>
+  const onChangeForm = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
+    setFlagList((prev) => {
+      const _flagList = [...prev]
+      const _flagInfo = { ..._flagList[curFlagIndex], [e.target.name]: e.target.value }
+      _flagList[curFlagIndex] = _flagInfo
+      return _flagList
+    })
+  }
 
-  //       <S.SimpleInputWrapper>
-  //         <S.InputLabel>달의 위도</S.InputLabel>
-  //         <S.DirectionToggle
-  //           bgColor={coordinate.posY < 0 ? theme.COLOR.error : theme.PALETTE.blue[100]}
-  //           onClick={() => {
-  //             ChangeDirectionToggle('posY')
-  //           }}
-  //         >
-  //           {coordinate.posY < 0 ? 'S' : 'N'}
-  //         </S.DirectionToggle>
-  //         <S.SimpleInputField
-  //           type="number"
-  //           step={0.5}
-  //           min={-90}
-  //           max={90}
-  //           value={coordinate.posY}
-  //           onChange={(e) => handleCoordinate(e, 'posY')}
-  //         />
-  //       </S.SimpleInputWrapper>
+  const { disabled, errors } = formValidate({
+    writer: flagList[curFlagIndex].writer,
+    posX: flagList[curFlagIndex].posX,
+    posY: flagList[curFlagIndex].posY,
+    greeting: flagList[curFlagIndex].greeting,
+    moonShape: moonShape,
+  })
 
-  //       <S.SimpleInputWrapper>
-  //         <S.InputLabel>달의 경도</S.InputLabel>
-  //         <S.DirectionToggle
-  //           bgColor={coordinate.posX < 0 ? theme.PALETTE.yellow[100] : theme.PALETTE.purple[70]}
-  //           onClick={() => {
-  //             ChangeDirectionToggle('posX')
-  //           }}
-  //         >
-  //           {coordinate.posX < 0 ? 'W' : 'E'}
-  //         </S.DirectionToggle>
-  //         <S.SimpleInputField
-  //           type="number"
-  //           step={0.5}
-  //           min={-90}
-  //           max={90}
-  //           value={coordinate.posX}
-  //           onChange={(e) => handleCoordinate(e, 'posX')}
-  //         />
-  //       </S.SimpleInputWrapper>
+  return (
+    <S.Form>
+      <h1>{disabled}</h1>
+      <S.SimpleInputWrapper>
+        <S.InputLabel>이름</S.InputLabel>
+        <S.SimpleInputField
+          name="writer"
+          $isError={errors.writer}
+          type="text"
+          placeholder="2자 ~ 8자 이내"
+          onChange={onChangeForm}
+        />
+      </S.SimpleInputWrapper>
 
-  //       <S.GreetingInputWrapper>
-  //         <S.InputLabel>인삿말</S.InputLabel>
-  //         <S.GreetingTextarea placeholder="30자 이내" value={greeting} onChange={handleGreetingText} />
-  //       </S.GreetingInputWrapper>
+      <S.SimpleInputWrapper>
+        <S.InputLabel>달의 위도</S.InputLabel>
+        <S.DirectionToggle
+          bgColor={flagList[curFlagIndex].posY < 0 ? theme.COLOR.error : theme.PALETTE.blue[100]}
+          onClick={() => {
+            // ChangeDirectionToggle('posY')
+          }}
+        >
+          {flagList[curFlagIndex].posY < 0 ? 'S' : 'N'}
+        </S.DirectionToggle>
+        <S.SimpleInputField
+          name="posY"
+          type="number"
+          step={1}
+          min={-moonRadius}
+          max={moonRadius}
+          defaultValue={0}
+          $isError={errors.posY}
+          onChange={onChangeForm}
+        />
+      </S.SimpleInputWrapper>
 
-  //       <ButtonV2 size="full" bgColor={theme.PALETTE.orange[100]} round="very">
-  //         달로 전송하기.. 🚀
-  //       </ButtonV2>
-  //     </S.Container>
-  //   )
+      <S.SimpleInputWrapper>
+        <S.InputLabel>달의 경도</S.InputLabel>
+        <S.DirectionToggle
+          bgColor={flagList[curFlagIndex].posX < 0 ? theme.PALETTE.yellow[100] : theme.PALETTE.purple[70]}
+          onClick={() => {
+            // ChangeDirectionToggle('posX')
+          }}
+        >
+          {flagList[curFlagIndex].posX < 0 ? 'W' : 'E'}
+        </S.DirectionToggle>
+        <S.SimpleInputField
+          name="posX"
+          type="number"
+          step={1}
+          min={-moonRadius}
+          max={moonRadius}
+          defaultValue={0}
+          $isError={errors.posX}
+          onChange={onChangeForm}
+        />
+      </S.SimpleInputWrapper>
+
+      <S.GreetingInputWrapper>
+        <S.InputLabel>인삿말</S.InputLabel>
+        <S.GreetingTextarea
+          name="greeting"
+          placeholder="30자 이내"
+          $isError={errors.greeting}
+          onChange={onChangeForm}
+        />
+      </S.GreetingInputWrapper>
+
+      <ButtonV2 size="full" bgColor={theme.PALETTE.orange[100]} round="very">
+        달로 전송하기.. 🚀
+      </ButtonV2>
+    </S.Form>
+  )
 }
