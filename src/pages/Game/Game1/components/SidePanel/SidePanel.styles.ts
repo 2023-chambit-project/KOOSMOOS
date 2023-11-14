@@ -27,36 +27,11 @@ export const HeadingText = styled.p`
   font-weight: 900;
   font-size: ${({ theme }) => theme.FONT_SIZE.large};
   word-break: keep-all;
-  margin: 2rem 0;
+  margin: 0.5rem 0;
 `
-export const PointText = styled.span`
+export const PointText = styled.p`
   color: ${({ theme }) => theme.PALETTE.yellow[100]};
   font-size: ${({ theme }) => theme.FONT_SIZE.big};
-`
-
-export const TrivialInfoContainer = styled.div`
-  @media screen and (max-width: ${({ theme }) => theme.MEDIA.laptop}) {
-    display: none;
-  }
-
-  width: 100%;
-  ${FlexColumnCSS}
-  align-items: start;
-  justify-content: center;
-  padding: 0 2rem;
-  margin-top: 1.5rem;
-  gap: 0.5rem;
-`
-
-export const TrivialInfoInfoHeading = styled.div`
-  display: flex;
-  flex-direction: row;
-  font-size: 1.2rem;
-`
-
-export const TrivialInfoInfoBody = styled.p`
-  font-size: 1.1rem;
-  word-break: keep-all;
 `
 
 export const Divider = styled.div`
