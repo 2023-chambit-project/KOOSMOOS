@@ -1,4 +1,4 @@
-import { MoonProp } from '@/types'
+import type { MoonProp } from '@/types'
 import { atom } from 'recoil'
 
 export const moonShapeAtom = atom<MoonProp>({

@@ -1,6 +1,6 @@
 import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
 import { flagListAtom } from '@/atoms/flagList.atom'
-import { FlagProp } from '@/types'
+import type { FlagProp } from '@/types'
 import { FC, useEffect, useRef } from 'react'
 import { useRecoilState } from 'recoil'
 import Flag from '../Flag'
