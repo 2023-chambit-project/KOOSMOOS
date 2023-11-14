@@ -25,6 +25,7 @@ export const FlagAddingForm = () => {
     })
     // unmount 시, flag template 을 활용해 깃발이 생성되어 있지 않다면 flag template 제거
     return () => {
+      setCurFlagIndex(0)
       setFlagList((prev) => {
         if (prev.length > 1) {
           const _flagList = [...prev]
