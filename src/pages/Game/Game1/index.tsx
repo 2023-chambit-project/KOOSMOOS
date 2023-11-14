@@ -4,7 +4,6 @@ import { viewTypeAtom } from '@/atoms/viewType.atom'
 import type { FlagGame1Response, MoonProp } from '@/types'
 import { useEffect } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
-import { createFlagTemplate } from './Game1.constants'
 import type { ViewTypeProp } from './Game1.types'
 import { GeneralMoonView, MagnifiedMoonView, SidePanel } from './components'
 
@@ -130,11 +129,8 @@ const Game1Page = () => {
         }
         /** moonShape, Recoil State 에 등록 */
         moonShape(response.moonShape)
-
         /** flagList, Recoil State 에 등록 */
-        const getFlagList = response.flagList
-        getFlagList.unshift(createFlagTemplate) // 인덱스 0 번은 깃발 생성용 객체로 지정
-        flagList(getFlagList)
+        flagList(response.flagList)
       } catch (error) {
         console.error('서버에서 데이터를 가져오는 중 에러 발생:', error)
       }

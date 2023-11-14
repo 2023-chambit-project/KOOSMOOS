@@ -16,7 +16,3 @@ export interface LocationProp {
   posX: number
   posY: number
 }
-
-export interface PointerProp extends LocationProp {
-  content: string
-}
