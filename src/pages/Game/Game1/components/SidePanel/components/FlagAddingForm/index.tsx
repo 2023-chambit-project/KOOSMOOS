@@ -6,7 +6,7 @@ import { createFlagTemplate, moonRadius } from '@/pages/Game/Game1/Game1.constan
 import { formValidate } from '@/pages/Game/Game1/helpers/createFlagFormHelper'
 import { theme } from '@/styles'
 import type { FlagProp, MoonProp } from '@/types'
-import { ChangeEvent, useEffect } from 'react'
+import { ChangeEvent, MouseEvent, useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 import * as S from './FlagAddingForm.styles'
 
@@ -17,7 +17,6 @@ export const FlagAddingForm = () => {
 
   // 첫 렌더링 시, flagList 맨 뒤에 flag template 추가
   useEffect(() => {
-    console.log('나호출')
     setFlagList((prev) => {
       const _flagList = [...prev]
       _flagList.push(createFlagTemplate)
@@ -51,6 +50,22 @@ export const FlagAddingForm = () => {
     })
   }
 
+  const ChangeDirectionToggle = (e: MouseEvent<HTMLButtonElement>) => {
+    setFlagList((prev) => {
+      const _flagList = [...prev]
+      let value = 0
+      if (e.currentTarget.name === 'posY') {
+        value = _flagList[curFlagIndex].posY * -1
+      } else {
+        console.log('posX')
+        value = _flagList[curFlagIndex].posX * -1
+      }
+      const _flagInfo = { ..._flagList[curFlagIndex], [e.currentTarget.name]: value }
+      _flagList[curFlagIndex] = _flagInfo
+      return _flagList
+    })
+  }
+
   const { disabled, errors } = formValidate({
     writer: flagList[curFlagIndex].writer,
     posX: flagList[curFlagIndex].posX,
@@ -76,10 +91,9 @@ export const FlagAddingForm = () => {
       <S.SimpleInputWrapper>
         <S.InputLabel>달의 위도</S.InputLabel>
         <S.DirectionToggle
-          bgColor={flagList[curFlagIndex].posY < 0 ? theme.COLOR.error : theme.PALETTE.blue[100]}
-          onClick={() => {
-            // ChangeDirectionToggle('posY')
-          }}
+          bgColor={flagList[curFlagIndex].posY < 0 ? theme.COLOR.alert[100] : theme.PALETTE.blue[100]}
+          name="posY"
+          onClick={ChangeDirectionToggle}
         >
           {flagList[curFlagIndex].posY < 0 ? 'S' : 'N'}
         </S.DirectionToggle>
@@ -92,6 +106,7 @@ export const FlagAddingForm = () => {
           defaultValue={0}
           $isError={errors.posY}
           onChange={onChangeForm}
+          value={flagList[curFlagIndex].posY}
         />
       </S.SimpleInputWrapper>
 
@@ -99,9 +114,8 @@ export const FlagAddingForm = () => {
         <S.InputLabel>달의 경도</S.InputLabel>
         <S.DirectionToggle
           bgColor={flagList[curFlagIndex].posX < 0 ? theme.PALETTE.yellow[100] : theme.PALETTE.purple[70]}
-          onClick={() => {
-            // ChangeDirectionToggle('posX')
-          }}
+          name="posX"
+          onClick={ChangeDirectionToggle}
         >
           {flagList[curFlagIndex].posX < 0 ? 'W' : 'E'}
         </S.DirectionToggle>
@@ -114,6 +128,7 @@ export const FlagAddingForm = () => {
           defaultValue={0}
           $isError={errors.posX}
           onChange={onChangeForm}
+          value={flagList[curFlagIndex].posX}
         />
       </S.SimpleInputWrapper>
 
@@ -121,7 +136,7 @@ export const FlagAddingForm = () => {
         <S.InputLabel>인삿말</S.InputLabel>
         <S.GreetingTextarea
           name="greeting"
-          placeholder="30자 이내"
+          placeholder="2자 ~ 30자 이내"
           $isError={errors.greeting}
           onChange={onChangeForm}
         />
