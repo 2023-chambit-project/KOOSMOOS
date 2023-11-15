@@ -30,11 +30,11 @@ const writerValidate = (writer: string) => {
 }
 
 const greetingValidate = (greeting: string) => {
-  if (greeting.length == 0 || greeting.length > 30) return true
+  if (greeting.length < 2 || greeting.length > 30) return true
   return false
 }
 
-const coordinateValidate = (posX: number, posY: number, moonShape: MoonProp) => {
+export const coordinateValidate = (posX: number, posY: number, moonShape: MoonProp) => {
   let disabled = false
 
   // (0,0) 를 중심으로 하는 원 밖에 있으면, disabled
@@ -63,11 +63,6 @@ const coordinateValidate = (posX: number, posY: number, moonShape: MoonProp) => 
         break
       // (-45,0) 을 중심으로 하는 반지름이 subCircleRadius인 원의 바깥에 있다면 disabled
       case 'waningGibbous':
-        console.log(posX)
-        console.log('x 제곱 : ' + (posX + 45) ** 2)
-        console.log('y 제곱 : ' + Math.pow(posY, 2))
-        console.log('Math.pow(posX + 45, 2) + Math.pow(posY, 2): ' + (Math.pow(posX + 45, 2) + Math.pow(posY, 2)))
-        console.log('Math.pow(subCircleRadius, 2): ' + Math.pow(subCircleRadius, 2))
         if (Math.pow(-45 - posX, 2) + Math.pow(posY, 2) > Math.pow(subCircleRadius, 2)) disabled = true
         break
       // x 좌표가 양수면 disabled
