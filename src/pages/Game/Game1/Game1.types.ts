@@ -12,7 +12,8 @@ export interface MoonShapeProp {
   moonShape: MoonProp
 }
 
-export interface LocationProp {
-  posX: number
-  posY: number
+export interface PointerProp {
+  gapTop: number
+  gapLeft: number
+  mainColor: string
 }

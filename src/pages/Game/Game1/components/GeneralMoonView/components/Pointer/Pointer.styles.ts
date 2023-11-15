@@ -1,5 +1,4 @@
-import { moonRadius } from '@/pages/Game/Game1/Game1.constants'
-import type { LocationProp } from '@/pages/Game/Game1/Game1.types'
+import type { PointerProp } from '@/pages/Game/Game1/Game1.types'
 import { FlexCenterCSS } from '@/styles'
 import { keyframes, styled } from 'styled-components'
 
@@ -41,27 +40,26 @@ export const EncouragingText = styled.h5`
   font-family: 'PyeongChangPeace-Bold';
 `
 
-export const Pointer = styled.div<LocationProp>`
+export const Pointer = styled.div<PointerProp>`
   position: absolute;
-  top: ${({ posY }) => ((-posY + moonRadius) / (moonRadius * 2)) * 100}%;
-  left: ${({ posX }) => ((moonRadius * 2 + (posX - moonRadius)) / (moonRadius * 2)) * 100}%;
+  top: ${({ gapTop }) => gapTop}%;
+  left: ${({ gapLeft }) => gapLeft}%;
+  color: ${({ mainColor }) => mainColor};
+  background-color: ${({ theme }) => theme.COLOR.common.white};
   width: 10%;
   aspect-ratio: 1/1;
   border-radius: 100rem;
-  border: 0.3rem solid ${({ theme }) => theme.COLOR.common.white};
+  border: 0.3rem solid;
+  box-shadow: 1px 15px 10px ${({ theme }) => theme.COLOR.common.gray[800]};
   ${FlexCenterCSS}
-  color: white;
   font-size: ${({ theme }) => theme.FONT_SIZE.large};
   &::before {
     content: '';
     position: absolute;
     top: 100%;
     border: 0.6rem solid transparent;
-    border-top: 1rem solid ${({ theme }) => theme.COLOR.common.white};
+    border-top: 1rem solid ${({ mainColor }) => mainColor};
   }
-
-  background-color: ${({ posX, posY, theme }) =>
-    (posX + posY) % 1.0 === 0.0 ? theme.PALETTE.blue[100] : theme.PALETTE.orange[100]};
   animation:
     ${stickDown} 0.15s ease-in forwards,
     ${pulse} 2s infinite 0.5s;

@@ -3,6 +3,7 @@ import { flagListAtom } from '@/atoms/flagList.atom'
 import { sidePanelModeAtom } from '@/atoms/sidePanelMode.atom'
 import { viewTypeAtom } from '@/atoms/viewType.atom'
 import type { PanelModeProp, ViewTypeProp } from '@/pages/Game/Game1/Game1.types'
+import { coordinateSystemConversion, getColorByParityOfSum } from '@/pages/Game/Game1/helpers/getFlagPropsHelper'
 import { FlagProp } from '@/types'
 import { useRecoilState } from 'recoil'
 import * as S from './Pointer.styles'
@@ -15,11 +16,16 @@ export const Pointer = () => {
   const [panelMode] = useRecoilState<PanelModeProp>(sidePanelModeAtom)
   /* 👇 포인터 클릭시, viewType 을 변환합니다. */
   const [, setViewType] = useRecoilState<ViewTypeProp>(viewTypeAtom)
+
+  const mainColor = getColorByParityOfSum(flagList[curFlagIndex].posX, flagList[curFlagIndex].posY)
+  const { gapTop, gapLeft } = coordinateSystemConversion(flagList[curFlagIndex].posX, flagList[curFlagIndex].posY)
+
   return (
     <S.Pointer
       key={flagList[curFlagIndex].posX + flagList[curFlagIndex].posY}
-      posX={flagList[curFlagIndex].posX}
-      posY={flagList[curFlagIndex].posY}
+      {...{ gapLeft }}
+      {...{ gapTop }}
+      {...{ mainColor }}
       onClick={() => {
         setViewType('magnification')
       }}
