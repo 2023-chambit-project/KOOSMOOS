@@ -5,6 +5,7 @@ import { viewTypeAtom } from '@/atoms/viewType.atom'
 import type { PanelModeProp, ViewTypeProp } from '@/pages/Game/Game1/Game1.types'
 import { coordinateSystemConversion, getColorByParityOfSum } from '@/pages/Game/Game1/helpers/getFlagPropsHelper'
 import { FlagProp } from '@/types'
+import { useCallback } from 'react'
 import { useRecoilState } from 'recoil'
 import * as S from './Pointer.styles'
 
@@ -20,6 +21,10 @@ export const Pointer = () => {
   const mainColor = getColorByParityOfSum(flagList[curFlagIndex].posX, flagList[curFlagIndex].posY)
   const { gapTop, gapLeft } = coordinateSystemConversion(flagList[curFlagIndex].posX, flagList[curFlagIndex].posY)
 
+  const isPanelModeObservation = useCallback(() => {
+    return panelMode === 'observation'
+  }, [panelMode])
+
   return (
     <S.Pointer
       key={flagList[curFlagIndex].posX + flagList[curFlagIndex].posY}
@@ -27,10 +32,10 @@ export const Pointer = () => {
       {...{ gapTop }}
       {...{ mainColor }}
       onClick={() => {
-        setViewType('magnification')
+        isPanelModeObservation() && setViewType('magnification')
       }}
     >
-      {panelMode === 'observation' && <S.EncouragingText>Click!!</S.EncouragingText>}
+      {isPanelModeObservation() && <S.EncouragingText>Click!!</S.EncouragingText>}
       {flagList[curFlagIndex].writer[0]}
     </S.Pointer>
   )
