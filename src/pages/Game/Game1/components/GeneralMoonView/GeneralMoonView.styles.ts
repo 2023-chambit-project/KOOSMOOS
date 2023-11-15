@@ -10,7 +10,7 @@ const MoonStyleCSS = {
         -1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
     `,
     ShadowCSS: css`
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: rgba(0, 0, 0, 0.8);
     `,
   },
   waxingCrescent: {
@@ -20,7 +20,7 @@ const MoonStyleCSS = {
         -1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
     `,
     ShadowCSS: css`
-      background: radial-gradient(circle at 0% 50%, rgba(0, 0, 0, 0.6) 65%, rgba(0, 0, 0, 0) 80%);
+      background: radial-gradient(circle at -45% 50%, rgba(0, 0, 0, 0.8) 82%, rgba(0, 0, 0, 0) 90%);
     `,
   },
   firstQuarter: {
@@ -30,7 +30,7 @@ const MoonStyleCSS = {
         -1rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
     `,
     ShadowCSS: css`
-      background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 49%, rgba(0, 0, 0, 0) 51%);
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 49%, rgba(0, 0, 0, 0) 51%);
     `,
   },
   waxingGibbous: {
@@ -40,7 +40,7 @@ const MoonStyleCSS = {
         -0.5rem 0 1rem ${({ theme }) => theme.PALETTE.blue[100]};
     `,
     ShadowCSS: css`
-      background: radial-gradient(circle at -120% 50%, rgba(0, 0, 0, 0.6) 60%, rgba(0, 0, 0, 0) 75%);
+      background: radial-gradient(circle at -45% 50%, rgba(0, 0, 0, 0.8) 38%, rgba(0, 0, 0, 0) 50%);
     `,
   },
   fullMoon: {
@@ -58,7 +58,7 @@ const MoonStyleCSS = {
         -1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]};
     `,
     ShadowCSS: css`
-      background: radial-gradient(circle at 0% 50%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.6) 85%);
+      background: radial-gradient(circle at 0% 50%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 80%);
     `,
   },
   thirdQuarter: {
@@ -68,7 +68,7 @@ const MoonStyleCSS = {
         -1rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]};
     `,
     ShadowCSS: css`
-      background: linear-gradient(90deg, rgba(0, 0, 0, 0) 49%, rgba(0, 0, 0, 0.6) 51%);
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0) 49%, rgba(0, 0, 0, 0.8) 51%);
     `,
   },
   waningCrescent: {
@@ -78,7 +78,7 @@ const MoonStyleCSS = {
         -0.5rem 0 1rem ${({ theme }) => theme.PALETTE.orange[100]};
     `,
     ShadowCSS: css`
-      background: radial-gradient(circle at 120% 50%, rgba(0, 0, 0, 0.6) 70%, rgba(0, 0, 0, 0) 90%);
+      background: radial-gradient(circle at 120% 50%, rgba(0, 0, 0, 0.8) 80%, rgba(0, 0, 0, 0) 90%);
     `,
   },
 }

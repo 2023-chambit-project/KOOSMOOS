@@ -15,7 +15,7 @@ const Game1Page = () => {
     const fetchDataFromServer = async () => {
       try {
         const response: FlagGame1Response = {
-          moonShape: 'waningGibbous',
+          moonShape: 'newMoon',
           flagList: [
             {
               id: 1,

@@ -29,7 +29,7 @@ export const SimpleInputWrapper = styled.div`
 `
 export const SimpleInputField = styled.input<{ $isError: boolean }>`
   border-radius: 2rem;
-  border-color: ${({ theme, $isError }) => ($isError ? theme.COLOR.error : theme.COLOR.common.black)};
+  border-color: ${({ theme, $isError }) => ($isError ? theme.COLOR.error : theme.COLOR.success)};
   background-color: ${({ theme }) => theme.COLOR.common.black};
   min-width: 40%;
   width: fit-content;
@@ -54,7 +54,7 @@ export const GreetingInputWrapper = styled.div`
 export const GreetingTextarea = styled.textarea<{ $isError: boolean }>`
   resize: none;
   border-radius: 2rem;
-  border-color: ${({ theme, $isError }) => ($isError ? theme.COLOR.error : theme.COLOR.common.gray[700])};
+  border-color: ${({ theme, $isError }) => ($isError ? theme.COLOR.error : theme.COLOR.success)};
   background-color: ${({ theme }) => theme.COLOR.common.black};
   width: 100%;
   height: 70%;

@@ -37,7 +37,8 @@ export const EncouragingText = styled.h5`
   top: -100%;
   text-align: center;
   animation: ${fadeIn} 3s forwards;
-  font-family: 'PyeongChangPeace-Bold';
+  font-size: ${({ theme }) => theme.FONT_SIZE.large};
+  text-shadow: 0.1px 1.5px 1px ${({ theme }) => theme.COLOR.common.black};
 `
 
 export const Pointer = styled.div<PointerProp>`
@@ -50,7 +51,7 @@ export const Pointer = styled.div<PointerProp>`
   aspect-ratio: 1/1;
   border-radius: 100rem;
   border: 0.3rem solid;
-  box-shadow: 1px 15px 10px ${({ theme }) => theme.COLOR.common.gray[800]};
+  box-shadow: 1px 20px 20px ${({ theme }) => theme.COLOR.common.black};
   ${FlexCenterCSS}
   font-size: ${({ theme }) => theme.FONT_SIZE.large};
   &::before {
