@@ -1,7 +1,7 @@
-import type { PostGame2Response, PostGame2ResultReqBody } from '@/types'
-import { useMutation, type UseMutationOptions } from '@tanstack/react-query'
+import type { FlagGame1Response, PostGame2Response, PostGame2ResultReqBody } from '@/types'
+import { useMutation, useQuery, type UseMutationOptions, type UseQueryOptions } from '@tanstack/react-query'
 import type { AxiosError, AxiosResponse } from 'axios'
-import { postGame2Answers } from '../apis'
+import { getGame1Flags, postGame2Answers } from '../apis'
 
 export const usePostGame2Answers = (
   options?: UseMutationOptions<AxiosResponse<PostGame2Response>, AxiosError, PostGame2ResultReqBody['answers']>,
@@ -11,5 +11,13 @@ export const usePostGame2Answers = (
     onError: (error) => {
       throw error
     },
+  })
+}
+
+export const useGetGame1Flags = (options?: UseQueryOptions<FlagGame1Response, AxiosError>) => {
+  return useQuery<FlagGame1Response, AxiosError>([], () => getGame1Flags(), {
+    ...options,
+    cacheTime: 1000 * 60 * 60 * 24, // 파기 시간 => 24시간
+    staleTime: 1000 * 60 * 60 * 22, // 유통 기간 => 22시간
   })
 }

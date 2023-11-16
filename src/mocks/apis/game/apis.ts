@@ -1,5 +1,13 @@
-import type { PostGame2Response, PostGame2ResultReqBody } from '@/types'
+import { game1Flags } from '@/mocks/data/game'
+import type { FlagGame1Response, PostGame2Response, PostGame2ResultReqBody } from '@/types'
 import { rest } from 'msw'
+
+export const getGame1FlagList = rest.get('/api/games/flags', (_, res, ctx) => {
+  const todaysMoon = 'waningCrescent'
+
+  const result = game1Flags.filter((val) => val.moonShape === todaysMoon)[0]
+  return res(ctx.status(200), ctx.json<FlagGame1Response>(result))
+})
 
 export const getGame2Result = rest.post<PostGame2ResultReqBody>('/api/game2', (req, res, ctx) => {
   const { answers } = req.body
