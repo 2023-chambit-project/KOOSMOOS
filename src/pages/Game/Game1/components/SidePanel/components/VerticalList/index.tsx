@@ -13,7 +13,7 @@ export const VerticalList: FC = () => {
   /* curFlagIndex 상태 변화 시, flagList 의 해당 요소 좌표를 Pointer 가 가리키도록 {posX,posY} 값을 현재 요소의 그것으로 할당 */
   return (
     <S.Container>
-      {flagList.map((val: FlagProp, idx) => (
+      {flagList?.map((val: FlagProp, idx) => (
         <S.GreetingItem
           key={idx}
           selected={idx == curFlagIndex}
