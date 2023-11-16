@@ -7,7 +7,7 @@ export const createFlagTemplate: FlagProp = {
   id: -1,
   writer: '★',
   greeting: '',
-  img_src: '',
+  img_src: 'https://source.unsplash.com/random/?supernova',
   posX: 0,
   posY: 0,
 }
