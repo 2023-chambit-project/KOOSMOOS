@@ -44,16 +44,15 @@ export const Fixture = styled.img`
 `
 export const TextWrapper = styled.div`
   top: 16%;
-  left: 20%;
+  left: 22%;
   position: absolute;
-  width: 60%;
+  width: 55%;
   height: 60%;
   color: ${({ theme }) => theme.COLOR.common.white};
   ${FlexColumnCSS}
   justify-content: center;
   gap: 2rem;
-  word-wrap: break-all;
-  white-space: nowrap;
+  word-wrap: keep-all;
   overflow-wrap: break-word;
 `
 
@@ -62,6 +61,7 @@ export const GreetingText = styled.h2`
   font-style: italic;
   font-weight: 500;
   text-shadow: 1.5px 1.5px 1.5px ${({ theme }) => theme.COLOR.common.black};
+  word-break: break-all;
 `
 
 export const UserNicknameText = styled.h3`
