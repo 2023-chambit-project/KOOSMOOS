@@ -42,6 +42,14 @@ export const FlagAddingForm = () => {
   }, [flagList, setCurFlagIndex])
 
   const onChangeForm = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
+    if (e.target.name === 'writer' && e.target.value.length > 8) {
+      e.target.value = e.target.value.substring(0, 8)
+      return
+    }
+    if (e.target.name === 'greeting' && e.target.value.length > 30) {
+      e.target.value = e.target.value.substring(0, 30)
+      return
+    }
     setFlagList((prev) => {
       const _flagList = [...prev]
       const _flagInfo = { ..._flagList[curFlagIndex], [e.target.name]: e.target.value }
