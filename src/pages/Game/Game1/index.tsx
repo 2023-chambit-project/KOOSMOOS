@@ -1,12 +1,13 @@
 import { flagListAtom } from '@/atoms/flagList.atom'
 import { moonShapeAtom } from '@/atoms/moonShape.atom'
+import { sidePanelModeAtom } from '@/atoms/sidePanelMode.atom'
 import { viewTypeAtom } from '@/atoms/viewType.atom'
 import { useGetGame1Flags } from '@/services'
 import type { FlagProp, MoonProp } from '@/types'
 import { useEffect } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import { flagWhenFetchFailure, flagWhenNewmoon } from './Game1.constants'
-import type { ViewTypeProp } from './Game1.types'
+import type { PanelModeProp, ViewTypeProp } from './Game1.types'
 import { GeneralMoonView, MagnifiedMoonView, SidePanel } from './components'
 
 const Game1Page = () => {
@@ -14,7 +15,8 @@ const Game1Page = () => {
 
   const setFlagList = useSetRecoilState<FlagProp[]>(flagListAtom)
   const setMoonShape = useSetRecoilState<MoonProp>(moonShapeAtom)
-  const [viewType] = useRecoilState<ViewTypeProp>(viewTypeAtom)
+  const [viewType, setViewType] = useRecoilState<ViewTypeProp>(viewTypeAtom)
+  const [, setPanelMode] = useRecoilState<PanelModeProp>(sidePanelModeAtom)
 
   useEffect(() => {
     if (data?.moonShape == 'newMoon') {
@@ -23,7 +25,7 @@ const Game1Page = () => {
       return
     }
 
-    if (data?.moonShape == 'fullMoon' && !data?.flagList.length) {
+    if (!data?.moonShape || !data?.flagList.length) {
       setMoonShape('newMoon')
       setFlagList([flagWhenFetchFailure])
       return
@@ -33,6 +35,12 @@ const Game1Page = () => {
     setMoonShape(data?.moonShape as MoonProp)
   }, [setFlagList, setMoonShape, data?.flagList, data?.moonShape])
 
+  useEffect(() => {
+    return () => {
+      setViewType('general')
+      setPanelMode('observation')
+    }
+  }, [setViewType, setPanelMode])
   return (
     <>
       {viewType == 'general' ? <GeneralMoonView /> : <MagnifiedMoonView />}
