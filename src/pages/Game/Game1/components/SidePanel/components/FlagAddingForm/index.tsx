@@ -29,12 +29,12 @@ export const FlagAddingForm = () => {
     })
     // unmount 시, flag template 을 활용해 깃발이 생성되어 있지 않다면 flag template 제거
     return () => {
-      setCurFlagIndex(0)
       setFlagList((prev) => {
         const _flagList = [...prev]
         _flagList.pop()
         return _flagList
       })
+      setCurFlagIndex((prev) => prev - 1)
     }
   }, [setFlagList, setCurFlagIndex])
 
@@ -85,7 +85,7 @@ export const FlagAddingForm = () => {
     }
     try {
       mutate({ ...flagList[curFlagIndex] })
-      window.alert('축하합니다.🎉 여러분의 깃발에 달에 꽂혔습니다.')
+      window.alert('축하합니다.🎉 여러분의 깃발이 달에서 펼쳐졌습니다.')
       setFlagList((prev) => {
         const _flagList = [...prev]
         _flagList.push({ ..._flagList[curFlagIndex] })
