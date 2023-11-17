@@ -1,3 +1,4 @@
+import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
 import { flagListAtom } from '@/atoms/flagList.atom'
 import { moonShapeAtom } from '@/atoms/moonShape.atom'
 import { sidePanelModeAtom } from '@/atoms/sidePanelMode.atom'
@@ -16,7 +17,8 @@ const Game1Page = () => {
   const setFlagList = useSetRecoilState<FlagProp[]>(flagListAtom)
   const setMoonShape = useSetRecoilState<MoonProp>(moonShapeAtom)
   const [viewType, setViewType] = useRecoilState<ViewTypeProp>(viewTypeAtom)
-  const [, setPanelMode] = useRecoilState<PanelModeProp>(sidePanelModeAtom)
+  const setPanelMode = useSetRecoilState<PanelModeProp>(sidePanelModeAtom)
+  const setCurFlagIndex = useSetRecoilState(curFlagIndexAtom)
 
   useEffect(() => {
     if (data?.moonShape == 'newMoon') {
@@ -39,8 +41,9 @@ const Game1Page = () => {
     return () => {
       setViewType('general')
       setPanelMode('observation')
+      setCurFlagIndex(0)
     }
-  }, [setViewType, setPanelMode])
+  }, [setViewType, setPanelMode, setCurFlagIndex])
   return (
     <>
       {viewType == 'general' ? <GeneralMoonView /> : <MagnifiedMoonView />}
