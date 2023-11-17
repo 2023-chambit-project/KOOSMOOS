@@ -1,7 +1,7 @@
 import { Box } from '@/components/Box'
 import { GameMainAlign, GameMainCommon } from '@/constants'
 import { FC, HTMLAttributes } from 'react'
-import { PositionProps } from '../../Game.types'
+import type { PositionProps } from '../../Game.types'
 import * as S from './SideOpenDescription.styles'
 
 interface Props extends HTMLAttributes<HTMLDivElement>, PositionProps {}

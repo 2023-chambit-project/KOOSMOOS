@@ -1,4 +1,4 @@
-import { FlagProp } from '@/types'
+import type { FlagProp } from '@/types'
 import { FC } from 'react'
 import * as S from './Flag.styles'
 import Fixture from '/public/assets/game/game1/Fixture.svg'

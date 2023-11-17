@@ -1,5 +1,5 @@
 import { theme } from '@/styles'
-import { MoonProp } from '@/types'
+import type { MoonProp } from '@/types'
 import { moonRadius } from '../Game1.constants'
 import { coordinateValidate } from './createFlagFormHelper'
 

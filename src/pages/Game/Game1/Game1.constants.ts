@@ -1,4 +1,4 @@
-import { FlagProp, MoonProp } from '@/types'
+import type { FlagProp, MoonProp } from '@/types'
 
 export const moonRadius = 90
 export const subCircleRadius = moonRadius * 1.2
