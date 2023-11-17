@@ -6,6 +6,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FC } from 'react'
 import { useRecoilState } from 'recoil'
 import * as S from './VerticalList.styles'
+
 export const VerticalList: FC = () => {
   const [flagList] = useRecoilState<FlagProp[]>(flagListAtom)
   const [curFlagIndex, setCurFlagIndx] = useRecoilState<number>(curFlagIndexAtom)

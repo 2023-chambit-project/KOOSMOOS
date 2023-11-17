@@ -32,9 +32,8 @@ export interface FlagGame1Response {
   flagList: FlagProp[]
 }
 
+export interface FlagForm extends Omit<FlagProp, 'id' | 'img_src'> {}
+
 export interface PostGame1FlagReqBody {
-  writer: string
-  greeting: string
-  posX: number
-  posY: number
+  flagInfo: FlagForm
 }

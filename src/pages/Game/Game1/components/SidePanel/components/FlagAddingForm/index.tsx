@@ -1,9 +1,12 @@
 import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
 import { flagListAtom } from '@/atoms/flagList.atom'
 import { moonShapeAtom } from '@/atoms/moonShape.atom'
+import { sidePanelModeAtom } from '@/atoms/sidePanelMode.atom'
 import { ButtonV2 } from '@/components/ButtonV2'
 import { createFlagTemplate, moonRadius } from '@/pages/Game/Game1/Game1.constants'
+import type { PanelModeProp } from '@/pages/Game/Game1/Game1.types'
 import { formValidate } from '@/pages/Game/Game1/helpers/createFlagFormHelper'
+import { usePostGame1Flag } from '@/services'
 import { theme } from '@/styles'
 import type { FlagProp, MoonProp } from '@/types'
 import { ChangeEvent, MouseEvent, useEffect } from 'react'
@@ -14,6 +17,8 @@ export const FlagAddingForm = () => {
   const [flagList, setFlagList] = useRecoilState<FlagProp[]>(flagListAtom)
   const [curFlagIndex, setCurFlagIndex] = useRecoilState(curFlagIndexAtom)
   const [moonShape] = useRecoilState<MoonProp>(moonShapeAtom)
+  const [, setPanelMode] = useRecoilState<PanelModeProp>(sidePanelModeAtom)
+  const { mutate } = usePostGame1Flag()
 
   // 첫 렌더링 시, flagList 맨 뒤에 flag template 추가
   useEffect(() => {
@@ -26,12 +31,9 @@ export const FlagAddingForm = () => {
     return () => {
       setCurFlagIndex(0)
       setFlagList((prev) => {
-        if (prev.length > 1) {
-          const _flagList = [...prev]
-          _flagList.pop()
-          return _flagList
-        }
-        return prev
+        const _flagList = [...prev]
+        _flagList.pop()
+        return _flagList
       })
     }
   }, [setFlagList, setCurFlagIndex])
@@ -42,10 +44,12 @@ export const FlagAddingForm = () => {
   }, [flagList, setCurFlagIndex])
 
   const onChangeForm = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
+    // 'writer' input 의 값이 8자를 초과하여 사용 못하도록 제한
     if (e.target.name === 'writer' && e.target.value.length > 8) {
       e.target.value = e.target.value.substring(0, 8)
       return
     }
+    // 'greeting' input 의 값이 30자를 초과하여 사용 못하도록 제한
     if (e.target.name === 'greeting' && e.target.value.length > 30) {
       e.target.value = e.target.value.substring(0, 30)
       return
@@ -57,8 +61,8 @@ export const FlagAddingForm = () => {
       return _flagList
     })
   }
-
-  const ChangeDirectionToggle = (e: MouseEvent<HTMLButtonElement>) => {
+  // Toggle 버튼 클릭 시, 위치 반전
+  const changeDirectionToggle = (e: MouseEvent<HTMLButtonElement>) => {
     setFlagList((prev) => {
       const _flagList = [...prev]
       let value = 0
@@ -72,6 +76,23 @@ export const FlagAddingForm = () => {
       _flagList[curFlagIndex] = _flagInfo
       return _flagList
     })
+  }
+  // 제출 버튼 클릭 시
+  const onClickSubmitBtn = () => {
+    if (disabled) return
+    try {
+      mutate({ ...flagList[curFlagIndex] })
+      window.alert('축하합니다.🎉 여러분의 깃발에 달에 꽂혔습니다.')
+      setFlagList((prev) => {
+        const _flagList = [...prev]
+        _flagList.push({ ..._flagList[curFlagIndex] })
+        return _flagList
+      })
+    } catch (e) {
+      window.alert('데이터 전송에 실패했습니다.')
+    } finally {
+      setPanelMode('observation')
+    }
   }
 
   const { disabled, errors } = formValidate({
@@ -101,7 +122,7 @@ export const FlagAddingForm = () => {
         <S.DirectionToggle
           bgColor={flagList[curFlagIndex].posY < 0 ? theme.COLOR.alert[100] : theme.PALETTE.blue[100]}
           name="posY"
-          onClick={ChangeDirectionToggle}
+          onClick={changeDirectionToggle}
         >
           {flagList[curFlagIndex].posY < 0 ? 'S' : 'N'}
         </S.DirectionToggle>
@@ -123,7 +144,7 @@ export const FlagAddingForm = () => {
         <S.DirectionToggle
           bgColor={flagList[curFlagIndex].posX < 0 ? theme.PALETTE.yellow[100] : theme.PALETTE.purple[70]}
           name="posX"
-          onClick={ChangeDirectionToggle}
+          onClick={changeDirectionToggle}
         >
           {flagList[curFlagIndex].posX < 0 ? 'W' : 'E'}
         </S.DirectionToggle>
@@ -150,7 +171,7 @@ export const FlagAddingForm = () => {
         />
       </S.GreetingInputWrapper>
 
-      <ButtonV2 size="full" bgColor={theme.PALETTE.orange[100]} round="very">
+      <ButtonV2 onClick={onClickSubmitBtn} size="full" bgColor={theme.PALETTE.orange[100]} round="very">
         달로 전송하기.. 🚀
       </ButtonV2>
     </S.Form>

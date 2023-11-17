@@ -1,10 +1,10 @@
-import type { MoonProp, PostGame1FlagReqBody } from '@/types'
+import type { FlagForm, MoonProp } from '@/types'
 import { moonRadius, subCircleRadius } from '../Game1.constants'
 import type { MoonShapeProp } from '../Game1.types'
 
-export const formValidate = ({ writer, posX, posY, greeting, moonShape }: PostGame1FlagReqBody & MoonShapeProp) => {
+export const formValidate = ({ writer, posX, posY, greeting, moonShape }: FlagForm & MoonShapeProp) => {
   let disabled = false
-  const errors: Record<keyof PostGame1FlagReqBody, boolean> = {
+  const errors: Record<keyof FlagForm, boolean> = {
     writer: false,
     posX: false,
     posY: false,

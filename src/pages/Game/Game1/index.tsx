@@ -3,6 +3,7 @@ import { moonShapeAtom } from '@/atoms/moonShape.atom'
 import { viewTypeAtom } from '@/atoms/viewType.atom'
 import { useGetGame1Flags } from '@/services'
 import type { FlagProp, MoonProp } from '@/types'
+import { useEffect } from 'react'
 import { useRecoilState, useSetRecoilState } from 'recoil'
 import type { ViewTypeProp } from './Game1.types'
 import { GeneralMoonView, MagnifiedMoonView, SidePanel } from './components'
@@ -14,8 +15,10 @@ const Game1Page = () => {
   const setMoonShape = useSetRecoilState<MoonProp>(moonShapeAtom)
   const [viewType] = useRecoilState<ViewTypeProp>(viewTypeAtom)
 
-  setFlagList(data?.flagList as FlagProp[])
-  setMoonShape(data?.moonShape as MoonProp)
+  useEffect(() => {
+    setFlagList(data?.flagList as FlagProp[])
+    setMoonShape(data?.moonShape as MoonProp)
+  }, [setFlagList, setMoonShape, data?.flagList, data?.moonShape])
 
   return (
     <>
