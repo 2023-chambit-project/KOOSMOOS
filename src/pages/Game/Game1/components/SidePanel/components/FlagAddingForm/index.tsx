@@ -79,7 +79,10 @@ export const FlagAddingForm = () => {
   }
   // 제출 버튼 클릭 시
   const onClickSubmitBtn = () => {
-    if (disabled) return
+    if (disabled) {
+      window.alert('🛑 위치를 변경거나, 내용 작성 조건을 다시 확인해주세요.')
+      return
+    }
     try {
       mutate({ ...flagList[curFlagIndex] })
       window.alert('축하합니다.🎉 여러분의 깃발에 달에 꽂혔습니다.')
