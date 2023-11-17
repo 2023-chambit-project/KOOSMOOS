@@ -19,16 +19,16 @@ export const flagWhenNewmoon: FlagProp = {
   img_src: 'https://source.unsplash.com/random/300x300/?moon',
   posX: 0,
   posY: 0,
-}
+} as const
 
 export const flagWhenFetchFailure: FlagProp = {
   id: -1,
   writer: 'KOOSMOOS',
-  greeting: '죄송합니다.. 데이터를 받지 못했습니다.',
+  greeting: '[데이터 불러오기 실패] 깃발 정보를 불러오지 못했습니다. 😢',
   img_src: 'https://source.unsplash.com/random/300x300/?moon',
   posX: 0,
   posY: 0,
-}
+} as const
 
 export const moonShapeToKorean: Record<MoonProp, string> = {
   newMoon: '초하루',
