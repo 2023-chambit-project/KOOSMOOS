@@ -1,21 +1,9 @@
 import * as S from './picturelist.styles'
 
-import React from 'react'
 import PictureItem from '../PictureItem'
+import { PictureListProps } from './picturelist.types'
 
-type Picture = {
-  imageUrl: string
-  title: string
-  links: { href: string }[]
-  data: { title: string }[]
-}
-
-type PictureListProps = {
-  pictures: Picture[]
-  onImageClick: (imageUrl: string) => void
-}
-
-const PictureList: React.FC<PictureListProps> = ({ pictures, onImageClick }) => {
+const PictureList = ({ pictures, onImageClick }: PictureListProps) => {
   return (
     <S.PictureListContainer>
       {pictures.map((picture, index) => (

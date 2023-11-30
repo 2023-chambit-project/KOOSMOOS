@@ -1,20 +1,8 @@
 import * as S from './pictureitem.styles'
 
-import React from 'react'
+import { PictureItemProps } from './pictureitem.types'
 
-type Picture = {
-  imageUrl: string
-  title: string
-  links: { href: string }[]
-  data: { title: string }[]
-}
-
-type PictureItemProps = {
-  picture: Picture
-  onImageClick: (imageUrl: string) => void
-}
-
-const PictureItem: React.FC<PictureItemProps> = ({ picture, onImageClick }) => {
+const PictureItem = ({ picture, onImageClick }: PictureItemProps) => {
   return (
     <S.PictureItemContainer onClick={() => onImageClick(picture.imageUrl)}>
       <S.PictureImage src={picture.imageUrl} alt={picture.title} />

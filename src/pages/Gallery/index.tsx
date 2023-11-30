@@ -1,27 +1,17 @@
-import * as React from 'react'
 import * as S from './Gallery.styles'
+
+import { useEffect, useState } from 'react'
 
 import MenuBar from './components/Category'
 import List from './components/PictureList'
+import { categoryMap } from './gallery.constants'
 
-type Picture = {
-  imageUrl: string
-  title: string
-  links: { href: string }[]
-}
+const GalleryPage = () => {
+  const [data, setData] = useState('')
+  const [pictures, setPictures] = useState([])
+  const [selectedCategory, setSelectedCategory] = useState<'행성' | '우주' | '발사체' | '인공위성'>('행성')
 
-const GalleryPage: React.FC = () => {
-  const [pictures, setPictures] = React.useState<Picture[]>([])
-  const [selectedCategory, setSelectedCategory] = React.useState<string>('행성')
-
-  const categoryMap: { [key: string]: string } = {
-    행성: 'planet',
-    우주: 'cosmos',
-    발사체: 'space launch vehicle',
-    인공위성: 'satellite',
-  }
-
-  React.useEffect(() => {
+  useEffect(() => {
     const apiUrl = `https://images-api.nasa.gov/search?q=${categoryMap[selectedCategory]}&media_type=image`
 
     fetch(apiUrl)
@@ -38,7 +28,7 @@ const GalleryPage: React.FC = () => {
       .catch((error) => {
         console.error('Failed to load picture data.', error)
       })
-  }, [selectedCategory, categoryMap])
+  }, [selectedCategory])
 
   const handleImageClick = (url: string) => {
     window.open(url, '_blank')
@@ -46,11 +36,7 @@ const GalleryPage: React.FC = () => {
 
   return (
     <S.Wrapper>
-      <MenuBar
-        setSelectedCategory={(category: string) => {
-          setSelectedCategory(category)
-        }}
-      />
+      <MenuBar setSelectedCategory={setSelectedCategory} />
       <List pictures={pictures} onImageClick={handleImageClick} />
     </S.Wrapper>
   )
