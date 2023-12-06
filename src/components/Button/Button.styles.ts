@@ -1,6 +1,6 @@
 import { FlexCenterCSS } from '@/styles'
 import styled, { css } from 'styled-components'
-import type { StyleProps } from './ButtonV2.types'
+import type { StyleProps } from './Button.types'
 
 export const variantCSS = {
   default: css``,

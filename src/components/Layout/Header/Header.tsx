@@ -1,4 +1,4 @@
-import { ButtonV2 } from '@/components'
+import { Button } from '@/components'
 import { MainNav } from '@/constants'
 import { faMailForward } from '@fortawesome/free-solid-svg-icons'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -36,9 +36,9 @@ export const Header = () => {
             </S.NavItem>
           ))}
         </S.NavList>
-        <ButtonV2 icon={faMailForward} bgColor="transparent" variant="outlined" onClick={redirectToGoogleForm}>
+        <Button icon={faMailForward} bgColor="transparent" variant="outlined" onClick={redirectToGoogleForm}>
           우주소식 받기
-        </ButtonV2>
+        </Button>
       </S.ContentSection>
     </S.HeaderWrapper>
   )

@@ -1,4 +1,4 @@
-import { roundCSS, sizeCSS, skinCSS, variantCSS } from './ButtonV2.styles'
+import { roundCSS, sizeCSS, skinCSS, variantCSS } from './Button.styles'
 
 export interface StyleProps {
   variant?: keyof typeof variantCSS

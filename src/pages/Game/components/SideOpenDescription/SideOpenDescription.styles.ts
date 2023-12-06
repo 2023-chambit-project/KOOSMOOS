@@ -1,7 +1,7 @@
 import { GameMainAlign } from '@/constants'
 import { FlexColumnCSS, GYFontCSS, PCFontCSS } from '@/styles'
 import { css, styled } from 'styled-components'
-import { PositionProps } from '../../Game.types'
+import type { PositionProps } from '../../Game.types'
 
 // 하얀 구분선
 export const Divider = styled.div`
