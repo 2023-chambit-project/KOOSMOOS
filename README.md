@@ -52,6 +52,9 @@
 
 ![Group 275](https://github.com/2023-chambit-project/KOOSMOOS/assets/112946860/3451b4b5-f5c1-43d9-ae0a-a1100d0adbf1)
 
+<br />
+<br />
+
 
 ## 🛠️ 기술 스텍
 ![Group 276](https://github.com/2023-chambit-project/KOOSMOOS/assets/112946860/524f56d1-4478-41fd-bbe4-d6ead163cc5a)
