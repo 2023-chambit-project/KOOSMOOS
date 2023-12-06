@@ -1,5 +1,5 @@
 export * from './Box'
-export * from './Button'
+export * from './ButtonV2'
 export * from './Layout'
 export * from './SpringMotionBox'
 export * from './progressBar'

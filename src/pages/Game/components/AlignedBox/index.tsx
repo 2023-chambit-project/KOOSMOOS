@@ -1,4 +1,4 @@
-import { Button } from '@/components'
+import { ButtonV2 } from '@/components'
 import { GameMainAlign, GameMainCommon } from '@/constants/index'
 import { faSpaceShuttle } from '@fortawesome/free-solid-svg-icons'
 import { FC, HTMLAttributes, PropsWithChildren } from 'react'
@@ -17,9 +17,9 @@ export const AlignedArea: FC<PropsWithChildren<Props>> = ({ align, children, ...
       {children}
       <S.TitleAndButton align={align}>
         <h1>{GameMainAlign[align].titleText}</h1>
-        <Button icon={faSpaceShuttle} variant="ghost" size="fit" onClick={() => navigate(`${GameMainAlign[align].to}`)}>
+        <ButtonV2 icon={faSpaceShuttle} bgColor="transparent" onClick={() => navigate(`${GameMainAlign[align].to}`)}>
           {GameMainCommon.buttonText}
-        </Button>
+        </ButtonV2>
       </S.TitleAndButton>
     </S.AlignedArea>
   )
