@@ -1,5 +1,5 @@
 import { IconProp } from '@fortawesome/fontawesome-svg-core'
-import { FC, HTMLAttributes, PropsWithChildren } from 'react'
+import type { FC, HTMLAttributes, PropsWithChildren } from 'react'
 import { Icon } from '../Icon'
 import * as S from './Button.styles'
 import type { StyleProps } from './Button.types'
