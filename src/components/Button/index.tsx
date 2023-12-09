@@ -10,9 +10,9 @@ interface Props extends HTMLAttributes<HTMLButtonElement>, StyleProps {
 
 export const Button: FC<PropsWithChildren<Props>> = ({ children, icon, ...props }) => {
   return (
-    <S.ButtonV2 {...props}>
+    <S.Button {...props}>
       {children}
       {icon && <Icon icon={icon} color="none" />}
-    </S.ButtonV2>
+    </S.Button>
   )
 }

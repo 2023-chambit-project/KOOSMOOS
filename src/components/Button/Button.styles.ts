@@ -55,7 +55,7 @@ export const skinCSS = {
   `,
 }
 
-export const ButtonV2 = styled.button<StyleProps>`
+export const Button = styled.button<StyleProps>`
   ${FlexCenterCSS}
   gap: 1rem;
   font-size: ${({ theme }) => theme.FONT_SIZE.small};
