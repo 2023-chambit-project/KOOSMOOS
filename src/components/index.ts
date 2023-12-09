@@ -1,5 +1,6 @@
 export * from './Box'
 export * from './Button'
+export * from './ErrorAstronaut'
 export * from './Layout'
 export * from './LoadingRocket'
 export * from './SpringMotionBox'
