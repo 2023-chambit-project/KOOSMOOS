@@ -11,12 +11,12 @@ export const variantCSS = {
 }
 export const sizeCSS = {
   default: css`
-    width: 17rem;
+    min-width: 17rem;
+    min-height: 5rem;
   `,
   fit: css`
     width: fit-content;
     height: fit-content;
-    padding: 0.5rem 1rem;
   `,
   full: css`
     width: 100%;
@@ -59,7 +59,7 @@ export const Button = styled.button<StyleProps>`
   ${FlexCenterCSS}
   gap: 1rem;
   font-size: ${({ theme }) => theme.FONT_SIZE.small};
-  height: 5rem;
+  padding: 0.5rem 1rem;
 
   ${({ variant = 'default' }) => variantCSS[variant]}
   ${({ size = 'default' }) => sizeCSS[size]}
