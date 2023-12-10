@@ -6,4 +6,5 @@ export interface StyleProps {
   round?: keyof typeof roundCSS
   skin?: keyof typeof skinCSS
   bgColor?: string
+  hoverColor?: string
 }

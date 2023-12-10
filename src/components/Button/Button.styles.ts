@@ -37,11 +37,9 @@ export const skinCSS = {
   default: css`
     color: ${({ theme }) => theme.COLOR.common.white};
     border-color: ${({ theme }) => theme.COLOR.common.white};
-
     &:hover {
       color: ${({ theme }) => theme.COLOR.common.black};
       border-color: ${({ theme }) => theme.COLOR.common.black};
-      background-color: ${({ theme }) => theme.COLOR.common.white};
     }
   `,
   dark: css`
@@ -50,7 +48,6 @@ export const skinCSS = {
     &:hover {
       color: ${({ theme }) => theme.COLOR.common.white};
       border-color: ${({ theme }) => theme.COLOR.common.white};
-      background-color: ${({ theme }) => theme.COLOR.common.black};
     }
   `,
 }
@@ -75,4 +72,8 @@ export const Button = styled.button<StyleProps>`
   white-space: nowrap;
   overflow: hidden;
   cursor: pointer;
+
+  &:hover {
+    background-color: ${({ hoverColor, theme }) => (hoverColor ? hoverColor : theme.COLOR.success)};
+  }
 `
