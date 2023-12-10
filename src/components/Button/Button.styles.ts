@@ -74,6 +74,6 @@ export const Button = styled.button<StyleProps>`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ hoverColor, theme }) => (hoverColor ? hoverColor : theme.COLOR.success)};
+    background-color: ${({ hoverColor, theme }) => (hoverColor ? hoverColor : theme.COLOR.common.white)};
   }
 `

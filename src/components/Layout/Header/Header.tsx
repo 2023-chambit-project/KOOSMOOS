@@ -4,7 +4,6 @@ import { faMailForward } from '@fortawesome/free-solid-svg-icons'
 import { useLocation, useNavigate } from 'react-router-dom'
 import * as S from './Header.styles'
 
-import { theme } from '@/styles'
 import LOGO_IMAGE from '/public/assets/logo/logo_512x105.svg'
 
 export const Header = () => {
@@ -37,13 +36,7 @@ export const Header = () => {
             </S.NavItem>
           ))}
         </S.NavList>
-        <Button
-          icon={faMailForward}
-          bgColor="transparent"
-          hoverColor={theme.COLOR.common.white}
-          variant="outlined"
-          onClick={redirectToGoogleForm}
-        >
+        <Button icon={faMailForward} bgColor="transparent" variant="outlined" onClick={redirectToGoogleForm}>
           우주소식 받기
         </Button>
       </S.ContentSection>

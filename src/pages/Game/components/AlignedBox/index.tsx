@@ -1,6 +1,5 @@
 import { Button } from '@/components'
 import { GameMainAlign, GameMainCommon } from '@/constants/index'
-import { theme } from '@/styles'
 import { faSpaceShuttle } from '@fortawesome/free-solid-svg-icons'
 import { FC, HTMLAttributes, PropsWithChildren } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -18,12 +17,7 @@ export const AlignedArea: FC<PropsWithChildren<Props>> = ({ align, children, ...
       {children}
       <S.TitleAndButton align={align}>
         <h1>{GameMainAlign[align].titleText}</h1>
-        <Button
-          icon={faSpaceShuttle}
-          bgColor="transparent"
-          hoverColor={theme.COLOR.common.white}
-          onClick={() => navigate(`${GameMainAlign[align].to}`)}
-        >
+        <Button icon={faSpaceShuttle} bgColor="transparent" onClick={() => navigate(`${GameMainAlign[align].to}`)}>
           {GameMainCommon.buttonText}
         </Button>
       </S.TitleAndButton>
