@@ -1,4 +1,4 @@
-import LocketAnimation from '@/assets/lottie/locket.json'
+import RocketAnimation from '@/assets/lottie/rocket.json'
 import Lottie from 'lottie-react'
 import type { FC } from 'react'
 import type { SectionProps } from '../../Game2.types'
@@ -14,7 +14,7 @@ export const IntroSection: FC<SectionProps> = ({ onNextState }) => {
         나는 어떤 행성?
       </S.Title>
       <S.AnimationBox>
-        <Lottie animationData={LocketAnimation} width={'100%'} height={'100%'} />
+        <Lottie animationData={RocketAnimation} width={'100%'} height={'100%'} />
       </S.AnimationBox>
       <S.Button onClick={onNextState}>행성mbti 검사하러 가기 🚀</S.Button>
     </S.Container>
