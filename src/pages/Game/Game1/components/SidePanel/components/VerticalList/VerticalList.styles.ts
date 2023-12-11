@@ -12,12 +12,10 @@ export const Container = styled.div`
   &::-webkit-scrollbar {
     width: 10px;
   }
-
   &::-webkit-scrollbar-track {
     background: ${({ theme }) => theme.COLOR.common.gray[900]};
     border-radius: 10px;
   }
-
   /* Handle */
   &::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.PALETTE.yellow[100]};
@@ -44,7 +42,6 @@ export const GreetingItem = styled.div<{ selected: boolean }>`
           background-color: ${({ theme }) => theme.COLOR.common.black};
         `}
 `
-
 export const UsersProfileImg = styled.img`
   width: 3.5rem;
   border-radius: 100rem;
@@ -58,7 +55,6 @@ export const UsersTextWrapper = styled.div`
   justify-content: center;
   margin: 0 1rem;
 `
-
 export const UsersNicknameText = styled.p`
   width: 100%;
   overflow: hidden;
@@ -67,7 +63,6 @@ export const UsersNicknameText = styled.p`
   color: ${({ theme }) => theme.COLOR.common.gray[700]};
   font-size: 1.5rem;
 `
-
 export const UsersGreetingText = styled.p`
   width: 100%;
   overflow: hidden;

@@ -3,16 +3,15 @@ import { sidePanelModeAtom } from '@/atoms/sidePanelMode.atom'
 import { Button } from '@/components'
 import type { MoonProp } from '@/types'
 import { faCloudMoon, faPenAlt } from '@fortawesome/free-solid-svg-icons'
-import { FC } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import { moonShapeToKorean } from '../../Game1.constants'
 import type { PanelModeProp } from '../../Game1.types'
 import * as S from './SidePanel.styles'
 import { FlagAddingForm, VerticalList } from './components'
 
-export const SidePanel: FC = () => {
+export const SidePanel = () => {
   const [panelMode, setPanelMode] = useRecoilState<PanelModeProp>(sidePanelModeAtom)
-  const [moonShape] = useRecoilState<MoonProp>(moonShapeAtom)
+  const moonShape = useRecoilValue<MoonProp>(moonShapeAtom)
   return (
     <S.Container>
       <S.HeadingText>

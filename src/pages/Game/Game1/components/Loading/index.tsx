@@ -1,6 +1,6 @@
 import { theme } from '@/styles'
 import Lottie from 'lottie-react'
-import { FC } from 'react'
+import type { FC } from 'react'
 import * as S from './Loading.styles'
 
 interface Props {

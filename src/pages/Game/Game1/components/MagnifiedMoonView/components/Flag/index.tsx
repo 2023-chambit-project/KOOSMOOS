@@ -1,9 +1,9 @@
 import type { FlagProp } from '@/types'
-import { FC } from 'react'
+import type { FC } from 'react'
 import * as S from './Flag.styles'
 import Fixture from '/public/assets/game/game1/Fixture.svg'
 
-const Flag: FC<FlagProp> = ({ greeting, img_src, writer }) => {
+export const Flag: FC<FlagProp> = ({ greeting, img_src, writer }) => {
   return (
     <S.FlagContainer>
       <S.FlagImageWrapper>
@@ -18,4 +18,3 @@ const Flag: FC<FlagProp> = ({ greeting, img_src, writer }) => {
     </S.FlagContainer>
   )
 }
-export default Flag

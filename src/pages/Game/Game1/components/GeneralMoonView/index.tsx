@@ -3,17 +3,16 @@ import { moonShapeAtom } from '@/atoms/moonShape.atom'
 import { useLoading } from '@/hooks'
 import { theme } from '@/styles'
 import type { MoonProp } from '@/types'
-import { FC } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilValue } from 'recoil'
 import { LoadingPage } from '..'
 import * as S from './GeneralMoonView.styles'
 import { Pointer } from './components/Pointer'
 import FullMoon from '/assets/game/game1/FullMoon.png'
 import StarParticle from '/assets/game/game1/WhiteStarParticle.png'
 
-export const GeneralMoonView: FC = () => {
+export const GeneralMoonView = () => {
   const { loading } = useLoading(3500)
-  const [moonShape] = useRecoilState<MoonProp>(moonShapeAtom)
+  const moonShape = useRecoilValue<MoonProp>(moonShapeAtom)
 
   return (
     <>

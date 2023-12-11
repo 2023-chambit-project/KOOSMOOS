@@ -1,6 +1,14 @@
 import { FlexColumnCSS } from '@/styles'
 import { keyframes, styled } from 'styled-components'
 
+const fadeInAnimation = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
 export const Container = styled.div`
   @media screen and (max-width: 1000px) {
     display: none;
@@ -21,7 +29,6 @@ export const Container = styled.div`
   font-family: 'GwangyangSunshine-Light';
   color: ${({ theme }) => theme.COLOR.common.white};
 `
-
 export const HeadingText = styled.p`
   text-align: center;
   font-weight: 900;
@@ -33,23 +40,12 @@ export const PointText = styled.p`
   color: ${({ theme }) => theme.PALETTE.yellow[100]};
   font-size: ${({ theme }) => theme.FONT_SIZE.big};
 `
-
 export const Divider = styled.div`
   background-color: ${({ theme }) => theme.COLOR.common.white};
   width: 70%;
   height: 1px;
   margin: 1rem;
 `
-
-const fadeInAnimation = keyframes`
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-`
-
 export const PanelContentWrapper = styled.div`
   width: 100%;
   height: 55%;

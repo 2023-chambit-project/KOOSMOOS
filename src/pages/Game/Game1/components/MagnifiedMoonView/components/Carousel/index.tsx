@@ -1,14 +1,14 @@
 import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
 import { flagListAtom } from '@/atoms/flagList.atom'
 import type { FlagProp } from '@/types'
-import { FC, useEffect, useRef } from 'react'
-import { useRecoilState } from 'recoil'
-import Flag from '../Flag'
+import { useEffect, useRef } from 'react'
+import { useRecoilValue } from 'recoil'
+import { Flag } from '../Flag'
 import * as S from './Carousel.styles'
 
-const Carousel: FC = () => {
-  const [flagList] = useRecoilState<FlagProp[]>(flagListAtom)
-  const [curFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
+const Carousel = () => {
+  const flagList = useRecoilValue<FlagProp[]>(flagListAtom)
+  const curFlagIndex = useRecoilValue<number>(curFlagIndexAtom)
   const carouselRef = useRef<HTMLUListElement>(null)
 
   useEffect(() => {

@@ -11,6 +11,3 @@ export const NightSky = styled.div`
     ${({ theme }) => theme.PALETTE.purple[70]}
   );
 `
-
-export const MoonImgArea = styled.div``
-export const VerticalListArea = styled.div``

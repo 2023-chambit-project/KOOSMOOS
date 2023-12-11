@@ -10,14 +10,14 @@ import { usePostGame1Flag } from '@/services'
 import { theme } from '@/styles'
 import type { FlagProp, MoonProp } from '@/types'
 import { ChangeEvent, MouseEvent, useEffect } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import * as S from './FlagAddingForm.styles'
 
 export const FlagAddingForm = () => {
   const [flagList, setFlagList] = useRecoilState<FlagProp[]>(flagListAtom)
   const [curFlagIndex, setCurFlagIndex] = useRecoilState(curFlagIndexAtom)
-  const [moonShape] = useRecoilState<MoonProp>(moonShapeAtom)
-  const [, setPanelMode] = useRecoilState<PanelModeProp>(sidePanelModeAtom)
+  const moonShape = useRecoilValue<MoonProp>(moonShapeAtom)
+  const setPanelMode = useSetRecoilState<PanelModeProp>(sidePanelModeAtom)
   const { mutate } = usePostGame1Flag()
 
   // 첫 렌더링 시, flagList 맨 뒤에 flag template 추가

@@ -1,8 +1,7 @@
-import { FC } from 'react'
 import * as S from './Game.styles'
 import { AlignedArea, SideOpenDescription } from './components'
 
-const GameMainPage: FC = () => {
+const GameMainPage = () => {
   return (
     <S.DividedArea>
       <AlignedArea align="left">

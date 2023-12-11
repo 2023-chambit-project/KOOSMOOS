@@ -8,18 +8,17 @@ import { theme } from '@/styles'
 import type { FlagProp } from '@/types'
 import { faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { faStopCircle } from '@fortawesome/free-solid-svg-icons/faStopCircle'
-import { FC } from 'react'
-import { useRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import type { ViewTypeProp } from '../../Game1.types'
 import { LoadingPage } from '../Loading'
 import * as S from './ MagnifiedMoonView.styles'
 import Carousel from './components/Carousel'
 
-export const MagnifiedMoonView: FC = () => {
+export const MagnifiedMoonView = () => {
   const { loading } = useLoading(3500)
-  const [, setViewType] = useRecoilState<ViewTypeProp>(viewTypeAtom)
+  const setViewType = useSetRecoilState<ViewTypeProp>(viewTypeAtom)
 
-  const [flagList] = useRecoilState<FlagProp[]>(flagListAtom)
+  const flagList = useRecoilValue<FlagProp[]>(flagListAtom)
   const [curFlagIndex, setCurFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
 
   const switchToButton = (direction: number) => {
