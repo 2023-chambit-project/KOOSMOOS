@@ -1,6 +1,6 @@
 import { FlexBetweenCSS, FlexColumnCSS, GYFontCSS } from '@/styles'
 import { css, styled } from 'styled-components'
-import { PositionProps } from '../../Game.types'
+import type { PositionProps } from '../../Game.types'
 
 // 게임 타이틀과 참가버튼을 포함하는 영역
 export const TitleAndButton = styled.div<PositionProps>`

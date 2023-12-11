@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { Suspense } from 'react'
 import { ErrorBoundary } from 'react-error-boundary'
 import { RouterProvider } from 'react-router-dom'
+import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'styled-components'
 import { ErrorAstronaut, LoadingRocket } from './components'
 import { worker } from './mocks/browser'
@@ -28,14 +29,16 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>
-        <ErrorBoundary FallbackComponent={ErrorAstronaut}>
-          <Suspense fallback={<LoadingRocket />}>
-            <GlobalStyles />
-            <RouterProvider router={routers} />
-          </Suspense>
-        </ErrorBoundary>
-      </ThemeProvider>
+      <RecoilRoot>
+        <ThemeProvider theme={theme}>
+          <ErrorBoundary FallbackComponent={ErrorAstronaut}>
+            <Suspense fallback={<LoadingRocket />}>
+              <GlobalStyles />
+              <RouterProvider router={routers} />
+            </Suspense>
+          </ErrorBoundary>
+        </ThemeProvider>
+      </RecoilRoot>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   )
