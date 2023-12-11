@@ -1,4 +1,4 @@
-import type { FlagProp, MoonProp } from '@/types'
+import type { FlagGame1Response, FlagProp, MoonProp } from '@/types'
 
 export const moonRadius = 90
 export const subCircleRadius = moonRadius * 1.2
@@ -21,13 +21,18 @@ export const flagWhenNewmoon: FlagProp = {
   posY: 0,
 } as const
 
-export const flagWhenFetchFailure: FlagProp = {
-  id: -1,
-  writer: 'KOOSMOOS',
-  greeting: '[데이터 불러오기 실패] 깃발 정보를 불러오지 못했습니다. 😢',
-  img_src: 'https://source.unsplash.com/random/300x300/?moon',
-  posX: 0,
-  posY: 0,
+export const flagWhenFetchFailure: FlagGame1Response = {
+  moonShape: 'newMoon',
+  flagList: [
+    {
+      id: -1,
+      writer: 'KOOSMOOS',
+      greeting: '깃발 정보를 불러오지 못했습니다. 😢',
+      img_src: 'https://source.unsplash.com/random/300x300/?moon',
+      posX: 0,
+      posY: 0,
+    },
+  ],
 } as const
 
 export const moonShapeToKorean: Record<MoonProp, string> = {

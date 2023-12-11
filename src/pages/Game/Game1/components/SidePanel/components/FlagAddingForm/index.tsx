@@ -1,48 +1,30 @@
-import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
-import { flagListAtom } from '@/atoms/flagList.atom'
-import { moonShapeAtom } from '@/atoms/moonShape.atom'
-import { sidePanelModeAtom } from '@/atoms/sidePanelMode.atom'
+import { newFlagFormAtom } from '@/atoms/newFlagForm.atom'
+import { viewTypeAtom } from '@/atoms/viewType.atom'
 import { Button } from '@/components'
-import { createFlagTemplate, moonRadius } from '@/pages/Game/Game1/Game1.constants'
-import type { PanelModeProp } from '@/pages/Game/Game1/Game1.types'
+import { moonRadius } from '@/pages/Game/Game1/Game1.constants'
+import type { ViewTypeProp } from '@/pages/Game/Game1/Game1.types'
 import { formValidate } from '@/pages/Game/Game1/helpers/createFlagFormHelper'
-import { usePostGame1Flag } from '@/services'
+import { useGetGame1Flags, usePostGame1Flag } from '@/services'
 import { theme } from '@/styles'
-import type { FlagProp, MoonProp } from '@/types'
+import type { FlagProp } from '@/types'
 import { ChangeEvent, MouseEvent, useEffect } from 'react'
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil'
 import * as S from './FlagAddingForm.styles'
 
 export const FlagAddingForm = () => {
-  const [flagList, setFlagList] = useRecoilState<FlagProp[]>(flagListAtom)
-  const [curFlagIndex, setCurFlagIndex] = useRecoilState(curFlagIndexAtom)
-  const moonShape = useRecoilValue<MoonProp>(moonShapeAtom)
-  const setPanelMode = useSetRecoilState<PanelModeProp>(sidePanelModeAtom)
+  const { data } = useGetGame1Flags()
   const { mutate } = usePostGame1Flag()
+  const [newFlag, setNewFlag] = useRecoilState<FlagProp>(newFlagFormAtom)
+  const resetNewFlag = useResetRecoilState(newFlagFormAtom)
+  const setViewType = useSetRecoilState<ViewTypeProp>(viewTypeAtom)
 
-  // 첫 렌더링 시, flagList 맨 뒤에 flag template 추가
   useEffect(() => {
-    setFlagList((prev) => {
-      const _flagList = [...prev]
-      _flagList.push(createFlagTemplate)
-      return _flagList
-    })
-    // unmount 시, flag template 을 활용해 깃발이 생성되어 있지 않다면 flag template 제거
-    return () => {
-      setFlagList((prev) => {
-        const _flagList = [...prev]
-        _flagList.pop()
-        return _flagList
-      })
-      setCurFlagIndex((prev) => prev - 1)
-    }
-  }, [setFlagList, setCurFlagIndex])
+    // 좌표를 확인할 수 있도록, general 시점으로 강제
+    setViewType('general')
+    resetNewFlag()
+  }, [setViewType, resetNewFlag])
 
-  // flagList 에 flag template 이 추가된 후, curFlagIndex 가 해당 깃발을 가르키도록 설정
-  useEffect(() => {
-    setCurFlagIndex(flagList.length - 1)
-  }, [flagList, setCurFlagIndex])
-
+  // input 값이 변경될 시, 상태 최신화
   const onChangeForm = (e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>) => {
     // 'writer' input 의 값이 8자를 초과하여 사용 못하도록 제한
     if (e.target.name === 'writer' && e.target.value.length > 8) {
@@ -54,56 +36,42 @@ export const FlagAddingForm = () => {
       e.target.value = e.target.value.substring(0, 30)
       return
     }
-    setFlagList((prev) => {
-      const _flagList = [...prev]
-      const _flagInfo = { ..._flagList[curFlagIndex], [e.target.name]: e.target.value }
-      _flagList[curFlagIndex] = _flagInfo
-      return _flagList
+    setNewFlag((prev) => {
+      return { ...prev, [e.target.name]: e.target.value }
     })
   }
   // Toggle 버튼 클릭 시, 위치 반전
   const changeDirectionToggle = (e: MouseEvent<HTMLButtonElement>) => {
-    setFlagList((prev) => {
-      const _flagList = [...prev]
-      let value = 0
-      if (e.currentTarget.name === 'posY') {
-        value = _flagList[curFlagIndex].posY * -1
-      } else {
-        console.log('posX')
-        value = _flagList[curFlagIndex].posX * -1
-      }
-      const _flagInfo = { ..._flagList[curFlagIndex], [e.currentTarget.name]: value }
-      _flagList[curFlagIndex] = _flagInfo
-      return _flagList
+    setNewFlag((prev) => {
+      const _newFlagInfo = { ...prev }
+      if (e.currentTarget.name === 'posY') _newFlagInfo.posY *= -1
+      else _newFlagInfo.posX *= -1
+
+      return _newFlagInfo
     })
   }
+
   // 제출 버튼 클릭 시
   const onClickSubmitBtn = () => {
     if (disabled) {
       window.alert('🛑 위치를 변경거나, 내용 작성 조건을 다시 확인해주세요.')
       return
     }
-    try {
-      mutate({ ...flagList[curFlagIndex] })
-      window.alert('축하합니다.🎉 여러분의 깃발이 달에서 펼쳐졌습니다.')
-      setFlagList((prev) => {
-        const _flagList = [...prev]
-        _flagList.push({ ..._flagList[curFlagIndex] })
-        return _flagList
-      })
-    } catch (e) {
-      window.alert('데이터 전송에 실패했습니다.')
-    } finally {
-      setPanelMode('observation')
-    }
+    mutate({
+      writer: newFlag.writer,
+      greeting: newFlag.greeting,
+      posX: newFlag.posX,
+      posY: newFlag.posY,
+    })
+    window.alert('축하합니다. 깃발이 달에 무사히 도착하여 설처되었습니다. 🎉')
   }
 
   const { disabled, errors } = formValidate({
-    writer: flagList[curFlagIndex].writer,
-    posX: flagList[curFlagIndex].posX,
-    posY: flagList[curFlagIndex].posY,
-    greeting: flagList[curFlagIndex].greeting,
-    moonShape: moonShape,
+    writer: newFlag.writer,
+    posX: newFlag.posX,
+    posY: newFlag.posY,
+    greeting: newFlag.greeting,
+    moonShape: data!.moonShape,
   })
 
   return (
@@ -117,17 +85,18 @@ export const FlagAddingForm = () => {
           type="text"
           placeholder="2자 ~ 8자 이내"
           onChange={onChangeForm}
+          value={newFlag.writer}
         />
       </S.SimpleInputWrapper>
 
       <S.SimpleInputWrapper>
         <S.InputLabel>달의 위도</S.InputLabel>
         <S.DirectionToggle
-          bgColor={flagList[curFlagIndex].posY < 0 ? theme.COLOR.alert[100] : theme.PALETTE.blue[100]}
+          bgColor={newFlag.posY < 0 ? theme.COLOR.alert[100] : theme.PALETTE.blue[100]}
           name="posY"
           onClick={changeDirectionToggle}
         >
-          {flagList[curFlagIndex].posY < 0 ? 'S' : 'N'}
+          {newFlag.posY < 0 ? 'S' : 'N'}
         </S.DirectionToggle>
         <S.SimpleInputField
           name="posY"
@@ -138,18 +107,18 @@ export const FlagAddingForm = () => {
           defaultValue={0}
           $isError={errors.posY}
           onChange={onChangeForm}
-          value={flagList[curFlagIndex].posY}
+          value={newFlag.posY}
         />
       </S.SimpleInputWrapper>
 
       <S.SimpleInputWrapper>
         <S.InputLabel>달의 경도</S.InputLabel>
         <S.DirectionToggle
-          bgColor={flagList[curFlagIndex].posX < 0 ? theme.PALETTE.yellow[100] : theme.PALETTE.purple[70]}
+          bgColor={newFlag.posX < 0 ? theme.PALETTE.yellow[100] : theme.PALETTE.purple[70]}
           name="posX"
           onClick={changeDirectionToggle}
         >
-          {flagList[curFlagIndex].posX < 0 ? 'W' : 'E'}
+          {newFlag.posX < 0 ? 'W' : 'E'}
         </S.DirectionToggle>
         <S.SimpleInputField
           name="posX"
@@ -160,7 +129,7 @@ export const FlagAddingForm = () => {
           defaultValue={0}
           $isError={errors.posX}
           onChange={onChangeForm}
-          value={flagList[curFlagIndex].posX}
+          value={newFlag.posX}
         />
       </S.SimpleInputWrapper>
 
@@ -171,6 +140,7 @@ export const FlagAddingForm = () => {
           placeholder="2자 ~ 30자 이내"
           $isError={errors.greeting}
           onChange={onChangeForm}
+          value={newFlag.greeting}
         />
       </S.GreetingInputWrapper>
 

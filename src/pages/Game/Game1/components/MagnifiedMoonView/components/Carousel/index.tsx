@@ -1,5 +1,5 @@
 import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
-import { flagListAtom } from '@/atoms/flagList.atom'
+import { useGetGame1Flags } from '@/services'
 import type { FlagProp } from '@/types'
 import { useEffect, useRef } from 'react'
 import { useRecoilValue } from 'recoil'
@@ -7,7 +7,7 @@ import { Flag } from '../Flag'
 import * as S from './Carousel.styles'
 
 const Carousel = () => {
-  const flagList = useRecoilValue<FlagProp[]>(flagListAtom)
+  const { data } = useGetGame1Flags()
   const curFlagIndex = useRecoilValue<number>(curFlagIndexAtom)
   const carouselRef = useRef<HTMLUListElement>(null)
 
@@ -20,7 +20,7 @@ const Carousel = () => {
   return (
     <>
       <S.GreetingList ref={carouselRef}>
-        {flagList.map((val: FlagProp) => {
+        {data!.flagList.map((val: FlagProp) => {
           return (
             <S.GreetingItem key={val.id}>
               <Flag {...val} />

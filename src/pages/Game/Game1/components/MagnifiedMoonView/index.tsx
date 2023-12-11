@@ -1,14 +1,13 @@
 import TeleScope from '@/assets/lottie/telescope.json'
 import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
-import { flagListAtom } from '@/atoms/flagList.atom'
 import { viewTypeAtom } from '@/atoms/viewType.atom'
 import { Button } from '@/components'
 import { useLoading } from '@/hooks'
+import { useGetGame1Flags } from '@/services'
 import { theme } from '@/styles'
-import type { FlagProp } from '@/types'
 import { faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons'
 import { faStopCircle } from '@fortawesome/free-solid-svg-icons/faStopCircle'
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
+import { useRecoilState, useSetRecoilState } from 'recoil'
 import type { ViewTypeProp } from '../../Game1.types'
 import { LoadingPage } from '../Loading'
 import * as S from './ MagnifiedMoonView.styles'
@@ -16,14 +15,14 @@ import Carousel from './components/Carousel'
 
 export const MagnifiedMoonView = () => {
   const { loading } = useLoading(3500)
-  const setViewType = useSetRecoilState<ViewTypeProp>(viewTypeAtom)
+  const { data } = useGetGame1Flags()
 
-  const flagList = useRecoilValue<FlagProp[]>(flagListAtom)
+  const setViewType = useSetRecoilState<ViewTypeProp>(viewTypeAtom)
   const [curFlagIndex, setCurFlagIndex] = useRecoilState<number>(curFlagIndexAtom)
 
   const switchToButton = (direction: number) => {
     const newIndex = curFlagIndex + direction
-    if (newIndex !== flagList.length && newIndex !== -1) {
+    if (newIndex !== data!.flagList.length && newIndex !== -1) {
       setCurFlagIndex((prev) => prev + direction)
     }
   }
