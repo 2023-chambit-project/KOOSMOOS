@@ -4,6 +4,14 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 50%;
   margin: 0 auto;
+
+  & a {
+    color: #f9d49d;
+  }
+
+  & img {
+    max-width: 100%;
+  }
 `
 
 export const Thumbnail = styled.img`

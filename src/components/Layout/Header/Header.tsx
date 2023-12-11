@@ -14,6 +14,13 @@ export const Header = () => {
     navigate(`/${path}`)
   }
 
+  const redirectToGoogleForm = () => {
+    const googleFormUrl =
+      'https://docs.google.com/forms/d/e/1FAIpQLSe41X2RJEMhr8B88J-509Y41hVzgDisBP5WcmflpWtOCbdSJQ/viewform?usp=sf_link'
+
+    window.open(googleFormUrl, '_blank')
+  }
+
   return (
     <S.HeaderWrapper>
       <S.LogoIMG src={LOGO_IMAGE} alt="logo" onClick={() => handleNav('')} />
@@ -29,7 +36,9 @@ export const Header = () => {
             </S.NavItem>
           ))}
         </S.NavList>
-        <Button icon={faMailForward}>우주 소식 받기</Button>
+        <Button icon={faMailForward} onClick={redirectToGoogleForm}>
+          우주 소식 받기
+        </Button>
       </S.ContentSection>
     </S.HeaderWrapper>
   )
