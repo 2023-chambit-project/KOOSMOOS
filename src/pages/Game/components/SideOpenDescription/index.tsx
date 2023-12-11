@@ -1,4 +1,4 @@
-import { Box } from '@/components/Box'
+import { Box } from '@/components'
 import { GameMainAlign, GameMainCommon } from '@/constants'
 import { FC, HTMLAttributes } from 'react'
 import type { PositionProps } from '../../Game.types'

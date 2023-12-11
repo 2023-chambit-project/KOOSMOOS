@@ -1,7 +1,10 @@
-import { contentSizeCSS, sizeCSS, variantCSS } from './Button.styles'
+import { roundCSS, sizeCSS, skinCSS, variantCSS } from './Button.styles'
 
 export interface StyleProps {
   variant?: keyof typeof variantCSS
   size?: keyof typeof sizeCSS
-  contentSize?: keyof typeof contentSizeCSS
+  round?: keyof typeof roundCSS
+  skin?: keyof typeof skinCSS
+  bgColor?: string
+  hoverColor?: string
 }

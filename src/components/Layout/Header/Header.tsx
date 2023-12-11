@@ -36,8 +36,8 @@ export const Header = () => {
             </S.NavItem>
           ))}
         </S.NavList>
-        <Button icon={faMailForward} onClick={redirectToGoogleForm}>
-          우주 소식 받기
+        <Button icon={faMailForward} bgColor="transparent" variant="outlined" onClick={redirectToGoogleForm}>
+          우주소식 받기
         </Button>
       </S.ContentSection>
     </S.HeaderWrapper>
