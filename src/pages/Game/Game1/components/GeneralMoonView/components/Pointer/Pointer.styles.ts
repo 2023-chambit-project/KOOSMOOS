@@ -43,9 +43,9 @@ export const EncouragingText = styled.h5`
 
 export const Pointer = styled.div<PointerProp>`
   position: absolute;
-  top: ${({ gapTop }) => gapTop}%;
-  left: ${({ gapLeft }) => gapLeft}%;
-  color: ${({ mainColor }) => mainColor};
+  top: ${({ $gapTop }) => $gapTop}%;
+  left: ${({ $gapLeft }) => $gapLeft}%;
+  color: ${({ $mainColor }) => $mainColor};
   background-color: ${({ theme }) => theme.COLOR.common.white};
   width: 10%;
   aspect-ratio: 1/1;
@@ -59,7 +59,7 @@ export const Pointer = styled.div<PointerProp>`
     position: absolute;
     top: 100%;
     border: 0.6rem solid transparent;
-    border-top: 1rem solid ${({ mainColor }) => mainColor};
+    border-top: 1rem solid ${({ $mainColor }) => $mainColor};
   }
   animation:
     ${stickDown} 0.15s ease-in forwards,

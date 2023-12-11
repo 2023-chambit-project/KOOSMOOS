@@ -9,7 +9,7 @@ export interface MoonShapeProp {
   moonShape: MoonProp
 }
 export interface PointerProp {
-  gapTop: number
-  gapLeft: number
-  mainColor: string
+  $gapTop: number
+  $gapLeft: number
+  $mainColor: string
 }

@@ -51,9 +51,9 @@ export const Pointer = () => {
   return (
     <S.Pointer
       key={pointerInfo.posX + pointerInfo.posY}
-      gapTop={gapTop}
-      gapLeft={gapLeft}
-      mainColor={mainColor}
+      $gapTop={gapTop}
+      $gapLeft={gapLeft}
+      $mainColor={mainColor}
       onClick={() => {
         isPanelModeObservation && setViewType('magnification')
       }}
