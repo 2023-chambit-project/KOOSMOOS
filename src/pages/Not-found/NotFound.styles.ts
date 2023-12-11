@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   ${FlexCenterCSS}
   ${FlexColumnCSS}
   gap: 20px;
-  background-color: ${({ theme }) => theme.COLOR.common.white};
+  background-color: ${({ theme }) => theme.COLOR.common.gray[200]};
 `
 
 export const TextImgContainer = styled.div`
@@ -27,7 +27,7 @@ export const TextSection = styled.section`
   word-wrap: break-word;
 
   font-family: 'GwangyangSunshine-Bold';
-  font-weight: 800;
+  font-weight: 400;
 `
 
 export const ButtonContainer = styled.div`
