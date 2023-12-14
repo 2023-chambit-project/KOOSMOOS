@@ -2,7 +2,7 @@ import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
 import { flagListAtom } from '@/atoms/flagList.atom'
 import { moonShapeAtom } from '@/atoms/moonShape.atom'
 import { sidePanelModeAtom } from '@/atoms/sidePanelMode.atom'
-import { ButtonV2 } from '@/components/ButtonV2'
+import { Button } from '@/components'
 import { createFlagTemplate, moonRadius } from '@/pages/Game/Game1/Game1.constants'
 import type { PanelModeProp } from '@/pages/Game/Game1/Game1.types'
 import { formValidate } from '@/pages/Game/Game1/helpers/createFlagFormHelper'
@@ -174,9 +174,9 @@ export const FlagAddingForm = () => {
         />
       </S.GreetingInputWrapper>
 
-      <ButtonV2 onClick={onClickSubmitBtn} size="full" bgColor={theme.PALETTE.orange[100]} round="very">
+      <Button onClick={onClickSubmitBtn} size="full" bgColor={theme.PALETTE.orange[100]} round="very">
         달로 전송하기.. 🚀
-      </ButtonV2>
+      </Button>
     </S.Form>
   )
 }

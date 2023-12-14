@@ -2,7 +2,7 @@ import TeleScope from '@/assets/lottie/telescope.json'
 import { curFlagIndexAtom } from '@/atoms/curFlagIndex.atom'
 import { flagListAtom } from '@/atoms/flagList.atom'
 import { viewTypeAtom } from '@/atoms/viewType.atom'
-import { ButtonV2 } from '@/components/ButtonV2'
+import { Button } from '@/components'
 import { useLoading } from '@/hooks'
 import { theme } from '@/styles'
 import type { FlagProp } from '@/types'
@@ -37,13 +37,13 @@ export const MagnifiedMoonView: FC = () => {
           <S.Joint>
             <S.LunaSurface>
               <S.YellowBase>
-                <ButtonV2
+                <Button
                   style={{ left: '10%' }}
                   icon={faChevronCircleLeft}
                   size="fit"
                   onClick={() => switchToButton(-1)}
                 />
-                <ButtonV2
+                <Button
                   style={{ right: '10%' }}
                   icon={faChevronCircleRight}
                   size="fit"
@@ -53,7 +53,7 @@ export const MagnifiedMoonView: FC = () => {
               </S.YellowBase>
             </S.LunaSurface>
           </S.Joint>
-          <ButtonV2
+          <Button
             bgColor={theme.COLOR.alert[100]}
             icon={faStopCircle}
             style={{ position: 'absolute', left: '3%', top: '15%' }}
@@ -63,7 +63,7 @@ export const MagnifiedMoonView: FC = () => {
             round="slightly"
           >
             망원경 끄기
-          </ButtonV2>
+          </Button>
         </S.Barrel>
       )}
     </>
