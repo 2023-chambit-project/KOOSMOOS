@@ -5,6 +5,7 @@ import Game1Page from '@/pages/Game/Game1'
 import Game2Page from '@/pages/Game/Game2'
 import MainPage from '@/pages/Main'
 import NewsPage from '@/pages/News'
+import NotFoundPage from '@/pages/Not-found'
 import TechWikiPage from '@/pages/Tech-wiki'
 import WikiPostPage from '@/pages/Tech-wiki/WikiPost'
 import { createBrowserRouter } from 'react-router-dom'
@@ -45,6 +46,10 @@ export const routers = createBrowserRouter([
       {
         path: '/game/2',
         element: <Game2Page />,
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />,
       },
     ],
   },
