@@ -3,7 +3,7 @@ import { styled } from 'styled-components'
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   ${FlexCenterCSS}
   ${FlexColumnCSS}
   gap: 20px;
