@@ -9,6 +9,7 @@ import {
 } from '@tanstack/react-query'
 import type { AxiosError, AxiosResponse } from 'axios'
 import { getGame1Flags, postGame1Flag, postGame2Answers } from '../apis'
+import LOGO_IMAGE from '/assets/logo/logo_512x105.svg'
 
 export const usePostGame2Answers = (
   options?: UseMutationOptions<AxiosResponse<PostGame2Response>, AxiosError, PostGame2ResultReqBody['answers']>,
@@ -28,10 +29,25 @@ export const usePostGame1Flag = (
   return useMutation((flagInfo) => postGame1Flag({ flagInfo }), {
     ...options,
     onError: (error) => {
+      window.alert('죄송합니다.\n 깃발 설치과정에서 문제가 발생했습니다. 😢')
       throw error
     },
-    onSettled: () => {
-      queryClient.invalidateQueries({ queryKey: [QUERY_KEY.GAME1_LIST] })
+    onSuccess(_, variables) {
+      queryClient.setQueryData([QUERY_KEY.GAME1_LIST], (old: FlagGame1Response | undefined) => {
+        if (!old) {
+          return old
+        }
+        old.flagList.push({
+          id: Math.floor(-1 * (variables.posX + variables.posY + Math.random() * 1000 + 1)),
+          writer: variables.writer,
+          greeting: variables.greeting,
+          img_src: LOGO_IMAGE,
+          posX: variables.posX,
+          posY: variables.posY,
+        })
+        return old
+      })
+      window.alert('축하합니다.\n 깃발이 달에 무사히 도착하여 설처되었습니다. 🎉')
     },
   })
 }

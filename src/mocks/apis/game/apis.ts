@@ -10,7 +10,6 @@ import { rest } from 'msw'
 
 export const getGame1FlagList = rest.get('/api/games/flags', (_, res, ctx) => {
   const todaysMoon = 'waxingCrescent'
-  console.log('get-----[1adsfdasfdsfdasfadsfadsjbgyuikjn]')
 
   const result = game1Flags.filter((val) => val.moonShape === todaysMoon)[0]
   return res(ctx.status(200), ctx.json<FlagGame1Response>(result))
@@ -18,7 +17,6 @@ export const getGame1FlagList = rest.get('/api/games/flags', (_, res, ctx) => {
 
 export const saveGame1Flag = rest.post<PostGame1FlagReqBody>('/api/games/flags', (req, res, ctx) => {
   const { flagInfo } = req.body
-  console.log('post-----[12321erftghbvftyujbgyuikjn]')
 
   const todayMoon = 'waxingCrescent'
 

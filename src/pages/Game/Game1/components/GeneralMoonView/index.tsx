@@ -18,9 +18,9 @@ export const GeneralMoonView = () => {
         <LoadingPage
           lottieAnimation={SpaceRock}
           text="달 보러 가는 중.."
-          bgColor={theme.COLOR.common.gray[800]}
-          circleColor={theme.COLOR.common.gray[700]}
-          textColor={theme.COLOR.common.white}
+          $bgColor={theme.COLOR.common.gray[800]}
+          $circleColor={theme.COLOR.common.gray[700]}
+          $textColor={theme.COLOR.common.white}
         />
       )}
       {!loading && (

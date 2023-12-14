@@ -1,8 +1,9 @@
 import { newFlagFormAtom } from '@/atoms/newFlagForm.atom'
+import { sidePanelModeAtom } from '@/atoms/sidePanelMode.atom'
 import { viewTypeAtom } from '@/atoms/viewType.atom'
 import { Button } from '@/components'
 import { moonRadius } from '@/pages/Game/Game1/Game1.constants'
-import type { ViewTypeProp } from '@/pages/Game/Game1/Game1.types'
+import type { PanelModeProp, ViewTypeProp } from '@/pages/Game/Game1/Game1.types'
 import { formValidate } from '@/pages/Game/Game1/helpers/createFlagFormHelper'
 import { useGetGame1Flags, usePostGame1Flag } from '@/services'
 import { theme } from '@/styles'
@@ -17,6 +18,7 @@ export const FlagAddingForm = () => {
   const [newFlag, setNewFlag] = useRecoilState<FlagProp>(newFlagFormAtom)
   const resetNewFlag = useResetRecoilState(newFlagFormAtom)
   const setViewType = useSetRecoilState<ViewTypeProp>(viewTypeAtom)
+  const setPanelMode = useSetRecoilState<PanelModeProp>(sidePanelModeAtom)
 
   useEffect(() => {
     // 좌표를 확인할 수 있도록, general 시점으로 강제
@@ -63,7 +65,7 @@ export const FlagAddingForm = () => {
       posX: newFlag.posX,
       posY: newFlag.posY,
     })
-    window.alert('축하합니다. 깃발이 달에 무사히 도착하여 설처되었습니다. 🎉')
+    setPanelMode('observation')
   }
 
   const { disabled, errors } = formValidate({
