@@ -1,6 +1,6 @@
 import { moonShapeAtom } from '@/atoms/moonShape.atom'
 import { sidePanelModeAtom } from '@/atoms/sidePanelMode.atom'
-import { ButtonV2 } from '@/components/ButtonV2'
+import { Button } from '@/components'
 import type { MoonProp } from '@/types'
 import { faCloudMoon, faPenAlt } from '@fortawesome/free-solid-svg-icons'
 import { FC } from 'react'
@@ -24,7 +24,7 @@ export const SidePanel: FC = () => {
         {panelMode === 'observation' ? <VerticalList /> : <FlagAddingForm />}
       </S.PanelContentWrapper>
       <S.Divider />
-      <ButtonV2
+      <Button
         variant="outlined"
         round="slightly"
         bgColor="transparent"
@@ -34,7 +34,7 @@ export const SidePanel: FC = () => {
         }}
       >
         {panelMode === 'observation' ? '깃발 만들기' : '인사글 보러가기'}
-      </ButtonV2>
+      </Button>
     </S.Container>
   )
 }
