@@ -2,18 +2,13 @@ import { FlexCenterCSS } from '@/styles'
 import styled from 'styled-components'
 
 export const CategoriesList = styled.ul`
-  .categories {
+  & > ul {
     width: 50%;
     flex-wrap: nowrap;
     ${FlexCenterCSS}
-    justify-content: space-around;
+    justify-content: space-between;
     border: 1px solid white;
     margin: 0 auto 100px;
-
-    &__li {
-      cursor: pointer;
-      padding: 12px 32px;
-    }
   }
   .active {
     background-color: white;
@@ -23,8 +18,10 @@ export const CategoriesList = styled.ul`
 
 export const CategoryItem = styled.li<{ active: boolean }>`
   cursor: pointer;
+  width: 100%;
+  height: 50px;
   font-size: 20px;
-  padding: 12px 32px;
+  ${FlexCenterCSS}
   background-color: ${({ active }) => (active ? 'white' : 'transparent')};
   color: ${({ active }) => (active ? 'black' : 'white')};
   transition: background-color 0.2s;

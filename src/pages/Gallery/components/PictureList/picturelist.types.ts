@@ -1,11 +1,6 @@
-export interface Picture {
-  imageUrl: string
-  title: string
-  links: { href: string }[]
-  data: { title: string }[]
-}
+import type { NASAImageCoreProps } from '@/types'
 
 export interface PictureListProps {
-  pictures: Picture[]
+  pictures: NASAImageCoreProps[]
   onImageClick: (imageUrl: string) => void
 }

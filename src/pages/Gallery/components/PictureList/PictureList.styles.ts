@@ -1,15 +1,20 @@
 import styled from 'styled-components'
 
 export const PictureListContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-  justify-content: center;
-  width: 100%;
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `
 
 export const PictureItemContainer = styled.div`
-  width: calc(25% - 20px);
+  width: 100%;
   margin-bottom: 20px;
   border-radius: 8px;
   overflow: hidden;

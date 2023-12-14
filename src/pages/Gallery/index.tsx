@@ -1,55 +1,38 @@
 import * as S from './Gallery.styles'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import { MenuBar, PictureList } from './components'
 
+import { useGetNASAImages } from '@/services/queries/gallery'
 import { categoryMap } from './gallery.constants'
 import type { MenuProps } from './gallery.types'
 
 const GalleryPage = () => {
-  const [pictures, setPictures] = useState([])
   const [selectedCategory, setSelectedCategory] = useState<MenuProps>('행성')
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-  const [selectedImage, setSelectedImage] = useState<string>('')
+  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState('')
 
-  useEffect(() => {
-    const apiUrl = `https://images-api.nasa.gov/search?q=${categoryMap[selectedCategory]}&media_type=image`
+  const { data } = useGetNASAImages({ q: categoryMap[selectedCategory] })
+  const pictures = data?.collection.items
 
-    fetch(apiUrl)
-      .then((response) => response.json())
-      .then((data) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const photos = data.collection.items.map((item: any) => ({
-          imageUrl: item.links[0].href,
-          title: item.data[0].title,
-          links: item.links,
-        }))
-
-        setPictures(photos.slice(0, 16))
-      })
-      .catch((error) => {
-        console.error('Failed to load picture data.', error)
-      })
-  }, [selectedCategory])
-
-  const handleImageClick = (url: string) => {
+  const onClickImage = (url: string) => {
     setSelectedImage(url)
     setIsModalOpen(true)
   }
 
-  const handleCloseModal = () => {
+  const onClickBackgroundToModalClose = () => {
     setIsModalOpen(false)
   }
 
   return (
     <S.Wrapper>
-      <MenuBar setSelectedCategory={setSelectedCategory} />
-      <PictureList pictures={pictures} onImageClick={handleImageClick} />
+      <MenuBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+      <PictureList pictures={pictures ?? []} onImageClick={onClickImage} />
       {isModalOpen && (
-        <S.Modal onClick={handleCloseModal}>
+        <S.Modal onClick={onClickBackgroundToModalClose}>
           <S.ModalContent onClick={(e) => e.stopPropagation()}>
-            <img src={selectedImage} alt="" />
+            <img src={selectedImage} alt={`${selectedImage}`} />
           </S.ModalContent>
         </S.Modal>
       )}

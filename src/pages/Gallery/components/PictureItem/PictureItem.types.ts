@@ -1,3 +1,5 @@
+import type { NASAImageCoreProps } from '@/types'
+
 export interface Picture {
   imageUrl: string
   title: string
@@ -6,6 +8,6 @@ export interface Picture {
 }
 
 export interface PictureItemProps {
-  picture: Picture
+  picture: NASAImageCoreProps
   onImageClick: (imageUrl: string) => void
 }

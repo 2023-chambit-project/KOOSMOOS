@@ -12,6 +12,7 @@ export const PictureItemContainer = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 250px;
   transition: transform 0.3s;
+  cursor: pointer;
   &:hover {
     transform: scale(1.05);
   }
@@ -19,8 +20,12 @@ export const PictureItemContainer = styled.div`
 
 export const PictureImage = styled.img`
   width: 100%;
-  height: auto;
+  height: 300px;
   border-radius: 8px 8px 0 0;
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
+    height: 230px;
+  }
 `
 
 export const PictureName = styled.p`
