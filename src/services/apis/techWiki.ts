@@ -1,12 +1,12 @@
 import { TechWikiPostProps, TechWikiSummaryListProps } from '@/types'
-import axios from 'axios'
+import { axiosInstance } from '.'
 
 export const getTechWikiSummaryList = async () => {
-  const res = await axios.get<TechWikiSummaryListProps>('/api/wikis')
+  const res = await axiosInstance.get<TechWikiSummaryListProps>('/wiki')
   return res.data
 }
 
 export const getTechWikiPost = async (id?: string) => {
-  const res = await axios.get<TechWikiPostProps>('/api/wiki', { params: { id } })
+  const res = await axiosInstance.get<TechWikiPostProps>(`/wiki/${id}`)
   return res.data
 }
