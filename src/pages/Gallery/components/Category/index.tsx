@@ -1,13 +1,15 @@
 import * as S from './category.styles'
 
-import { Dispatch, SetStateAction, useState } from 'react'
+import type { Dispatch, SetStateAction } from 'react'
+import { useState } from 'react'
+import { MenuProps } from '../../gallery.types'
 
-type CategoryProps = {
-  setSelectedCategory: Dispatch<SetStateAction<string>>
+interface CategoryProps {
+  setSelectedCategory: Dispatch<SetStateAction<MenuProps>>
 }
 
 const Category = ({ setSelectedCategory }: CategoryProps) => {
-  const categories = ['행성', '우주', '발사체', '인공위성']
+  const categories: MenuProps[] = ['행성', '우주', '발사체', '인공위성']
   const [activeCategory, setActiveCategory] = useState('')
 
   return (
