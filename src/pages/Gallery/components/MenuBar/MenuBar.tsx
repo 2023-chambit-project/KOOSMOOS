@@ -1,14 +1,10 @@
-import * as S from './category.styles'
+import * as S from './MenuBar.styles'
 
-import type { Dispatch, SetStateAction } from 'react'
 import { useState } from 'react'
-import { MenuProps } from '../../gallery.types'
+import type { MenuProps } from '../../gallery.types'
+import type { MenuBarProps } from './MenuBar.types'
 
-interface CategoryProps {
-  setSelectedCategory: Dispatch<SetStateAction<MenuProps>>
-}
-
-const Category = ({ setSelectedCategory }: CategoryProps) => {
+export const MenuBar = ({ setSelectedCategory }: MenuBarProps) => {
   const categories: MenuProps[] = ['행성', '우주', '발사체', '인공위성']
   const [activeCategory, setActiveCategory] = useState('')
 
@@ -32,5 +28,3 @@ const Category = ({ setSelectedCategory }: CategoryProps) => {
     </S.CategoriesList>
   )
 }
-
-export default Category

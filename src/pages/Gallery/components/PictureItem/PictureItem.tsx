@@ -1,8 +1,8 @@
-import * as S from './pictureitem.styles'
+import { PictureItemProps } from './PictureItem.types'
 
-import { PictureItemProps } from './pictureitem.types'
+import * as S from './PictureItem.styles'
 
-const PictureItem = ({ picture, onImageClick }: PictureItemProps) => {
+export const PictureItem = ({ picture, onImageClick }: PictureItemProps) => {
   return (
     <S.PictureItemContainer onClick={() => onImageClick(picture.imageUrl)}>
       <S.PictureImage src={picture.imageUrl} alt={picture.title} />
@@ -10,5 +10,3 @@ const PictureItem = ({ picture, onImageClick }: PictureItemProps) => {
     </S.PictureItemContainer>
   )
 }
-
-export default PictureItem

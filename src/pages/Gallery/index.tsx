@@ -2,8 +2,8 @@ import * as S from './Gallery.styles'
 
 import { useEffect, useState } from 'react'
 
-import MenuBar from './components/Category'
-import List from './components/PictureList'
+import { MenuBar, PictureList } from './components'
+
 import { categoryMap } from './gallery.constants'
 import type { MenuProps } from './gallery.types'
 
@@ -45,7 +45,7 @@ const GalleryPage = () => {
   return (
     <S.Wrapper>
       <MenuBar setSelectedCategory={setSelectedCategory} />
-      <List pictures={pictures} onImageClick={handleImageClick} />
+      <PictureList pictures={pictures} onImageClick={handleImageClick} />
       {isModalOpen && (
         <S.Modal onClick={handleCloseModal}>
           <S.ModalContent onClick={(e) => e.stopPropagation()}>
