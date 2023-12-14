@@ -1,6 +1,6 @@
 import type { FlagGame1Response, PostGame1FlagReqBody, PostGame2Response, PostGame2ResultReqBody } from '@/types'
 import axios from 'axios'
-import { axiosInstance } from '.'
+import { axiosInstance } from './axios'
 
 const gameBaseURL = 'games'
 

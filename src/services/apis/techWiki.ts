@@ -1,5 +1,5 @@
 import { TechWikiPostProps, TechWikiSummaryListProps } from '@/types'
-import { axiosInstance } from '.'
+import { axiosInstance } from './axios'
 
 export const getTechWikiSummaryList = async () => {
   const res = await axiosInstance.get<TechWikiSummaryListProps>('/wiki')
