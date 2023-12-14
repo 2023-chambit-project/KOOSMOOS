@@ -3,15 +3,25 @@ import * as S from './Footer.styles'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+import { MainNav } from '@/constants'
+import { useNavigate } from 'react-router-dom'
+import LOGO_IMAGE from '/public/assets/logo/logo_512x105.svg'
+
 export const Footer = () => {
+  const navigate = useNavigate()
+
+  const onClickToPage = (path: string) => {
+    navigate(`/${path}`)
+  }
+
   return (
     <S.Footer>
       <S.MenuTab>
-        <li>홈</li>
-        <li>뉴스</li>
-        <li>테크위치</li>
-        <li>게임</li>
-        <li>갤러리</li>
+        {MainNav.map((nav) => (
+          <li key={nav.path} onClick={() => onClickToPage(nav.path)}>
+            {nav.text}
+          </li>
+        ))}
       </S.MenuTab>
       <S.Line>
         <S.IconMap>
@@ -19,7 +29,7 @@ export const Footer = () => {
         </S.IconMap>
       </S.Line>
       <S.BottomTab>
-        <S.Logo src="assets/logo/logo_512x105.svg" />
+        <S.Logo src={LOGO_IMAGE} alt="logo" />
         <div>
           <p>koosmoos@gmail.com</p>
           <p>ⓒ 2023 Kwangwoon univ, Team LOSS All Rights Reserved.</p>

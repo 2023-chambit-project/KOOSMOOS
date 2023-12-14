@@ -31,3 +31,18 @@ export const GYFontCSS = css`
 export const PCFontCSS = css`
   font-family: 'PyeongChangPeace-Light';
 `
+
+export const ColumnNumberCSS = (count: number) => css`
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(${count}, 1fr);
+  column-gap: 3rem;
+  row-gap: 3rem;
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
+    grid-template-columns: repeat(1, 1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+  }
+`

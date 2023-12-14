@@ -1,26 +1,38 @@
-import { FlexAlignCSS, FlexColumnCSS } from '@/styles'
+import { FlexAlignCSS, FlexCenterCSS, FlexColumnCSS } from '@/styles'
 
 import styled from 'styled-components'
 
 export const Footer = styled.footer`
   position: absolute;
-  z-index: 4;
-  width: 100vw;
-  height: 30rem;
+  z-index: 2;
+  width: 100%;
+  ${FlexCenterCSS};
+  flex-direction: column;
+
   background-color: ${({ theme }) => theme.COLOR.common.black};
   padding: 3rem 6rem;
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.mobile}) {
+    padding: 3rem 1rem;
+  }
 `
 
 export const MenuTab = styled.ul`
   ${FlexColumnCSS}
+  align-items: flex-start;
   gap: 1.4rem;
-  padding: 0 3rem;
-  width: fit-content;
+  padding: 0 8rem;
+  width: 100%;
 
   & > li {
     color: ${({ theme }) => theme.COLOR.common.white};
     font-size: ${({ theme }) => theme.FONT_SIZE.tiny};
     cursor: pointer;
+
+    &:hover {
+      color: ${({ theme }) => theme.PALETTE.purple['40']};
+      transition: color 0.3s ease-in-out;
+    }
   }
 `
 
@@ -30,6 +42,10 @@ export const Line = styled.div`
   background-color: ${({ theme }) => theme.COLOR.common.white};
   margin: 2rem 0;
   position: relative;
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.mobile}) {
+    width: 80%;
+  }
 
   &::before {
     content: '';
@@ -55,9 +71,13 @@ export const Line = styled.div`
 `
 
 export const Logo = styled.img`
-  max-width: 30rem;
+  width: 30rem;
   height: auto;
   padding: 0 3rem;
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.mobile}) {
+    width: 20rem;
+  }
 `
 
 export const IconMap = styled.section`
@@ -72,6 +92,14 @@ export const IconMap = styled.section`
 
 export const BottomTab = styled.section`
   ${FlexAlignCSS}
+  width: 100%;
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+  font-family: 'PyeongChangPeace-Light';
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.mobile}) {
+    width: 80%;
+  }
 
   & > * {
     color: ${({ theme }) => theme.COLOR.common.white};

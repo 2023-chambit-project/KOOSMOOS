@@ -2,7 +2,7 @@ import { FlexBetweenCSS } from '@/styles'
 import { css, styled } from 'styled-components'
 
 // 헤더 영역
-export const HeaderContainer = styled.header`
+export const HeaderWrapper = styled.header`
   width: 100%;
   ${FlexBetweenCSS};
   padding: 1rem 2.5rem;
@@ -11,36 +11,43 @@ export const HeaderContainer = styled.header`
   color: ${({ theme }) => theme.COLOR.common.white};
   background-color: ${({ theme }) => theme.COLOR.common.black};
   z-index: 2;
-`
 
-// Logo 와 NavBar 를 감싼 영역
-export const LogoAndNavWrapper = styled.div`
-  ${FlexBetweenCSS};
-  width: 65%;
   @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
-    // mobile 화면에서 해당 영역은 세로 정렬
     flex-direction: column;
-    align-items: start;
-    width: 80%;
+    align-items: flex-start;
+    row-gap: 2rem;
   }
 `
+
+export const ContentSection = styled.section`
+  width: 65%;
+  ${FlexBetweenCSS};
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
+    width: 100%;
+  }
+`
+
 // Logo Image
 export const LogoIMG = styled.img`
-  height: 4.8rem;
   width: 24rem;
+  height: 4.8rem;
+  cursor: pointer;
 `
+
 // 네비게이션 목록 전시
 export const NavList = styled.ul`
   ${FlexBetweenCSS}
-  margin: 1.5rem 0 0 5rem;
-  gap: 5rem;
+  width: 47rem;
+  height: 3rem;
+
   @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
-    margin: 1.5rem 0 1rem 0;
+    width: 35rem;
   }
 `
+
 // 네비게이션 목록 개별
 export const NavItem = styled.li<{ $isActive: boolean }>`
-  /* ... */
   position: relative;
   white-space: nowrap;
   font-size: ${({ theme }) => theme.FONT_SIZE.small};

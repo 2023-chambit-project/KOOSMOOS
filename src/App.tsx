@@ -1,15 +1,46 @@
 import { GlobalStyles, theme } from './styles'
 
 import { routers } from '@/routes/routing'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { Suspense } from 'react'
+import { ErrorBoundary } from 'react-error-boundary'
 import { RouterProvider } from 'react-router-dom'
+import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'styled-components'
+import { ErrorAstronaut, LoadingRocket } from './components'
+import { worker } from './mocks/browser'
 
 function App() {
+  if (import.meta.env.VITE_APP_API_MOCKING === 'enable') {
+    worker.start()
+  }
+
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        retry: false,
+        suspense: true,
+        useErrorBoundary: true,
+      },
+    },
+  })
+
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <RouterProvider router={routers} />
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <RecoilRoot>
+        <ThemeProvider theme={theme}>
+          <ErrorBoundary FallbackComponent={ErrorAstronaut}>
+            <Suspense fallback={<LoadingRocket />}>
+              <GlobalStyles />
+              <RouterProvider router={routers} />
+            </Suspense>
+          </ErrorBoundary>
+        </ThemeProvider>
+      </RecoilRoot>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   )
 }
 
