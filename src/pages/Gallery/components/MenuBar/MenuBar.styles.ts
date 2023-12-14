@@ -20,7 +20,7 @@ export const CategoryItem = styled.li<{ active: boolean }>`
   cursor: pointer;
   width: 100%;
   height: 50px;
-  font-size: 20px;
+  font-size: ${({ theme }) => theme.FONT_SIZE.small};
   ${FlexCenterCSS}
   background-color: ${({ active }) => (active ? 'white' : 'transparent')};
   color: ${({ active }) => (active ? 'black' : 'white')};

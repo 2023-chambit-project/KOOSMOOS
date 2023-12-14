@@ -1,15 +1,11 @@
+import { FlexCenterCSS } from '@/styles'
 import styled from 'styled-components'
 
 export const PictureItemContainer = styled.div`
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  ${FlexCenterCSS}
+  flex-direction: column;
   gap: 40px;
-  justify-content: center;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 250px;
   transition: transform 0.3s;
   cursor: pointer;
@@ -29,8 +25,6 @@ export const PictureImage = styled.img`
 `
 
 export const PictureName = styled.p`
-  font-size: 16px;
-  font-weight: bold;
-  margin: 10px 0;
+  font-size: ${({ theme }) => theme.FONT_SIZE.tiny};
   text-align: center;
 `
