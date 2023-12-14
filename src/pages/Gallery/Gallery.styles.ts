@@ -32,7 +32,20 @@ export const Modal = styled.div`
 `
 
 export const ModalContent = styled.div`
-  padding: 10px;
-  background: ${({ theme }) => theme.COLOR.common.white};
+  position: relative;
+  padding: 40px 10px 10px;
+  background-color: ${({ theme }) => theme.COLOR.common.white};
   border-radius: 8px;
+`
+
+export const CloseIcon = styled.span`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+`
+
+export const ModalImage = styled.img`
+  max-width: 500px;
+  height: 100%;
 `

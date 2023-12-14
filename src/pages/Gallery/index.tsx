@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { MenuBar, PictureList } from './components'
 
 import { useGetNASAImages } from '@/services/queries/gallery'
+import { faXmark } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { categoryMap } from './gallery.constants'
 import type { MenuProps } from './gallery.types'
 
@@ -32,7 +34,10 @@ const GalleryPage = () => {
       {isModalOpen && (
         <S.Modal onClick={onClickBackgroundToModalClose}>
           <S.ModalContent onClick={(e) => e.stopPropagation()}>
-            <img src={selectedImage} alt={`${selectedImage}`} />
+            <S.CloseIcon>
+              <FontAwesomeIcon icon={faXmark} color="black" size="xl" onClick={onClickBackgroundToModalClose} />
+            </S.CloseIcon>
+            <S.ModalImage src={selectedImage} alt={`${selectedImage}`} />
           </S.ModalContent>
         </S.Modal>
       )}
