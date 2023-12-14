@@ -11,7 +11,6 @@ const NotFoundPage = () => {
       <S.TextImgContainer>
         <S.TextSection>
           <S.HeadingText>404</S.HeadingText>
-
           <S.SubText>이런.. 길을 잃었습니다.. 👀</S.SubText>
           <S.SubText>KOOSMOOS 기지로 복귀해주세요..</S.SubText>
           <br />
@@ -19,7 +18,6 @@ const NotFoundPage = () => {
           <S.ButtonContainer>
             <Button
               bgColor={theme.PALETTE.orange[100]}
-              // variant="outlined"
               onClick={() => {
                 navigate('/')
               }}
