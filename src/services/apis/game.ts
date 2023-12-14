@@ -1,8 +1,11 @@
 import type { FlagGame1Response, PostGame1FlagReqBody, PostGame2Response, PostGame2ResultReqBody } from '@/types'
 import axios from 'axios'
+import { axiosInstance } from '.'
+
+const gameBaseURL = 'games'
 
 export const postGame2Answers = async (payload: PostGame2ResultReqBody) => {
-  return await axios.post<PostGame2Response>('/api/game2', payload)
+  return await axiosInstance.post<PostGame2Response>(`/${gameBaseURL}/mbti`, payload)
 }
 
 export const getGame1Flags = async () => {
