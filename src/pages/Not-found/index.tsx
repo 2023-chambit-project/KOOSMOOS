@@ -1,4 +1,4 @@
-import { ButtonV2 } from '@/components/ButtonV2'
+import { Button } from '@/components'
 import { theme } from '@/styles'
 import { useNavigate } from 'react-router-dom'
 import * as S from './NotFound.styles'
@@ -12,31 +12,29 @@ const NotFoundPage = () => {
         <S.TextSection>
           <S.HeadingText>404</S.HeadingText>
 
-          <S.SubText>이런.. 길을 잃었습니다..</S.SubText>
+          <S.SubText>이런.. 길을 잃었습니다.. 👀</S.SubText>
           <S.SubText>KOOSMOOS 기지로 복귀해주세요..</S.SubText>
           <br />
 
           <S.ButtonContainer>
-            <ButtonV2
+            <Button
               bgColor={theme.PALETTE.orange[100]}
-              skin="dark"
-              variant="outlined"
+              // variant="outlined"
               onClick={() => {
                 navigate('/')
               }}
             >
               메인 페이지로..
-            </ButtonV2>
-            <ButtonV2
-              bgColor={theme.COLOR.common.gray[100]}
-              skin="dark"
+            </Button>
+            <Button
+              bgColor={theme.COLOR.common.black}
               variant="outlined"
               onClick={() => {
                 navigate(-1)
               }}
             >
               이전 페이지로..
-            </ButtonV2>
+            </Button>
           </S.ButtonContainer>
         </S.TextSection>
 

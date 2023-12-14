@@ -7,14 +7,14 @@ export const Wrapper = styled.div`
   ${FlexCenterCSS}
   ${FlexColumnCSS}
   gap: 20px;
-  background-color: ${({ theme }) => theme.COLOR.common.gray[200]};
+  background-color: ${({ theme }) => theme.COLOR.common.black};
 `
 
 export const TextImgContainer = styled.div`
   width: 55%;
   ${FlexBetweenCSS}
   height: 50vh;
-  color: ${({ theme }) => theme.COLOR.common.black};
+  color: ${({ theme }) => theme.COLOR.common.white};
 `
 
 export const TextSection = styled.section`
@@ -25,7 +25,6 @@ export const TextSection = styled.section`
   align-items: start;
   justify-content: center;
   word-wrap: break-word;
-
   font-family: 'GwangyangSunshine-Bold';
   font-weight: 400;
 `
@@ -41,10 +40,10 @@ export const HeadingText = styled.h1`
   font-size: 20rem;
   color: ${({ theme }) => theme.PALETTE.orange[100]};
   text-shadow:
-    0px -3px 1px ${({ theme }) => theme.COLOR.common.black},
-    3px 0px 1px ${({ theme }) => theme.COLOR.common.black},
-    -3px 0px 1px ${({ theme }) => theme.COLOR.common.black},
-    0px 3px 1px ${({ theme }) => theme.COLOR.common.black};
+    0px -2px 0.5px ${({ theme }) => theme.COLOR.common.white},
+    2px 0px 0.5px ${({ theme }) => theme.COLOR.common.white},
+    -2px 0px 0.5px ${({ theme }) => theme.COLOR.common.white},
+    0px 2px 0.5px ${({ theme }) => theme.COLOR.common.white};
 `
 
 export const SubText = styled.p`
