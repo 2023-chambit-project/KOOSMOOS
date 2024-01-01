@@ -4,7 +4,7 @@ import { faMailForward } from '@fortawesome/free-solid-svg-icons'
 import { useLocation, useNavigate } from 'react-router-dom'
 import * as S from './Header.styles'
 
-import LOGO_IMAGE from '/public/assets/logo/logo_512x105.svg'
+import LOGO_IMAGE from '/assets/logo/logo_512x105.svg'
 
 export const Header = () => {
   const { pathname } = useLocation()
