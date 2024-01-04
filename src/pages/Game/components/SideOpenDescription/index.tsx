@@ -1,6 +1,6 @@
 import { Box } from '@/components'
 import { GameMainAlign, GameMainCommon } from '@/constants'
-import { FC, HTMLAttributes } from 'react'
+import type { FC, HTMLAttributes } from 'react'
 import type { SymmetryProps } from '../../Game.types'
 import * as S from './SideOpenDescription.styles'
 

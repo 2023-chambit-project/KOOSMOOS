@@ -1,12 +1,11 @@
 import { useLoading } from '@/hooks'
-import type { PostGame2Response } from '@/types'
-import { type FC } from 'react'
-import type { SectionProps } from '../../Game2.types'
+import type { FC } from 'react'
+import type { MbtiResult, SectionProps } from '../../Game2.types'
 import { LoadingSection } from '../Loading'
 import * as S from './Result.styles'
 
 interface Props extends SectionProps {
-  result: PostGame2Response['resultImageSrc']
+  result: MbtiResult
 }
 
 export const ResultSection: FC<Props> = ({ onNextState, result }) => {
@@ -26,13 +25,16 @@ export const ResultSection: FC<Props> = ({ onNextState, result }) => {
       {loading && <LoadingSection />}
       {!loading && (
         <S.Main>
-          <S.ResultImg src={result} />
+          <S.ResultImg src={import.meta.env.VITE_APP_IMAGE_SOURCE_URL + '/games/mbti-results/' + result + '.webp'} />
           <S.ButtonWrap>
             <S.Button color="gray" onClick={onNextState}>
               행성 성격 검사 다시하기
             </S.Button>
             <S.Button color="purple">
-              <S.Link href={result} download>
+              <S.Link
+                href={import.meta.env.VITE_APP_IMAGE_SOURCE_URL + '/games/mbti-results/' + result + '.webp'}
+                download={result + '.webp'}
+              >
                 결과 이미지 다운로드하기 🪄
               </S.Link>
             </S.Button>
