@@ -1,7 +1,7 @@
 import { GameMainAlign } from '@/constants'
 import { FlexColumnCSS, GYFontCSS, PCFontCSS } from '@/styles'
 import { css, styled } from 'styled-components'
-import type { PositionProps } from '../../Game.types'
+import type { SymmetryProps } from '../../Game.types'
 
 // 하얀 구분선
 export const Divider = styled.div`
@@ -41,7 +41,7 @@ export const Quotation = styled.h3`
     content: '”';
   }
 `
-export const SideOpenDescription = styled.div<PositionProps>`
+export const SideOpenDescription = styled.div<SymmetryProps>`
   ${FlexColumnCSS}
   align-items: start;
   justify-content: center;
