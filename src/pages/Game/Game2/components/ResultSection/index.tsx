@@ -10,6 +10,7 @@ interface Props extends SectionProps {
 
 export const ResultSection: FC<Props> = ({ onNextState, result }) => {
   const { loading } = useLoading(3500)
+  const resultImageSrc = import.meta.env.VITE_APP_IMAGE_SOURCE_URL + '/games/mbti-results/' + result + '.webp'
 
   const onClickCopyGameLink = async () => {
     try {
@@ -25,16 +26,13 @@ export const ResultSection: FC<Props> = ({ onNextState, result }) => {
       {loading && <LoadingSection />}
       {!loading && (
         <S.Main>
-          <S.ResultImg src={import.meta.env.VITE_APP_IMAGE_SOURCE_URL + '/games/mbti-results/' + result + '.webp'} />
+          <S.ResultImg src={resultImageSrc} />
           <S.ButtonWrap>
             <S.Button color="gray" onClick={onNextState}>
               행성 성격 검사 다시하기
             </S.Button>
             <S.Button color="purple">
-              <S.Link
-                href={import.meta.env.VITE_APP_IMAGE_SOURCE_URL + '/games/mbti-results/' + result + '.webp'}
-                download={result + '.webp'}
-              >
+              <S.Link href={resultImageSrc} download={result + '.webp'}>
                 결과 이미지 다운로드하기 🪄
               </S.Link>
             </S.Button>
