@@ -1,21 +1,20 @@
 import { modalPropsAtom } from '@/atoms/modalProps.atom'
-import { ModalProps } from '@/atoms/modalProps.type'
-import { FC } from 'react'
-import { createPortal } from 'react-dom'
 import { useRecoilValue } from 'recoil'
 import { Button } from '../Button'
 import * as S from './Modal.styles'
 
-const PureModal: FC<ModalProps> = ({ message, onClose }) => {
+const Modal = () => {
+  const modalProps = useRecoilValue(modalPropsAtom)
+  if (!modalProps.isOpen) return
   return (
     <S.Container>
       <S.ContentCard>
-        <S.ModalBody>{message}</S.ModalBody>
+        <S.ModalBody>{modalProps.message}</S.ModalBody>
         <S.ModalFooter>
           <Button
             variant={'outlined'}
             onClick={() => {
-              onClose()
+              modalProps.onClose()
             }}
           >
             확인
@@ -24,14 +23,6 @@ const PureModal: FC<ModalProps> = ({ message, onClose }) => {
       </S.ContentCard>
     </S.Container>
   )
-}
-
-const modalElement = document.getElementById('modal') as HTMLElement
-
-const Modal = () => {
-  const modalProps = useRecoilValue(modalPropsAtom)
-  if (!modalProps.isOpen) return <></>
-  return <>{createPortal(<PureModal {...modalProps} />, modalElement)}</>
 }
 
 export default Modal
