@@ -1,9 +1,9 @@
 import { FlexBetweenCSS, FlexColumnCSS, GYFontCSS } from '@/styles'
 import { css, styled } from 'styled-components'
-import { PositionProps } from './Game.types'
+import { SymmetryProps } from './Game.types'
 
 // 게임 타이틀과 참가버튼을 포함하는 영역
-export const TitleAndButton = styled.div<PositionProps>`
+export const TitleAndButton = styled.div<SymmetryProps>`
   ${FlexColumnCSS}
   ${GYFontCSS}
 
@@ -39,7 +39,7 @@ export const ThumbnailImg = styled.img`
 `
 
 // 스크린 반쪽을 할당
-export const HalfBox = styled.div<PositionProps>`
+export const HalfBox = styled.div<SymmetryProps>`
   ${FlexBetweenCSS}
   width: 50%;
   height: 100%;

@@ -1,9 +1,9 @@
 import { FlexBetweenCSS, FlexColumnCSS, GYFontCSS } from '@/styles'
 import { css, styled } from 'styled-components'
-import type { PositionProps } from '../../Game.types'
+import type { SymmetryProps } from '../../Game.types'
 
 // 게임 타이틀과 참가버튼을 포함하는 영역
-export const TitleAndButton = styled.div<PositionProps>`
+export const TitleAndButton = styled.div<SymmetryProps>`
   ${FlexColumnCSS}
   ${GYFontCSS}
 
@@ -38,7 +38,7 @@ export const ThumbnailImg = styled.img`
   transition: transform 1s ease;
 `
 
-export const AlignedArea = styled.div<PositionProps>`
+export const AlignedArea = styled.div<SymmetryProps>`
   ${FlexBetweenCSS}
   width: 50%;
   height: 100%;

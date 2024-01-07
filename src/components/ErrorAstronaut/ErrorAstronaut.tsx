@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import * as S from './ErrorAstronaut.styles'
-import ERROR_ASTRONAUT from '/public/assets/img/error_astronaut.png'
+import ERROR_ASTRONAUT from '/assets/img/error_astronaut.png'
 
 export const ErrorAstronaut = () => {
   const navigate = useNavigate()

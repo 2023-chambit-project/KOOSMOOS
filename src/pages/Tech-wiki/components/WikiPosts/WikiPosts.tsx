@@ -8,7 +8,7 @@ export const WikiPosts = () => {
   return (
     <S.Wrapper>
       {data?.posts.map((post) => (
-        <div id={post.id}>
+        <div id={post.id} key={post.id}>
           <WikiCard postInfo={post} />
         </div>
       ))}

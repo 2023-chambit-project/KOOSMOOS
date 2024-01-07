@@ -1,14 +1,13 @@
 import { ProgressBar } from '@/components'
 import { PALETTE } from '@/styles'
-import type { MbtiProp, PostGame2ResultReqBody } from '@/types'
 import type { FC } from 'react'
 import { useEffect, useState } from 'react'
 import { game2QuestionAndAnswer } from '../../Game2.constants'
-import type { SectionProps } from '../../Game2.types'
+import type { MbtiProp, SectionProps } from '../../Game2.types'
 import * as S from './TestSection.styles'
 
 interface Props extends SectionProps {
-  onSubmit: (answers: PostGame2ResultReqBody['answers']) => void
+  onSubmit: (answers: MbtiProp[]) => void
 }
 
 const endPage = 12

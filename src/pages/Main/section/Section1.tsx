@@ -3,7 +3,7 @@ import * as S from './Section.styles'
 
 import SPACE1_BACKGROUND from '@/assets/video/space1.mp4'
 import { Parallax } from '@react-spring/parallax'
-import LOGO_IMAGE from '/public/assets/logo/logo_512x105.svg'
+import LOGO_IMAGE from '/assets/logo/logo_512x105.svg'
 
 export const LandingSection1 = () => {
   return (

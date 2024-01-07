@@ -17,7 +17,7 @@ const NotFoundPage = () => {
 
           <S.ButtonContainer>
             <Button
-              bgColor={theme.PALETTE.orange[100]}
+              $bgColor={theme.PALETTE.orange[100]}
               onClick={() => {
                 navigate('/')
               }}
@@ -25,7 +25,7 @@ const NotFoundPage = () => {
               메인 페이지로..
             </Button>
             <Button
-              bgColor={theme.COLOR.common.black}
+              $bgColor={theme.COLOR.common.black}
               variant="outlined"
               onClick={() => {
                 navigate(-1)

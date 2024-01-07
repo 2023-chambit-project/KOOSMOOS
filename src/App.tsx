@@ -9,6 +9,7 @@ import { RouterProvider } from 'react-router-dom'
 import { RecoilRoot } from 'recoil'
 import { ThemeProvider } from 'styled-components'
 import { ErrorAstronaut, LoadingRocket } from './components'
+import Modal from './components/Modal'
 import { worker } from './mocks/browser'
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <ErrorBoundary FallbackComponent={ErrorAstronaut}>
             <Suspense fallback={<LoadingRocket />}>
               <GlobalStyles />
+              <Modal />
               <RouterProvider router={routers} />
             </Suspense>
           </ErrorBoundary>
