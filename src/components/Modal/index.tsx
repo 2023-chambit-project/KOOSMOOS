@@ -12,12 +12,7 @@ const Modal = () => {
           <S.ContentCard>
             <S.ModalBody>{message}</S.ModalBody>
             <S.ModalFooter>
-              <Button
-                variant={'outlined'}
-                onClick={() => {
-                  onClose()
-                }}
-              >
+              <Button variant={'outlined'} onClick={onClose}>
                 확인
               </Button>
             </S.ModalFooter>
