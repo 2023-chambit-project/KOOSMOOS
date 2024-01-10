@@ -1,3 +1,4 @@
-export interface PositionProps {
-  align: 'left' | 'right'
+export type AlignProp = 'left' | 'right'
+export interface SymmetryProps {
+  align: AlignProp
 }

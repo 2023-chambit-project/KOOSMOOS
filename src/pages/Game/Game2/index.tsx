@@ -1,16 +1,16 @@
-import { usePostGame2Answers } from '@/services'
-import type { PostGame2ResultReqBody } from '@/types'
+import { caculateMbtiResult } from '@/utils'
 import { useState } from 'react'
 import * as S from './Game2.styles'
-import type { TestStateProp } from './Game2.types'
+import type { MbtiProp, MbtiResult, TestStateProp } from './Game2.types'
 import { IntroSection, ResultSection, TestSection } from './components'
 
 const Game2Page = () => {
   const [testState, setTestState] = useState<TestStateProp>('before')
-  const { mutate, data: game2Result } = usePostGame2Answers()
+  const [testResult, setTestResult] = useState<MbtiResult>()
 
-  const onSubmitAnswersList = (answers: PostGame2ResultReqBody['answers']) => {
-    mutate(answers)
+  const onSubmitAnswersList = (answers: MbtiProp[]) => {
+    const usersMbti = caculateMbtiResult(answers)
+    setTestResult(usersMbti)
   }
 
   const onTestStateChange = (state: TestStateProp) => {
@@ -23,8 +23,8 @@ const Game2Page = () => {
       {testState === 'ing' && (
         <TestSection onNextState={() => onTestStateChange('after')} onSubmit={onSubmitAnswersList} />
       )}
-      {testState === 'after' && game2Result && (
-        <ResultSection onNextState={() => onTestStateChange('before')} result={game2Result.data.resultImageSrc} />
+      {testState === 'after' && testResult && (
+        <ResultSection onNextState={() => onTestStateChange('before')} result={testResult} />
       )}
     </S.Wrapper>
   )

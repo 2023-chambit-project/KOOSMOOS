@@ -1,10 +1,10 @@
 import { Box } from '@/components'
 import { GameMainAlign, GameMainCommon } from '@/constants'
-import { FC, HTMLAttributes } from 'react'
-import type { PositionProps } from '../../Game.types'
+import type { FC, HTMLAttributes } from 'react'
+import type { SymmetryProps } from '../../Game.types'
 import * as S from './SideOpenDescription.styles'
 
-interface Props extends HTMLAttributes<HTMLDivElement>, PositionProps {}
+interface Props extends HTMLAttributes<HTMLDivElement>, SymmetryProps {}
 
 export const SideOpenDescription: FC<Props> = ({ align }) => {
   return (

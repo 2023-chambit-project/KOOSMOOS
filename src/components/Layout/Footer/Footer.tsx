@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { MainNav } from '@/constants'
 import { useNavigate } from 'react-router-dom'
-import LOGO_IMAGE from '/public/assets/logo/logo_512x105.svg'
+import LOGO_IMAGE from '/assets/logo/logo_512x105.svg'
 
 export const Footer = () => {
   const navigate = useNavigate()

@@ -62,7 +62,7 @@ export const Button = styled.button<StyleProps>`
   ${({ size = 'default' }) => sizeCSS[size]}
   ${({ round = 'default' }) => roundCSS[round]}
   ${({ skin = 'default' }) => skinCSS[skin]}
-  background-color: ${({ bgColor, theme }) => (bgColor ? bgColor : theme.COLOR.common.gray[900])};
+  background-color: ${({ $bgColor, theme }) => ($bgColor ? $bgColor : theme.COLOR.common.gray[900])};
 
   transition:
     color 0.1s ease,
@@ -74,6 +74,6 @@ export const Button = styled.button<StyleProps>`
   cursor: pointer;
 
   &:hover {
-    background-color: ${({ hoverColor, theme }) => (hoverColor ? hoverColor : theme.COLOR.common.white)};
+    background-color: ${({ $hoverColor, theme }) => ($hoverColor ? $hoverColor : theme.COLOR.common.white)};
   }
 `
