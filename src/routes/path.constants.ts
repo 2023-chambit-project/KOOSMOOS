@@ -7,4 +7,4 @@ export const ROUTING_PATH = {
     intro: 'game',
     mbti: '/game/2',
   },
-}
+} as const
