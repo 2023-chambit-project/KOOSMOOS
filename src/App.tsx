@@ -33,11 +33,9 @@ function App() {
       <RecoilRoot>
         <ThemeProvider theme={theme}>
           <ErrorBoundary FallbackComponent={ErrorAstronaut}>
-            <Suspense fallback={<LoadingRocket />}>
-              <GlobalStyles />
-              <Modal />
-              <RouterProvider router={routers} />
-            </Suspense>
+            <GlobalStyles />
+            <Modal />
+            <RouterProvider router={routers} />
           </ErrorBoundary>
         </ThemeProvider>
       </RecoilRoot>
