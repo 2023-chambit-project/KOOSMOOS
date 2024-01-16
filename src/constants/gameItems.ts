@@ -1,3 +1,4 @@
+import { ROUTING_PATH } from '@/routes/path.constants'
 import { theme } from '@/styles'
 
 // GameMain 페이지에서 사용, 공통요소
@@ -22,7 +23,7 @@ export const GameMainAlign = {
     ],
     mainColor: theme.PALETTE.yellow[100],
     secondaryColor: theme.PALETTE.yellow[70],
-    to: '/game/1',
+    to: '/game/1', // TODO: ROUTING_PATH에 추가 후 입력
   },
   right: {
     titleText: '내 마음속 행성',
@@ -37,6 +38,6 @@ export const GameMainAlign = {
     ],
     mainColor: theme.PALETTE.purple[100],
     secondaryColor: theme.PALETTE.purple[70],
-    to: '/game/2',
+    to: ROUTING_PATH.game.mbti,
   },
 } as const

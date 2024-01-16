@@ -1,22 +1,24 @@
+import { ROUTING_PATH } from '@/routes/path.constants'
+
 export const MainNav = [
   {
-    path: '',
+    path: ROUTING_PATH.main,
     text: '홈',
   },
   {
-    path: 'news',
+    path: ROUTING_PATH.news,
     text: '뉴스',
   },
   {
-    path: 'tech-wiki',
+    path: ROUTING_PATH.techWiki,
     text: '테크위키',
   },
   {
-    path: 'game',
+    path: ROUTING_PATH.game.intro,
     text: '게임',
   },
   {
-    path: 'gallery',
+    path: ROUTING_PATH.gallery,
     text: '갤러리',
   },
 ] as const
