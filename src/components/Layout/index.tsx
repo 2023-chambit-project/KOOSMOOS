@@ -2,15 +2,18 @@ import { Outlet } from 'react-router-dom'
 import { Footer } from './Footer/Footer'
 import { Header } from './Header/Header'
 import { Suspense } from 'react'
-import { LoadingRocket } from '..'
+import { ErrorAstronaut, LoadingRocket } from '..'
+import { ErrorBoundary } from 'react-error-boundary'
 
 export const Layout = () => {
   return (
     <>
       <Header />
-      <Suspense fallback={<LoadingRocket />}>
-        <Outlet />
-      </Suspense>
+      <ErrorBoundary FallbackComponent={ErrorAstronaut}>
+        <Suspense fallback={<LoadingRocket />}>
+          <Outlet />
+        </Suspense>
+      </ErrorBoundary>
       <Footer />
     </>
   )
