@@ -21,7 +21,7 @@ export const AlignedArea: FC<PropsWithChildren<Props>> = ({ align, children, ...
    */
   const onClickExploreMoreButton = (align: AlignProp) => {
     if (align === 'left') modal.open({ message: '⚠️ 서비스 준비 중입니다.' })
-    else navigate(`${GameMainAlign[align].to}`)
+    else navigate(`/${GameMainAlign[align].to}`)
   }
 
   return (
