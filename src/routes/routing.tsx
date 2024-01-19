@@ -8,6 +8,7 @@ import NotFoundPage from '@/pages/Not-found'
 import TechWikiPage from '@/pages/Tech-wiki'
 import WikiPostPage from '@/pages/Tech-wiki/WikiPost'
 import { createBrowserRouter } from 'react-router-dom'
+import { ROUTING_PATH } from './path.constants'
 
 export const routers = createBrowserRouter([
   {
@@ -15,31 +16,31 @@ export const routers = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: '/',
+        path: ROUTING_PATH.main,
         element: <MainPage />,
       },
       {
-        path: '/news',
+        path: ROUTING_PATH.news,
         element: <NewsPage />,
       },
       {
-        path: '/tech-wiki',
+        path: ROUTING_PATH.techWiki,
         element: <TechWikiPage />,
       },
       {
-        path: '/tech-wiki/:id',
+        path: `${ROUTING_PATH.techWiki}/:id`,
         element: <WikiPostPage />,
       },
       {
-        path: '/gallery',
+        path: ROUTING_PATH.gallery,
         element: <GalleryPage />,
       },
       {
-        path: '/game',
+        path: ROUTING_PATH.game.intro,
         element: <GameMainPage />,
       },
       {
-        path: '/game/2',
+        path: ROUTING_PATH.game.mbti,
         element: <Game2Page />,
       },
       {
