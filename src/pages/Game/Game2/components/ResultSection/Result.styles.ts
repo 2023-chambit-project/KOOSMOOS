@@ -46,8 +46,8 @@ export const Button = styled.button<{ color: 'purple' | 'gray' }>`
 `
 
 export const ResultImg = styled.img`
-  width: 48rem;
-  height: auto;
+  width: 480px;
+  height: 888px;
 `
 
 export const Copy = styled.span`

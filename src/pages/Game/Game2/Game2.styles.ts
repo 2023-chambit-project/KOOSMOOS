@@ -2,6 +2,7 @@ import { FlexCenterCSS } from '@/styles'
 import styled from 'styled-components'
 
 export const Wrapper = styled.main`
+  min-height: 100vh;
   background-color: ${({ theme }) => theme.COLOR.common.black};
   color: ${({ theme }) => theme.COLOR.common.white};
   font-family: 'GwangyangSunshine-Bold';
