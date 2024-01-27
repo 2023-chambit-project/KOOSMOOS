@@ -3,6 +3,7 @@ import type { FC } from 'react'
 import type { MbtiResult, SectionProps } from '../../Game2.types'
 import { LoadingSection } from '../Loading'
 import * as S from './Result.styles'
+import { environmentSpecificPath } from '@/constants'
 
 interface Props extends SectionProps {
   result: MbtiResult
@@ -14,7 +15,9 @@ export const ResultSection: FC<Props> = ({ onNextState, result }) => {
 
   const onClickCopyGameLink = async () => {
     try {
-      await navigator.clipboard.writeText('http://localhost:5173/game/2') // 배포 주소에 맞게 변경해야 합니다.
+      await navigator.clipboard.writeText(
+        `${environmentSpecificPath[import.meta.env.MODE as 'production' | 'development']}/game/2`,
+      )
       alert('복사가 완료되었습니다')
     } catch (err) {
       alert('잠시후 다시 시도해주세요')
