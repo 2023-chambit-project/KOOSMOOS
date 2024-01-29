@@ -1,3 +1,4 @@
+import { Skeleton } from '@/components'
 import { FlexCenterCSS } from '@/styles'
 import styled from 'styled-components'
 
@@ -14,10 +15,29 @@ export const PictureItemContainer = styled.div`
   }
 `
 
-export const PictureImage = styled.img`
+export const PictureImgWrapper = styled.div`
   width: 100%;
   height: 300px;
+  position: relative;
+`
+
+export const PictureImage = styled.img`
+  width: 100%;
+  height: 100%;
   border-radius: 8px 8px 0 0;
+
+  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
+    height: 230px;
+  }
+`
+
+export const PictureImgSkeleton = styled(Skeleton)`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'PyeongChangPeace-Light';
 
   @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
     height: 230px;
