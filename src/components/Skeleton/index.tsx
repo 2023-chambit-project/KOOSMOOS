@@ -1,16 +1,11 @@
-import type { FC, HTMLAttributes, PropsWithChildren } from 'react'
+import type { FC } from 'react'
 import * as S from './Skeleton.styles'
-import type { StyleProps } from './Skeleton.type'
+import type { ShapeProps } from './Skeleton.type'
 
-interface Props extends HTMLAttributes<HTMLDivElement>, StyleProps {}
+interface Props extends ShapeProps {}
 
-export const Skeleton: FC<PropsWithChildren<Props>> = ({ children, ...props }) => {
-  return (
-    <S.SkeltonWrapper {...props}>
-      <S.AnimationSkelton />
-      <S.OverlayContent>{children}</S.OverlayContent>
-    </S.SkeltonWrapper>
-  )
+export const Skeleton: FC<Props> = ({ ...props }) => {
+  return <S.AnimationSkelton {...props} />
 }
 
 export default Skeleton

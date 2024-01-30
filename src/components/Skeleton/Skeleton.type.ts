@@ -1,4 +1,4 @@
-export interface StyleProps {
+export interface ShapeProps {
   width?: string
   height?: string
   borderRadius?: string
