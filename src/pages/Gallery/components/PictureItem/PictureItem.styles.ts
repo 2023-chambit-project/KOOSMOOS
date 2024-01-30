@@ -1,50 +1,61 @@
 import { Skeleton } from '@/components'
-import { FlexCenterCSS } from '@/styles'
+import { FlexCenterCSS, FlexColumnCSS } from '@/styles'
 import styled from 'styled-components'
 
 export const PictureItemContainer = styled.div`
   width: 100%;
   ${FlexCenterCSS}
   flex-direction: column;
-  gap: 40px;
-  max-width: 250px;
+  gap: 1rem;
   transition: transform 0.3s;
   cursor: pointer;
   &:hover {
     transform: scale(1.05);
   }
 `
-
-export const PictureImgWrapper = styled.div`
-  width: 100%;
-  height: 300px;
-  position: relative;
-`
-
 export const PictureImage = styled.img`
   width: 100%;
-  height: 100%;
-  border-radius: 8px 8px 0 0;
+  height: 30rem;
+  border-radius: 8px;
 
   @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
     height: 230px;
   }
 `
+export const PictureName = styled.p`
+  width: 100%;
+  font-size: ${({ theme }) => theme.FONT_SIZE.tiny};
+  text-align: center;
 
-export const PictureImgSkeleton = styled(Skeleton)`
+  /** 세 줄 이상 설명시, ... 으로 대체 */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+`
+
+export const SkeletonPictureItemContainer = styled.div`
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  font-family: 'PyeongChangPeace-Light';
 
-  @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
-    height: 230px;
-  }
+  ${FlexColumnCSS}
+  gap: 1rem;
+
+  background-color: ${({ theme }) => theme.COLOR.common.black};
 `
 
-export const PictureName = styled.p`
-  font-size: ${({ theme }) => theme.FONT_SIZE.tiny};
-  text-align: center;
+export const SkeletonPictureImage = styled(Skeleton)`
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+`
+
+export const SkeletonPictureName = styled(Skeleton)`
+  width: 100%;
+  height: 6rem;
+  border-radius: 8px;
 `
