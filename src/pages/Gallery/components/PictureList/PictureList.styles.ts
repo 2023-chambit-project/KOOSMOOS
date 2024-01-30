@@ -14,21 +14,8 @@ export const PictureListContainer = styled.div`
   }
 `
 
-export const PictureItemContainer = styled.div`
-  width: 100%;
-  margin-bottom: 20px;
-  border-radius: 8px;
-`
-
-export const PictureImage = styled.img`
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-`
-
-export const StyledListWrapper = styled.div`
-  margin-top: 200px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+export const PictureImageWrapper = styled.div`
+  width: 25rem;
+  max-width: 25rem;
+  position: relative;
 `

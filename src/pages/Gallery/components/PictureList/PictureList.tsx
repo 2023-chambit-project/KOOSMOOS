@@ -6,7 +6,9 @@ export const PictureList = ({ pictures, onImageClick }: PictureListProps) => {
   return (
     <S.PictureListContainer>
       {pictures.map((picture) => (
-        <PictureItem key={picture.links[0].href} picture={picture} onImageClick={onImageClick} />
+        <S.PictureImageWrapper key={picture.links[0].href}>
+          <PictureItem picture={picture} onImageClick={onImageClick} />
+        </S.PictureImageWrapper>
       ))}
     </S.PictureListContainer>
   )
