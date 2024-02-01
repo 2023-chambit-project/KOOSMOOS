@@ -11,4 +11,4 @@ export const CATEGORY_MAP: { [key in MenuProps]: string } = {
 export const NASA_IMAGE_BASE: NASAImageCoreProps = {
   data: [],
   links: [],
-} as const
+}
