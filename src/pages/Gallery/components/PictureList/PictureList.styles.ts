@@ -17,5 +17,6 @@ export const PictureListContainer = styled.div`
 export const PictureImageWrapper = styled.div`
   width: 25rem;
   max-width: 25rem;
+  height: 50rem;
   position: relative;
 `

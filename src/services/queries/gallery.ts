@@ -13,5 +13,6 @@ export const useGetNASAImages = (
     ...options,
     cacheTime: 1000 * 60 * 60 * 12, // 12시간
     staleTime: 1000 * 60 * 60 * 10, // 10시간
+    suspense: false,
   })
 }
