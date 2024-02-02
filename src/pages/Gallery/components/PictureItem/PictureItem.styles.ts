@@ -1,5 +1,4 @@
-import { Skeleton } from '@/components'
-import { FlexCenterCSS, FlexColumnCSS } from '@/styles'
+import { COLOR, FlexCenterCSS } from '@/styles'
 import styled from 'styled-components'
 
 export const PictureItemContainer = styled.div`
@@ -12,6 +11,7 @@ export const PictureItemContainer = styled.div`
   &:hover {
     transform: scale(1.05);
   }
+  background-color: ${COLOR.common.black};
 `
 export const PictureImage = styled.img`
   width: 100%;
@@ -27,7 +27,6 @@ export const PictureName = styled.p`
   font-size: ${({ theme }) => theme.FONT_SIZE.tiny};
   text-align: center;
 
-  /** 세 줄 이상 설명시, ... 으로 대체 */
   text-overflow: ellipsis;
   overflow: hidden;
   word-break: break-word;
@@ -35,27 +34,6 @@ export const PictureName = styled.p`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 `
-
-export const SkeletonPictureItemContainer = styled.div`
-  width: 100%;
+export const SkeletonPictureItemContainer = styled(PictureItemContainer)`
   position: absolute;
-  top: 0;
-  left: 0;
-
-  ${FlexColumnCSS}
-  gap: 1rem;
-
-  background-color: ${({ theme }) => theme.COLOR.common.black};
-`
-
-export const SkeletonPictureImage = styled(Skeleton)`
-  width: 100%;
-  height: 300px;
-  border-radius: 8px;
-`
-
-export const SkeletonPictureName = styled(Skeleton)`
-  width: 100%;
-  height: 6rem;
-  border-radius: 8px;
 `

@@ -1,12 +1,11 @@
+import { Skeleton } from '@/components'
 import * as S from './PictureItem.styles'
 
-const SkeletonPictureItem = () => {
+export const SkeletonPictureItem = () => {
   return (
     <S.SkeletonPictureItemContainer>
-      <S.SkeletonPictureImage />
-      <S.SkeletonPictureName />
+      <Skeleton width="100%" height="30rem" borderRadius="8px" />
+      <Skeleton width="100%" height="6rem" borderRadius="8px" />
     </S.SkeletonPictureItemContainer>
   )
 }
-
-export default SkeletonPictureItem
