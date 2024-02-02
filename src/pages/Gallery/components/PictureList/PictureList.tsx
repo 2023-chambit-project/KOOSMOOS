@@ -1,17 +1,34 @@
-import { PictureItem } from '..'
+import { useGetNASAImages } from '@/services/queries/gallery'
+import { useEffect, useState } from 'react'
+import { PictureItem, SkeletonPictureItem } from '..'
+import { CATEGORY_MAP, NASA_IMAGE_BASE } from '../../gallery.constants'
 import * as S from './PictureList.styles'
 import type { PictureListProps } from './PictureList.types'
 
-export const PictureList = ({ pictures, onImageClick, selectedCategory }: PictureListProps) => {
+export const PictureList = ({ onImageClick, selectedCategory }: PictureListProps) => {
+  const { data } = useGetNASAImages({ q: CATEGORY_MAP[selectedCategory] })
+
+  const [isEachImgLoaded, setIsEachImgLoaded] = useState<Array<boolean>>(Array(16).fill(false))
+
+  useEffect(() => {
+    setIsEachImgLoaded(Array(16).fill(false))
+  }, [selectedCategory])
+
+  const pictures = data?.collection.items
+
   return (
     <S.PictureListContainer>
-      {pictures.map((picture, index) => {
-        return (
-          <S.PictureImageWrapper key={selectedCategory + index}>
-            <PictureItem picture={picture} onImageClick={onImageClick}></PictureItem>
-          </S.PictureImageWrapper>
-        )
-      })}
+      {Array.from({ length: 16 }).map((_, index) => (
+        <S.PictureOneWrapper key={selectedCategory + index}>
+          {!isEachImgLoaded[index] && <SkeletonPictureItem />}
+          <PictureItem
+            index={index}
+            picture={pictures ? pictures[index] : NASA_IMAGE_BASE}
+            onImageClick={onImageClick}
+            setIsEachImgLoaded={setIsEachImgLoaded}
+          />
+        </S.PictureOneWrapper>
+      ))}
     </S.PictureListContainer>
   )
 }

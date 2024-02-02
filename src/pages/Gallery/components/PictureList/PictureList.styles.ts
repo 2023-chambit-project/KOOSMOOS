@@ -7,14 +7,12 @@ export const PictureListContainer = styled.div`
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(4, 1fr);
-  row-gap: 130px;
 
   @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
     grid-template-columns: repeat(2, 1fr);
   }
 `
-
-export const PictureImageWrapper = styled.div`
+export const PictureOneWrapper = styled.div`
   width: 25rem;
   max-width: 25rem;
   height: 50rem;

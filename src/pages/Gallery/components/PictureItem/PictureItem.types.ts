@@ -1,4 +1,5 @@
 import type { NASAImageCoreProps } from '@/types'
+import { Dispatch, SetStateAction } from 'react'
 
 export interface Picture {
   imageUrl: string
@@ -9,5 +10,7 @@ export interface Picture {
 
 export interface PictureItemProps {
   picture: NASAImageCoreProps
+  index: number
   onImageClick: (imageUrl: string) => void
+  setIsEachImgLoaded: Dispatch<SetStateAction<Array<boolean>>>
 }
