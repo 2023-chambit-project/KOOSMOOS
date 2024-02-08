@@ -9,24 +9,27 @@ import type { PictureListProps } from './PictureList.types'
 export const PictureList = ({ onImageClick, selectedCategory }: PictureListProps) => {
   const { data } = useGetNASAImages({ q: CATEGORY_MAP[selectedCategory] })
 
-  const [isEachImgLoaded, setIsEachImgLoaded] = useState<Array<boolean>>(Array(NUMBER_OF_IMAGE_CALLS).fill(false))
+  const [isEachImageLoaded, setIsEachImageLoaded] = useState<Array<boolean>>(Array(NUMBER_OF_IMAGE_CALLS).fill(false))
 
   useEffect(() => {
-    setIsEachImgLoaded(Array(NUMBER_OF_IMAGE_CALLS).fill(false))
+    setIsEachImageLoaded(Array(NUMBER_OF_IMAGE_CALLS).fill(false))
   }, [selectedCategory])
 
   const pictures = data?.collection.items
+
+  const onChangeImagesState = (targetIndex: number): void => {
+    setIsEachImageLoaded((prev) => prev.map((_, index) => prev[index] || index == targetIndex))
+  }
 
   return (
     <S.PictureListContainer>
       {Array.from({ length: NUMBER_OF_IMAGE_CALLS }).map((_, index) => (
         <S.PictureOneWrapper key={selectedCategory + index}>
-          {!isEachImgLoaded[index] && <SkeletonPictureItem />}
+          {!isEachImageLoaded[index] && <SkeletonPictureItem />}
           <PictureItem
-            index={index}
             picture={pictures ? pictures[index] : NASA_IMAGE_BASE}
             onImageClick={onImageClick}
-            setIsEachImgLoaded={setIsEachImgLoaded}
+            onImageIsLoadedChange={() => onChangeImagesState(index)}
           />
         </S.PictureOneWrapper>
       ))}
