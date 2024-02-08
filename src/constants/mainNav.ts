@@ -1,6 +1,6 @@
 import { ROUTING_PATH } from '@/routes/path.constants'
 
-export const MainNav = [
+export const MAIN_NAV = [
   {
     path: ROUTING_PATH.main,
     text: '홈',

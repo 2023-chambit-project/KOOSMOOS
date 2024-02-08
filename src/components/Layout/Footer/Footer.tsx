@@ -3,7 +3,7 @@ import * as S from './Footer.styles'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { MainNav } from '@/constants'
+import { MAIN_NAV } from '@/constants'
 import { useNavigate } from 'react-router-dom'
 import LOGO_IMAGE from '/assets/logo/logo_512x105.svg'
 
@@ -17,7 +17,7 @@ export const Footer = () => {
   return (
     <S.Footer>
       <S.MenuTab>
-        {MainNav.map((nav) => (
+        {MAIN_NAV.map((nav) => (
           <li key={nav.path} onClick={() => onClickToPage(nav.path)}>
             {nav.text}
           </li>

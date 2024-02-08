@@ -1,14 +1,16 @@
 import { ROUTING_PATH } from '@/routes/path.constants'
 import { theme } from '@/styles'
 
-// GameMain 페이지에서 사용, 공통요소
-export const GameMainCommon = {
+// 게임-메인 페이지 관련 상수 관리
+
+/** 공통 텍스트 */
+export const COMMON_TEXT = {
   buttonText: 'Explore More',
   InfoText: '프로그램 안내',
 } as const
 
-// GameMain 페이지에서 사용, 좌우 분리 영역에서 각각 사용
-export const GameMainAlign = {
+/** 정렬 위치에 따라 다르게 사용하는 텍스트 및 속성값 */
+export const ALIGN_VALUE = {
   left: {
     titleText: 'Hello, Artemis!',
     mainHeadingText: '오늘 만난 달님에게 인사해보세요!',
