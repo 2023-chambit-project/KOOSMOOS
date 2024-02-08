@@ -1,6 +1,6 @@
-import type { NASAImageCoreProps } from '@/types'
+import type { MenuProps } from '../../gallery.types'
 
 export interface PictureListProps {
-  pictures: NASAImageCoreProps[]
+  selectedCategory: MenuProps
   onImageClick: (imageUrl: string) => void
 }

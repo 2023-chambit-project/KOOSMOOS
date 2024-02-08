@@ -10,4 +10,5 @@ export interface Picture {
 export interface PictureItemProps {
   picture: NASAImageCoreProps
   onImageClick: (imageUrl: string) => void
+  onImageIsLoadedChange: VoidFunction
 }

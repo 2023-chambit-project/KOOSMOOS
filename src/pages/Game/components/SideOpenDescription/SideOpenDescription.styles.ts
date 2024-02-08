@@ -1,4 +1,4 @@
-import { GameMainAlign } from '@/constants'
+import { ALIGN_VALUE } from '@/constants'
 import { FlexColumnCSS, GYFontCSS, PCFontCSS } from '@/styles'
 import { css, styled } from 'styled-components'
 import type { SymmetryProps } from '../../Game.types'
@@ -56,7 +56,7 @@ export const SideOpenDescription = styled.div<SymmetryProps>`
   color: ${({ theme }) => theme.COLOR.common.white};
   text-shadow: 0.08rem 0.08rem 0.08rem ${({ theme }) => theme.COLOR.common.black};
   word-break: keep-all;
-  background-color: ${({ align }) => GameMainAlign[align].mainColor};
+  background-color: ${({ align }) => ALIGN_VALUE[align].mainColor};
 
   transition:
     opacity 1s ease 8ms,

@@ -1,5 +1,5 @@
 import { Button } from '@/components'
-import { GameMainAlign, GameMainCommon } from '@/constants/index'
+import { ALIGN_VALUE, COMMON_TEXT } from '@/constants'
 import { useModal } from '@/hooks'
 import { faSpaceShuttle } from '@fortawesome/free-solid-svg-icons'
 import type { FC, HTMLAttributes, PropsWithChildren } from 'react'
@@ -21,17 +21,17 @@ export const AlignedArea: FC<PropsWithChildren<Props>> = ({ align, children, ...
    */
   const onClickExploreMoreButton = (align: AlignProp) => {
     if (align === 'left') modal.open({ message: '⚠️ 서비스 준비 중입니다.' })
-    else navigate(`/${GameMainAlign[align].to}`)
+    else navigate(`/${ALIGN_VALUE[align].to}`)
   }
 
   return (
     <S.AlignedArea align={align} {...props}>
-      <S.ThumbnailImg src={GameMainAlign[align].imgSrc} />
+      <S.ThumbnailImg src={ALIGN_VALUE[align].imgSrc} />
       {children}
       <S.TitleAndButton align={align}>
-        <h1>{GameMainAlign[align].titleText}</h1>
+        <h1>{ALIGN_VALUE[align].titleText}</h1>
         <Button icon={faSpaceShuttle} $bgColor="transparent" onClick={() => onClickExploreMoreButton(align)}>
-          {GameMainCommon.buttonText}
+          {COMMON_TEXT.buttonText}
         </Button>
       </S.TitleAndButton>
     </S.AlignedArea>

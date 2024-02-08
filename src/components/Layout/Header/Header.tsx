@@ -1,5 +1,5 @@
 import { Button } from '@/components'
-import { MainNav } from '@/constants'
+import { MAIN_NAV } from '@/constants'
 import { faMailForward } from '@fortawesome/free-solid-svg-icons'
 import { useLocation, useNavigate } from 'react-router-dom'
 import * as S from './Header.styles'
@@ -26,10 +26,10 @@ export const Header = () => {
       <S.LogoIMG src={LOGO_IMAGE} alt="logo" onClick={() => handleNav('')} />
       <S.ContentSection>
         <S.NavList>
-          {MainNav.map((item, index) => (
+          {MAIN_NAV.map((item, index) => (
             <S.NavItem
               onClick={() => handleNav(item.path)}
-              $isActive={item.path === '' ? pathname === '/' : pathname.includes(MainNav[index].path)}
+              $isActive={item.path === '' ? pathname === '/' : pathname.includes(MAIN_NAV[index].path)}
               key={item.text}
             >
               {item.text}
