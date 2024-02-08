@@ -2,7 +2,7 @@ import { NUMBER_OF_IMAGE_CALLS } from '@/constants'
 import { useGetNASAImages } from '@/services/queries/gallery'
 import { useEffect, useState } from 'react'
 import { PictureItem, SkeletonPictureItem } from '..'
-import { CATEGORY_MAP, NASA_IMAGE_BASE } from '../../gallery.constants'
+import { CATEGORY_MAP } from '../../gallery.constants'
 import * as S from './PictureList.styles'
 import type { PictureListProps } from './PictureList.types'
 
@@ -26,11 +26,13 @@ export const PictureList = ({ onImageClick, selectedCategory }: PictureListProps
       {Array.from({ length: NUMBER_OF_IMAGE_CALLS }).map((_, index) => (
         <S.PictureOneWrapper key={selectedCategory + index}>
           {!isEachImageLoaded[index] && <SkeletonPictureItem />}
-          <PictureItem
-            picture={pictures ? pictures[index] : NASA_IMAGE_BASE}
-            onImageClick={onImageClick}
-            onImageIsLoadedChange={() => onChangeImagesState(index)}
-          />
+          {pictures && (
+            <PictureItem
+              picture={pictures[index]}
+              onImageClick={onImageClick}
+              onImageIsLoadedChange={() => onChangeImagesState(index)}
+            />
+          )}
         </S.PictureOneWrapper>
       ))}
     </S.PictureListContainer>
