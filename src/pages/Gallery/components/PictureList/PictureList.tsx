@@ -1,3 +1,4 @@
+import { NUMBER_OF_IMAGE_CALLS } from '@/constants'
 import { useGetNASAImages } from '@/services/queries/gallery'
 import { useEffect, useState } from 'react'
 import { PictureItem, SkeletonPictureItem } from '..'
@@ -8,17 +9,17 @@ import type { PictureListProps } from './PictureList.types'
 export const PictureList = ({ onImageClick, selectedCategory }: PictureListProps) => {
   const { data } = useGetNASAImages({ q: CATEGORY_MAP[selectedCategory] })
 
-  const [isEachImgLoaded, setIsEachImgLoaded] = useState<Array<boolean>>(Array(16).fill(false))
+  const [isEachImgLoaded, setIsEachImgLoaded] = useState<Array<boolean>>(Array(NUMBER_OF_IMAGE_CALLS).fill(false))
 
   useEffect(() => {
-    setIsEachImgLoaded(Array(16).fill(false))
+    setIsEachImgLoaded(Array(NUMBER_OF_IMAGE_CALLS).fill(false))
   }, [selectedCategory])
 
   const pictures = data?.collection.items
 
   return (
     <S.PictureListContainer>
-      {Array.from({ length: 16 }).map((_, index) => (
+      {Array.from({ length: NUMBER_OF_IMAGE_CALLS }).map((_, index) => (
         <S.PictureOneWrapper key={selectedCategory + index}>
           {!isEachImgLoaded[index] && <SkeletonPictureItem />}
           <PictureItem
