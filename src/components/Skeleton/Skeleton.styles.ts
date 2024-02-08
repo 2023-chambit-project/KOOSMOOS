@@ -11,9 +11,7 @@ const opacity_transition = keyframes`
     }
   
 `
-/**
- * 깜박거리는 애니메이션 재생
- */
+
 export const AnimationSkelton = styled.div<ShapeProps>`
   width: ${({ width = '10rem' }) => width};
   height: ${({ height = '10rem' }) => height};
