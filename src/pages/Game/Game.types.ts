@@ -2,3 +2,4 @@ export type AlignProp = 'left' | 'right'
 export interface SymmetryProps {
   align: AlignProp
 }
+export type GameStateProp = 'before' | 'ing' | 'after' | 'error'
