@@ -5,6 +5,7 @@ export const ROUTING_PATH = {
   gallery: 'gallery',
   game: {
     intro: 'game',
+    launcher: 'game/1',
     mbti: 'game/2',
   },
 } as const
