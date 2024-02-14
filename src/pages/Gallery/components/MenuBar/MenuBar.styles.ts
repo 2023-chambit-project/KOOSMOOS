@@ -5,7 +5,7 @@ export const MenuContainer = styled.ul`
   margin: 0 auto 10rem;
   width: fit-content;
   border-radius: 99px;
-  background-color: rgb(33, 37, 41);
+  background-color: ${({ theme }) => theme.COLOR.common.gray[900]};
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.COLOR.common.gray[500]};
@@ -14,8 +14,6 @@ export const MenuContainer = styled.ul`
 
 export const Highlight = styled.div<{ index: number }>`
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   left: ${({ index }) => `${index * 150 + 10}px`};
   width: 130px;
   height: 75%;
