@@ -10,7 +10,7 @@ export const HeaderWrapper = styled.header`
   top: 0%;
   color: ${({ theme }) => theme.COLOR.common.white};
   background-color: ${({ theme }) => theme.COLOR.common.black};
-  z-index: 2;
+  z-index: 3;
 
   @media screen and (max-width: ${({ theme }) => theme.MEDIA.tablet}) {
     flex-direction: column;
