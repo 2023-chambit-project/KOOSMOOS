@@ -1,28 +1,34 @@
 import { FlexCenterCSS } from '@/styles'
 import styled from 'styled-components'
 
-export const CategoriesList = styled.ul`
-  & > ul {
-    width: 50%;
-    flex-wrap: nowrap;
-    ${FlexCenterCSS}
-    justify-content: space-between;
-    border: 1px solid white;
-    margin: 0 auto 100px;
-  }
-  .active {
-    background-color: white;
-    color: black;
-  }
+export const MenuContainer = styled.ul`
+  margin: 0 auto 10rem;
+  width: fit-content;
+  border-radius: 99px;
+  background-color: ${({ theme }) => theme.COLOR.common.gray[900]};
+  display: flex;
+  align-items: center;
+  color: ${({ theme }) => theme.COLOR.common.gray[500]};
+  position: relative;
 `
 
-export const CategoryItem = styled.li<{ active: boolean }>`
+export const Highlight = styled.div<{ index: number }>`
+  position: absolute;
+  left: ${({ index }) => `${index * 150 + 10}px`};
+  width: 130px;
+  height: 75%;
+  background-color: ${({ theme }) => theme.COLOR.common.white};
+  border-radius: 99px;
+  transition: all 0.2s ease-in-out;
+`
+
+export const Menu = styled.li<{ selected?: boolean }>`
+  ${FlexCenterCSS};
+  width: 150px;
+  height: 6rem;
+  font-size: ${({ theme }) => theme.FONT_SIZE.tiny};
+  color: ${({ theme, selected = false }) => (selected ? theme.COLOR.common.black : theme.COLOR.common.gray[500])};
   cursor: pointer;
-  width: 100%;
-  height: 50px;
-  font-size: ${({ theme }) => theme.FONT_SIZE.small};
-  ${FlexCenterCSS}
-  background-color: ${({ active }) => (active ? 'white' : 'transparent')};
-  color: ${({ active }) => (active ? 'black' : 'white')};
-  transition: background-color 0.2s;
+  z-index: 2;
+  transition: color 0.2s ease-in-out;
 `
