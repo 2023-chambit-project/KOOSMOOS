@@ -2,11 +2,11 @@ import type { FC } from 'react'
 import * as S from './Stage.styles'
 import type { Props } from './Stage.types'
 
-export const Stage: FC<Props> = (props) => {
+export const Stage: FC<Props> = ({ imageAlign, stageBgColors, planetImageSrc, isImgAnimating }) => {
   return (
-    <S.StageWrapper align={props.imageAlign} $bgColors={[...props.stageBgColors]}>
+    <S.StageWrapper align={imageAlign} $bgColors={[...stageBgColors]}>
       <S.StardustPattern />
-      <S.StageSymbolImage src={props.planetImageSrc} $isImgAnimating={props.isImgAnimating} />
+      <S.StageSymbolImage src={planetImageSrc} $isImgAnimating={isImgAnimating} />
     </S.StageWrapper>
   )
 }

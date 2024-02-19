@@ -4,7 +4,13 @@ import type { FC } from 'react'
 import * as S from './GameEndOverlay.styles'
 import type { Props } from './GameEndOverlay.types'
 
-export const GameEndOverlay: FC<Props> = (props) => {
+export const GameEndOverlay: FC<Props> = ({
+  score,
+  planetThemeColor,
+  planetImageSrc,
+  stageName,
+  distanceFromEarth,
+}) => {
   const onClickRevertButton = () => {
     window.location.reload()
   }
@@ -13,13 +19,13 @@ export const GameEndOverlay: FC<Props> = (props) => {
       <S.MainCard>
         <S.ScoreContainer>
           <h3>Score :</h3>
-          <S.Score>{props.score}</S.Score>
+          <S.Score>{score}</S.Score>
         </S.ScoreContainer>
-        <S.ImageContainer $bgColor={props.planetThemeColor}>
-          <S.AbsoluteImage src={props.planetImageSrc} />
-          <S.DestinationText>{props.stageName}</S.DestinationText>
+        <S.ImageContainer $bgColor={planetThemeColor}>
+          <S.AbsoluteImage src={planetImageSrc} />
+          <S.DestinationText>{stageName}</S.DestinationText>
         </S.ImageContainer>
-        <S.DistanceFromEarthText>{` * 지구로부터 거리 : ${props.distanceFromEarth}`}</S.DistanceFromEarthText>
+        <S.DistanceFromEarthText>{` * 지구로부터 거리 : ${distanceFromEarth}`}</S.DistanceFromEarthText>
         <Button variant="outlined" icon={faRotateLeft} onClick={onClickRevertButton}>
           다시하기
         </Button>
