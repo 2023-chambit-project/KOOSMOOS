@@ -1,4 +1,4 @@
-export type AlignProp = 'left' | 'right'
+export type AlignProp = 'left' | 'right' | 'top' | 'bottom' | 'center'
 export interface SymmetryProps {
   align: AlignProp
 }
