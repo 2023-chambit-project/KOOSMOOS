@@ -8,7 +8,7 @@ interface Props {
   isFlameStarted: boolean
 }
 
-const FlamingRocket = ({ isFlameStarted }: Props) => {
+export const FlamingRocket = ({ isFlameStarted }: Props) => {
   const flameImages = [FlameAlter1, FlameAlter2]
   const [curFlameImageIndex, setCurFlameImageIndex] = useState(0)
 
@@ -29,5 +29,3 @@ const FlamingRocket = ({ isFlameStarted }: Props) => {
     </>
   )
 }
-
-export default FlamingRocket

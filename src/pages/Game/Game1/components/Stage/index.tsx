@@ -9,7 +9,7 @@ interface Props {
   isImgAnimating: boolean
 }
 
-const Stage = (props: Props) => {
+export const Stage = (props: Props) => {
   return (
     <S.StageWrapper align={props.imageAlign} $bgColors={[...props.stageBgColors]}>
       <S.StardustPattern />
@@ -17,5 +17,3 @@ const Stage = (props: Props) => {
     </S.StageWrapper>
   )
 }
-
-export default Stage

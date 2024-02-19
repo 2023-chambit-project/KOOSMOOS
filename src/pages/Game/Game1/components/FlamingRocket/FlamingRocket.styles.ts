@@ -9,8 +9,7 @@ const fade_in = keyframes`
     opacity: 1;
   }
 `
-
-const spaceflight = keyframes`
+const space_flight = keyframes`
   0%{
     transform: translateX(0%);
   }
@@ -28,7 +27,7 @@ export const RocketWrapper = styled.div<{ $isFlameStarted: boolean }>`
   ${({ $isFlameStarted }) =>
     $isFlameStarted &&
     css`
-      animation: ${spaceflight} 3s 1s ease-in-out infinite alternate;
+      animation: ${space_flight} 3s 1s ease-in-out infinite alternate;
     `}
 `
 export const RocketBody = styled.img`

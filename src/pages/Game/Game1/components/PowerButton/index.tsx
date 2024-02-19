@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import * as S from './PowerButton.styles'
 
-const PowerButton = ({ ...rest }) => {
+export const PowerButton = ({ ...rest }) => {
   return (
     <S.ButtonWrapper {...rest}>
       <S.ButtonBody>
@@ -12,5 +12,3 @@ const PowerButton = ({ ...rest }) => {
     </S.ButtonWrapper>
   )
 }
-
-export default PowerButton

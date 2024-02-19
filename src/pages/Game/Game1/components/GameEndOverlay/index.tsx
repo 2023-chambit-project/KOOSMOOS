@@ -10,7 +10,7 @@ interface Props {
   distanceFromEarth: string
 }
 
-const GameEndOverlay = (props: Props) => {
+export const GameEndOverlay = (props: Props) => {
   const onClickRevertButton = () => {
     window.location.reload()
   }
@@ -33,5 +33,3 @@ const GameEndOverlay = (props: Props) => {
     </S.Container>
   )
 }
-
-export default GameEndOverlay
