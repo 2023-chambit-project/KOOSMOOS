@@ -1,4 +1,8 @@
+import Planet from '@/assets/lottie/planet_spin.json'
+import { LottieLoading } from '@/components'
 import { MINIMUM_CLICK_CYCLE, STAGE_INFOS, TOTAL_STAGE, UNIT_FLIGHT_DISTANCE, UNIT_FLIGHT_TIME } from '@/constants'
+import { useLoading } from '@/hooks'
+import { theme } from '@/styles'
 import { debounce, throttle } from '@/utils'
 import { useRef, useState } from 'react'
 import type { GameStateProp } from '../Game.types'
@@ -6,6 +10,7 @@ import * as S from './Game1.styles'
 import { FlamingRocket, GameEndOverlay, PowerButton, Stage } from './components'
 
 const Game1Page = () => {
+  const { loading } = useLoading(3000)
   const [gameState, setGameState] = useState<GameStateProp>('before')
 
   const slidingRef = useRef<HTMLDivElement>(null)
@@ -35,6 +40,16 @@ const Game1Page = () => {
 
   return (
     <S.GameWrapper>
+      {loading && (
+        <S.AbsoluteLoading>
+          <LottieLoading
+            lottie={Planet}
+            title="비행경로 계산중.."
+            bgColor={theme.PALETTE.blue[70]}
+            wrapperColor={theme.PALETTE.blue[40]}
+          />
+        </S.AbsoluteLoading>
+      )}
       <S.GameWindow>
         {gameState === 'after' && (
           <GameEndOverlay

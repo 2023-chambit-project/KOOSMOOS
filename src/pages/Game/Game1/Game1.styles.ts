@@ -6,6 +6,7 @@ export const GameWrapper = styled.div`
   height: 90vh;
   ${FlexCenterCSS}
   background-color: ${({ theme }) => theme.COLOR.common.black};
+  position: relative;
 `
 
 export const GameWindow = styled.div`
@@ -29,4 +30,12 @@ export const StageWrapper = styled.div`
   align-items: center;
 
   transition: transform 2s linear;
+`
+
+export const AbsoluteLoading = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.COLOR.common.black};
+  position: absolute;
+  z-index: 1;
 `
