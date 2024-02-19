@@ -1,8 +1,9 @@
+import Satellite from '@/assets/lottie/satellite.json'
+import { LottieLoading } from '@/components'
 import { ENVIRONMENT_SPECIFIC_PATH } from '@/constants'
 import { useLoading } from '@/hooks'
 import type { FC } from 'react'
 import type { MbtiResult, SectionProps } from '../../Game2.types'
-import { LoadingSection } from '../Loading'
 import * as S from './Result.styles'
 
 interface Props extends SectionProps {
@@ -23,10 +24,9 @@ export const ResultSection: FC<Props> = ({ onNextState, result }) => {
       alert('잠시후 다시 시도해주세요')
     }
   }
-
   return (
     <S.Container>
-      {loading && <LoadingSection />}
+      {loading && <LottieLoading title="분석 중..." lottie={Satellite} />}
       {!loading && (
         <S.Main>
           <S.ResultImg src={resultImageSrc} />
