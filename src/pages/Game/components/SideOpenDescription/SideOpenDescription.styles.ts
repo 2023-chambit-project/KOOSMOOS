@@ -1,7 +1,7 @@
 import { ALIGN_VALUE } from '@/constants'
 import { FlexColumnCSS, GYFontCSS, PCFontCSS } from '@/styles'
 import { css, styled } from 'styled-components'
-import type { SymmetryProps } from '../../Game.types'
+import type { HorizontalSymmetryProps } from '../../Game.types'
 
 // 하얀 구분선
 export const Divider = styled.div`
@@ -41,7 +41,7 @@ export const Quotation = styled.h3`
     content: '”';
   }
 `
-export const SideOpenDescription = styled.div<SymmetryProps>`
+export const SideOpenDescription = styled.div<HorizontalSymmetryProps>`
   ${FlexColumnCSS}
   align-items: start;
   justify-content: center;
@@ -56,14 +56,14 @@ export const SideOpenDescription = styled.div<SymmetryProps>`
   color: ${({ theme }) => theme.COLOR.common.white};
   text-shadow: 0.08rem 0.08rem 0.08rem ${({ theme }) => theme.COLOR.common.black};
   word-break: keep-all;
-  background-color: ${({ align }) => ALIGN_VALUE[align].mainColor};
+  background-color: ${({ horizontalAlign }) => ALIGN_VALUE[horizontalAlign].mainColor};
 
   transition:
     opacity 1s ease 8ms,
     width 5ms ease-out 8ms;
 
-  ${({ align }) =>
-    align === 'left'
+  ${({ horizontalAlign }) =>
+    horizontalAlign === 'left'
       ? css`
           right: 0;
           transform: translateX(75%);

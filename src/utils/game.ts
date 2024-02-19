@@ -11,11 +11,9 @@ export const caculateMbtiResult = (answers: MbtiProp[]): MbtiResult => {
     J: 0,
     P: 0,
   }
-
   answers.forEach((type) => {
     typeCount[type] += 1
   })
-
   const result: string[] = []
   result.push(typeCount['E'] > typeCount['I'] ? 'E' : 'I')
   result.push(typeCount['S'] > typeCount['N'] ? 'S' : 'N')

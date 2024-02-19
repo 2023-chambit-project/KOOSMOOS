@@ -8,20 +8,19 @@ export const COMMON_TEXT = {
 
 export const ALIGN_VALUE = {
   left: {
-    titleText: 'Hello, Artemis!',
-    mainHeadingText: '오늘 만난 달님에게 인사해보세요!',
-    imgSrc: 'assets/img/FlagMoon.svg',
-    identity: 'Hello, Artemis ~!',
+    titleText: 'Beyond Infinity',
+    mainHeadingText: '빠른 클릭으로, 로켓을 운전해주세요.',
+    imgSrc: 'assets/img/RocketLaunch.webp',
+    identity: '캐주얼 게임',
     bodyTexts: [
-      '기분 좋은 인사말을 깃발에 적어주세요.',
-      '"KOOSMOOS" 가 달 표면에 그 깃발을 꽂아 놓고 오겠습니다.!',
-      '다른 사람들의 깃발을 구경해도 좋아요.',
-      '모든 일은 달이 밝은 면에서만 가능합니다.',
-      '오늘 어두워 보이는 곳도 한 달 안에는 분명 다시 밝아질 겁니다.!',
+      '전체 이용가 게임입니다.',
+      '소요시간은 최대 2분입니다.',
+      '비행 버튼을 빠르게 클릭하여, 로켓을 우주 끝까지 발사해 보세요.',
+      '태양계 행성을 비롯한 다양한 천체를 감상할 수 있습니다.',
     ],
-    mainColor: theme.PALETTE.yellow[100],
-    secondaryColor: theme.PALETTE.yellow[70],
-    to: '/game/1', // TODO: ROUTING_PATH에 추가 후 입력
+    mainColor: theme.PALETTE.blue[100],
+    secondaryColor: theme.PALETTE.blue[70],
+    to: ROUTING_PATH.game.launcher,
   },
   right: {
     titleText: '내 마음속 행성',

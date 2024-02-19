@@ -1,6 +1,7 @@
 export * from './atomKeys'
 export * from './environmentSpecificPath'
 export * from './gallery'
+export * from './game1'
 export * from './gameMain'
 export * from './mainNav'
 export * from './queryKeys'

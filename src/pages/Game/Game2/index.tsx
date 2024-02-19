@@ -1,11 +1,12 @@
 import { caculateMbtiResult } from '@/utils'
 import { useState } from 'react'
+import type { GameStateProp } from '../Game.types'
 import * as S from './Game2.styles'
-import type { MbtiProp, MbtiResult, TestStateProp } from './Game2.types'
+import type { MbtiProp, MbtiResult } from './Game2.types'
 import { IntroSection, ResultSection, TestSection } from './components'
 
 const Game2Page = () => {
-  const [testState, setTestState] = useState<TestStateProp>('before')
+  const [testState, setTestState] = useState<GameStateProp>('before')
   const [testResult, setTestResult] = useState<MbtiResult>()
 
   const onSubmitAnswersList = (answers: MbtiProp[]) => {
@@ -13,7 +14,7 @@ const Game2Page = () => {
     setTestResult(usersMbti)
   }
 
-  const onTestStateChange = (state: TestStateProp) => {
+  const onTestStateChange = (state: GameStateProp) => {
     setTestState(state)
   }
 

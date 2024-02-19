@@ -5,11 +5,11 @@ import { AlignedArea, SideOpenDescription } from './components'
 const GameMainPage: FC = () => {
   return (
     <S.DividedArea>
-      <AlignedArea align="left">
-        <SideOpenDescription align="left" />
+      <AlignedArea horizontalAlign="left">
+        <SideOpenDescription horizontalAlign="left" />
       </AlignedArea>
-      <AlignedArea align="right">
-        <SideOpenDescription align="right" />
+      <AlignedArea horizontalAlign="right">
+        <SideOpenDescription horizontalAlign="right" />
       </AlignedArea>
     </S.DividedArea>
   )
