@@ -1,15 +1,8 @@
-import type { AlignProp } from '@/pages/Game/Game.types'
-
+import type { FC } from 'react'
 import * as S from './Stage.styles'
+import type { Props } from './Stage.types'
 
-interface Props {
-  imageAlign: AlignProp
-  planetImageSrc: string
-  stageBgColors: Array<string>
-  isImgAnimating: boolean
-}
-
-export const Stage = (props: Props) => {
+export const Stage: FC<Props> = (props) => {
   return (
     <S.StageWrapper align={props.imageAlign} $bgColors={[...props.stageBgColors]}>
       <S.StardustPattern />

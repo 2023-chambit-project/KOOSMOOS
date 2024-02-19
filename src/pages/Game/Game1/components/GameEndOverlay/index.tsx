@@ -1,16 +1,10 @@
 import { Button } from '@/components'
 import { faRotateLeft } from '@fortawesome/free-solid-svg-icons'
+import type { FC } from 'react'
 import * as S from './GameEndOverlay.styles'
+import type { Props } from './GameEndOverlay.types'
 
-interface Props {
-  score: number
-  planetThemeColor: string
-  planetImageSrc: string
-  stageName: string
-  distanceFromEarth: string
-}
-
-export const GameEndOverlay = (props: Props) => {
+export const GameEndOverlay: FC<Props> = (props) => {
   const onClickRevertButton = () => {
     window.location.reload()
   }

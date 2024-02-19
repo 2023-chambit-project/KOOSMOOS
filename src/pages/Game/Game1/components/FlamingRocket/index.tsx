@@ -1,14 +1,12 @@
+import type { FC } from 'react'
 import { useEffect, useState } from 'react'
 import * as S from './FlamingRocket.styles'
+import type { Props } from './FlamingRocket.types'
 import FlameAlter1 from '/assets/game/game1/rocket/FlameAlter1.webp'
 import FlameAlter2 from '/assets/game/game1/rocket/FlameAlter2.webp'
 import Rocket from '/assets/game/game1/rocket/Rocket.webp'
 
-interface Props {
-  isFlameStarted: boolean
-}
-
-export const FlamingRocket = ({ isFlameStarted }: Props) => {
+export const FlamingRocket: FC<Props> = (props) => {
   const flameImages = [FlameAlter1, FlameAlter2]
   const [curFlameImageIndex, setCurFlameImageIndex] = useState(0)
 
@@ -21,11 +19,9 @@ export const FlamingRocket = ({ isFlameStarted }: Props) => {
   }, [setCurFlameImageIndex, flameImages.length])
 
   return (
-    <>
-      <S.RocketWrapper $isFlameStarted={isFlameStarted}>
-        <S.RocketBody src={Rocket} />
-        {isFlameStarted && <S.Flame src={flameImages[curFlameImageIndex]} />}
-      </S.RocketWrapper>
-    </>
+    <S.RocketWrapper $isFlameStarted={props.isFlameStarted}>
+      <S.RocketBody src={Rocket} />
+      {props.isFlameStarted && <S.Flame src={flameImages[curFlameImageIndex]} />}
+    </S.RocketWrapper>
   )
 }

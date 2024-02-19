@@ -1,13 +1,13 @@
+import { Icon } from '@/components/Icon'
+import { theme } from '@/styles'
 import { faAngleDoubleUp } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
 import * as S from './PowerButton.styles'
 
 export const PowerButton = ({ ...rest }) => {
   return (
     <S.ButtonWrapper {...rest}>
       <S.ButtonBody>
-        <FontAwesomeIcon icon={faAngleDoubleUp} size="2xl" />
+        <Icon icon={faAngleDoubleUp} size="2xl" color={theme.COLOR.common.white} />
       </S.ButtonBody>
     </S.ButtonWrapper>
   )
