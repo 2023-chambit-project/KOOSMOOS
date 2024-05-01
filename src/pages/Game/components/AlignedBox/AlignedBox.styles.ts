@@ -1,16 +1,16 @@
 import { FlexBetweenCSS, FlexColumnCSS, GYFontCSS } from '@/styles'
 import { css, styled } from 'styled-components'
-import type { SymmetryProps } from '../../Game.types'
+import type { HorizontalSymmetryProps } from '../../Game.types'
 
 // 게임 타이틀과 참가버튼을 포함하는 영역
-export const TitleAndButton = styled.div<SymmetryProps>`
+export const TitleAndButton = styled.div<HorizontalSymmetryProps>`
   ${FlexColumnCSS}
   ${GYFontCSS}
 
   z-index: 2;
   position: absolute;
-  ${({ align }) =>
-    align === 'left'
+  ${({ horizontalAlign }) =>
+    horizontalAlign === 'left'
       ? css`
           left: 0;
           align-items: flex-start;
@@ -38,7 +38,7 @@ export const ThumbnailImg = styled.img`
   transition: transform 1s ease;
 `
 
-export const AlignedArea = styled.div<SymmetryProps>`
+export const AlignedArea = styled.div<HorizontalSymmetryProps>`
   ${FlexBetweenCSS}
   width: 50%;
   height: 100%;
@@ -62,8 +62,8 @@ export const AlignedArea = styled.div<SymmetryProps>`
     // img
     & > img {
       opacity: 1;
-      ${({ align }) =>
-        align === 'left'
+      ${({ horizontalAlign }) =>
+        horizontalAlign === 'left'
           ? css`
               transform: scale(1.25);
             `
@@ -71,8 +71,8 @@ export const AlignedArea = styled.div<SymmetryProps>`
               transform: scale(1.25);
             `}
     }
-    ${({ align }) =>
-      align === 'left'
+    ${({ horizontalAlign }) =>
+      horizontalAlign === 'left'
         ? css`
             transform: translateX(10%);
           `
